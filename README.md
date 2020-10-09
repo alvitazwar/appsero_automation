@@ -1,5 +1,5 @@
 # appsero_automation
-This project contains the automation codes for appesero acceptance test.
+This project contains the automation codes for appesero acceptance testusing Codeceptjs and puppetiers
 
 
 
