@@ -8,4 +8,16 @@ git clone https://github.com/user/repo.git
 
 
 
-Run npm install configure codecept.conf.js
+Run npm install codeceptjs puppeteer --save
+
+
+Make sure Puppeteer helper is enabled in codecept.conf.js config:
+{ // ..
+  helpers: {
+    Puppeteer: {
+      url: "http://localhost",
+      show: true
+    }
+  }
+  // ..
+}
