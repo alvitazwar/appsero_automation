@@ -1,0 +1,25 @@
+Feature('Appsero');
+
+Scenario('analytic deactivations report',async (I) => {
+  I.amOnPage('https://staging.appsero.com/login');
+  I.fillField('Email Address', 'alvitazwar@wedevs.com');
+  I.fillField('Password','crisis052');
+  I.click('Log in');
+  I.see('Plugins');
+  //I.click('//*[@id="app"]/section/section/header/div[2]/a');
+  //I.click('Teams');
+  I.amOnPage('https://staging.appsero.com/plugins');
+  I.click('envato plg test');
+  //I.refreshPage();
+  //I.click('//*[@id="app"]//main//div[2]/div[2]/div//div[3]/a');
+  //I.waitForElement('/html/body/div[3]/div/div/ul/li/span',30);
+  I.click('Analytics');
+  I.amOnPage('https://staging.appsero.com/plugins/envato-plg-test/deactivations');
+  I.waitForElement('//*[@id="app"]/section/section/main/div/div[1]/div[2]/button',30);
+  I.click('//*[@id="app"]/section/section/main/div/div[1]/div[2]/button');
+  I.click('Export');
+  //I.waitForElement('//body/div[3]/span/div/div/div/div[2]');
+  //I.see('//body/div[3]/span/div/div/div/div[2]')
+  //I.waitForElement('//div[@class="ant-dropdown ant-dropdown-placement-bottomRight"]/ul[@role="menu"]/li[@role="menuitem"]/span[.=" Remove "]',30);
+
+  });
