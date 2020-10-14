@@ -1,6 +1,6 @@
 Feature('Appsero');
 
-Scenario('analytics deactivations report',async (I) => {
+Scenario('analytics customerexport report',async (I) => {
   I.amOnPage('https://staging.appsero.com/login');
   I.fillField('Email Address', 'alvitazwar@wedevs.com');
   I.fillField('Password','crisis052');
@@ -13,10 +13,8 @@ Scenario('analytics deactivations report',async (I) => {
   //I.refreshPage();
   //I.click('//*[@id="app"]//main//div[2]/div[2]/div//div[3]/a');
   //I.waitForElement('/html/body/div[3]/div/div/ul/li/span',30);
-  I.click('Analytics');
-  I.amOnPage('https://staging.appsero.com/plugins/envato-plg-test/deactivations');
-  I.waitForElement('//*[@id="app"]/section/section/main/div/div[1]/div[2]/button',30);
-  I.click('//*[@id="app"]/section/section/main/div/div[1]/div[2]/button');
+  I.click('Sales');
+  I.amOnPage('https://staging.appsero.com/plugins/envato-plg-test/sales/customers');
   I.click('Export');
   //I.waitForElement('//body/div[3]/span/div/div/div/div[2]');
   //I.see('//body/div[3]/span/div/div/div/div[2]')
