@@ -22,4 +22,4 @@ Scenario('Team remove team member',async (I) => {
   I.click('Yes');
   //I.pressKey("Enter");
   I.dontSee('Saif');
-  });
+  }).tag('@team');

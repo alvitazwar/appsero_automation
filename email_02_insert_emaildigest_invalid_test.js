@@ -22,4 +22,4 @@ Scenario('analytics insert email digest Invalid',async (I) => {
   I.say('Email verification not found');
 
 
-  });
+}).tag('@email');

@@ -21,6 +21,6 @@ Scenario('Email edit email digest valid',async (I) => {
   I.fillField('Digest Name','Test automation3');
   I.click('Submit');
   I.see('Test automation3');
-Mail has been sent successfully.
+  I.say('Mail has been sent successfully.');
 
-  });
+}).tag('@email');

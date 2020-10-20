@@ -18,4 +18,4 @@ Scenario('Team  delete',async (I) => {
   I.click('//*[@id="app"]//div/form/div[4]/button[1]');
   I.click('.ant-btn-primary.ant-btn-sm');
   I.dontSee('Automated team');
-  });
+  }).tag('@team');

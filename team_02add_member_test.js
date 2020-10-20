@@ -14,6 +14,8 @@ Scenario('Team add team member',async (I) => {
   //I.click('Projects');
   //I.amOnPage('https://staging.appsero.com/teams/31/projects');
   //I.waitForElement('//*[@id="app"]/section/section/main/div/div[2]/div/div/div[1]/div/div/div/div[2]', 30);
+  I.refreshPage();
+  I.wait(3);
   I.click('Add Members');
   I.fillField('User Email','saif@wphive.com');
   I.click('//*[@id="role"]/div');
@@ -22,4 +24,4 @@ Scenario('Team add team member',async (I) => {
   I.click('Submit');
   //I.pressKey("Enter");
   I.see('Saif');
-  });
+  }).tag('@team');

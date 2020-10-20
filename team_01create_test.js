@@ -16,4 +16,4 @@ Scenario('Team create',async (I) => {
   I.click('Create Team');
   I.click('Get Started');
 
-  });
+}).tag('@team');

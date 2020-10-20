@@ -1,7 +1,0 @@
-
-
-<<< Recorded commands on Thu Jul 23 2020 16:29:59 GMT+0600 (Bangladesh Standard Time)
-I.click('Add New');
-
-<<< Recorded commands on Fri Oct 16 2020 15:55:06 GMT+0600 (Bangladesh Standard Time)
-I.click('//*[@id="send_on"]/div/div');

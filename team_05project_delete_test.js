@@ -19,4 +19,4 @@ Scenario('Team project delete',async (I) => {
   I.click('Remove');
   I.click('Yes');
   I.dontSee('ww');
-  });
+  }).tag('@team');

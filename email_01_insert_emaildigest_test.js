@@ -21,4 +21,4 @@ Scenario('analytics insert email digest valid',async (I) => {
   I.see('Test automation');
 
 
-  });
+}).tag('@email');

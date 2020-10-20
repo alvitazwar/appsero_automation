@@ -23,4 +23,4 @@ Scenario('Team add project',async (I) => {
   I.pressKey("Enter");
   I.refreshPage();
   I.see('ww');
-  });
+  }).tag('@team');
