@@ -1,6 +1,6 @@
 Feature('Appsero');
 
-Scenario('analytics deactivations report',async (I) => {
+Scenario('@analytics deactivations report export',async (I) => {
   I.amOnPage('https://staging.appsero.com/login');
   I.fillField('Email Address', 'alvitazwar@wedevs.com');
   I.fillField('Password','crisis052');
@@ -18,6 +18,7 @@ Scenario('analytics deactivations report',async (I) => {
   I.waitForElement('//*[@id="app"]/section/section/main/div/div[1]/div[2]/button',30);
   I.click('//*[@id="app"]/section/section/main/div/div[1]/div[2]/button');
   I.click('Export');
+  I.wait(4);
   //I.waitForElement('//body/div[3]/span/div/div/div/div[2]');
   //I.see('//body/div[3]/span/div/div/div/div[2]')
   //I.waitForElement('//div[@class="ant-dropdown ant-dropdown-placement-bottomRight"]/ul[@role="menu"]/li[@role="menuitem"]/span[.=" Remove "]',30);

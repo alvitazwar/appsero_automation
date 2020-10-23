@@ -1,6 +1,6 @@
 Feature('Appsero');
 
-Scenario('analytics licenses Export report',async (I) => {
+Scenario('@analytics licenses Export',async (I) => {
   I.amOnPage('https://staging.appsero.com/login');
   I.fillField('Email Address', 'alvitazwar@wedevs.com');
   I.fillField('Password','crisis052');
@@ -18,7 +18,7 @@ Scenario('analytics licenses Export report',async (I) => {
   I.click('Export');
   I.waitForElement('//*[@id="app"]/section/section/main/div/div[2]/div/div/div/div/div/h3',5);
   I.see('No licenses found.')
-  pause(5);
+  I.wait(3);
   //I.waitForElement('//div[@class="ant-dropdown ant-dropdown-placement-bottomRight"]/ul[@role="menu"]/li[@role="menuitem"]/span[.=" Remove "]',30);
 
   });
