@@ -21,4 +21,4 @@ Scenario('@analytics licenses Export',async (I) => {
   I.wait(3);
   //I.waitForElement('//div[@class="ant-dropdown ant-dropdown-placement-bottomRight"]/ul[@role="menu"]/li[@role="menuitem"]/span[.=" Remove "]',30);
 
-  });
+}).tag('@analytics');;

@@ -21,4 +21,4 @@ Scenario('@analytics user report export',async (I) => {
   //I.see('//body/div[3]/span/div/div/div/div[2]')
   //I.waitForElement('//div[@class="ant-dropdown ant-dropdown-placement-bottomRight"]/ul[@role="menu"]/li[@role="menuitem"]/span[.=" Remove "]',30);
 
-  });
+}).tag('@analytics');
