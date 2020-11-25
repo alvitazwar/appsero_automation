@@ -41,7 +41,7 @@ exports.config = {
     },
     multiple:{
 
-      grep:'@team'
+      grep:'@accounts'
 
     }, allure: {
       enabled: 'true'
