@@ -9,7 +9,7 @@ setHeadlessWhen(process.env.HEADLESS);
 
 
 exports.config = {
-  tests: './*_test.js',
+  tests: 'tests/**/*_test.js',  //./tests./*_test.js
   output: './output',
   helpers: {
     Puppeteer: {
@@ -17,7 +17,7 @@ exports.config = {
       show: true,
       windowSize: '1366x768',
       smartWait: 5000,
-      waitForAction:300,
+      waitForAction:3000,
     }
   },
   include: {
