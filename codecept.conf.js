@@ -18,6 +18,7 @@ exports.config = {
       windowSize: '1366x768',
       smartWait: 5000,
       waitForAction:3000,
+      keepCookies: true,
     }
   },
   include: {
@@ -45,6 +46,7 @@ exports.config = {
 
     }, allure: {
       enabled: 'true'
-  }
+  }, 
+  
   }
 }

@@ -1,11 +1,7 @@
 Feature('Appsero');
 
 Scenario('@settings edit invalid ',async (I) => {
-  I.amOnPage('https://staging.appsero.com/login');
-  I.fillField('Email Address', 'alvitazwar@wedevs.com');
-  I.fillField('Password','crisis052');
-  I.click('Log in');
-  I.see('Plugins');
+  I.loginAsAdmin();
   I.amOnPage('https://staging.appsero.com/plugins');
   I.click('envato plg test');
   I.click('Settings');
