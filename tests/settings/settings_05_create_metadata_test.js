@@ -1,7 +1,7 @@
  
 Feature('Appsero');
 
-Scenario('@settings create metadata ',async (I) => {
+Scenario('@settings create metadata ',async ({ I }) => {
   I.loginAsAdmin();
   // I.amOnPage('https://staging.appsero.com/login');
   // I.fillField('Email Address', 'alvitazwar@wedevs.com');

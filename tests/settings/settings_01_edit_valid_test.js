@@ -1,6 +1,6 @@
 Feature('Appsero');
 
-Scenario('@settings edit valid ',async (I) => {
+Scenario('@settings edit valid ',async ({ I }) => {
   I.loginAsAdmin();
   I.amOnPage('https://staging.appsero.com/plugins');
   I.click('envato plg test');

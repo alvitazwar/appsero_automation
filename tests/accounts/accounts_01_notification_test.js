@@ -1,6 +1,6 @@
 Feature('Appsero');
 
-Scenario('@accounts Toggle Notification ',async (I) => {
+Scenario('@accounts Toggle Notification ',async ({ I }) => {
   I.amOnPage('https://staging.appsero.com/login');
   I.fillField('Email Address', 'alvitazwar@wedevs.com');
   I.fillField('Password','crisis052');

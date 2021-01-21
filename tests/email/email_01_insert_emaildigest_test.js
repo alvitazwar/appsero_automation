@@ -1,6 +1,6 @@
 Feature('Appsero');
 
-Scenario('@email insert email digest valid',async (I) => {
+Scenario('@email insert email digest valid',async ({ I }) => {
   I.amOnPage('https://staging.appsero.com/login');
   I.fillField('Email Address', 'alvitazwar@wedevs.com');
   I.fillField('Password','crisis052');

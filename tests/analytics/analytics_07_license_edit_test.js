@@ -1,6 +1,6 @@
 Feature('Appsero');
 
-Scenario('@analytics Edit License', async (I) => {
+Scenario('@analytics Edit License', async ({ I }) => {
     I.amOnPage('https://staging.appsero.com/login');
     
     I.fillField('Email Address', 'alvitazwar@wedevs.com');

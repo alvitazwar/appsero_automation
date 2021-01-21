@@ -1,6 +1,6 @@
 Feature('Appsero');
 
-Scenario('Team create',async (I) => {
+Scenario('Team create',async ({ I }) => {
   I.loginAsAdmin();
   //I.amOnPage('https://staging.appsero.com/login');
   //I.fillField('Email Address', 'alvitazwar@wedevs.com');

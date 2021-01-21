@@ -1,6 +1,6 @@
 Feature('Appsero');
 
-Scenario('@pro_plugin_woocommerce',async (I) => {
+Scenario('@pro_plugin_woocommerce',async ({ I }) => {
     I.amOnPage('https://staging.appsero.com/login');
     I.fillField('Email Address', 'alvitazwar@wedevs.com');
     I.fillField('Password','crisis052');
