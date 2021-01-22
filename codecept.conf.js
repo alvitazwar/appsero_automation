@@ -13,11 +13,11 @@ exports.config = {
   output: './output',
   helpers: {
     Puppeteer: {
-      url: 'http://localhost',
+      url: 'https://staging.appsero.com',
       show: true,
-      windowSize: '1366x768',
+      windowSize: '1400x900',
       smartWait: 5000,
-      waitForAction:3000,
+      waitForAction:2000,
       keepCookies: true,
     }
   },

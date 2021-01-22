@@ -4,7 +4,7 @@ var faker =require('faker');
 module.exports = function() {
   return actor({
     loginAsAdmin: function () {
-    this.amOnPage('https://staging.appsero.com/login');
+    this.amOnPage('/login');
     //this.click('Log in');
     this.fillField('Email Address', 'alvitazwar@wedevs.com');
     this.fillField('Password','crisis052');
@@ -44,9 +44,16 @@ module.exports = function() {
     this.click('//*[@id="tested"]/div/div'); 
     this.fillField('//*[@id="tested"]/div/div',faker.random.arrayElement(["5.1","5.2","5.3","5.4","5.5","5.6"]));
 
+   },
+   valid_email: function()
+   {
+    this.clearField('//*[@id="app"]//div/span/input'); 
+    this.fillField('//*[@id="app"]//div/span/input',faker.internet.email());
+
    }
     // Define custom steps here, use 'this' to access default methods of I.
     // It is recommended to place a general 'login' function here.
+   
 
   });
 }
