@@ -1,20 +1,21 @@
 Feature('Appsero');
 
 Scenario('@analytics customer export',async ({ I }) => {
-  I.amOnPage('https://staging.appsero.com/login');
-  I.fillField('Email Address', 'alvitazwar@wedevs.com');
-  I.fillField('Password','crisis052');
-  I.click('Log in');
-  I.see('Plugins');
+  // I.amOnPage('https://staging.appsero.com/login');
+  // I.fillField('Email Address', 'alvitazwar@wedevs.com');
+  // I.fillField('Password','crisis052');
+  // I.click('Log in');
+  // I.see('Plugins');
   //I.click('//*[@id="app"]/section/section/header/div[2]/a');
   //I.click('Teams');
-  I.amOnPage('https://staging.appsero.com/plugins');
+  I.loginAsAdmin();
+  I.amOnPage('/plugins');
   I.click('TEST prod subscription');
   //I.refreshPage();
   //I.click('//*[@id="app"]//main//div[2]/div[2]/div//div[3]/a');
   //I.waitForElement('/html/body/div[3]/div/div/ul/li/span',30);
   I.click('Sales');
-  I.amOnPage('https://staging.appsero.com/plugins/test-prod-subscription/sales/customers');
+  I.amOnPage('/plugins/test-prod-subscription/sales/customers');
   I.click('Export');
   I.see('customers');
   I.wait(5);
