@@ -13,44 +13,46 @@ exports.config = {
     output: './output',
     helpers: {
         Puppeteer: {
-            url: 'https://staging.appsero.com',
+            url: 'https://dashboard.appsero.com', //https://staging.appsero.com  
             show: true,
-            windowSize: '1400x900',
+            windowSize: '1366x768',
             smartWait: 5000,
             waitForAction: 2000,
             keepCookies: true,
         },
 
-        include: {
-            I: './steps_file.js'
+    },
+    include: {
+        I: './steps_file.js'
+    },
+    bootstrap: null,
+    mocha: {
+        reporterOptions: {
+            reportDir: 'output'
         },
-        bootstrap: null,
-        mocha: {
-            reporterOptions: {
-                reportDir: 'output'
-            },
-            reporterOptions: {
-                mochaFile: 'output/result.xml'
-            }
-        },
-        name: 'codecept_puppetiers',
-        plugins: {
-            retryFailedStep: {
-                enabled: true
-            },
-            screenshotOnFail: {
-                enabled: true
-            },
-            multiple: {
-
-                grep: '@accounts'
-
-            },
-            allure: {
-                enabled: 'true'
-            },
-
+        reporterOptions: {
+            mochaFile: 'output/result.xml'
         }
-    }
+    },
+    name: 'codecept_puppetiers',
+    plugins: {
+        retryFailedStep: {
+            enabled: true
+        },
+        screenshotOnFail: {
+            enabled: true
+        },
+        multiple: {
 
+            grep: '@accounts'
+
+        },
+        allure: {
+            enabled: 'true'
+        },
+        tryTo: {
+            enabled: true
+        }
+
+    }
 }

@@ -12,10 +12,10 @@ module.exports = function() {
             this.see('Plugins');
         },
         checkError: function() {
+            this.dontSee('Unknown error occurred.');
             this.dontSee('Warning');
             this.dontSee('Fatal error');
             this.dontSee('Notice:');
-            this.dontSee('Unknown error occurred.');
         },
         metadataCreate: function() {
             this.fillField('Name', faker.name.firstName());
