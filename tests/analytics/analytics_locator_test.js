@@ -10,6 +10,8 @@ module.exports = {
     Deactivation: 'div.overview-items-row.overview-items-style-2.ant-row > div:nth-child(3) > div',
     MySqlVersion: 'main > div > div:nth-child(6) > div:nth-child(1) > div',
     SitesMenu: 'li.ant-menu-submenu.ant-menu-submenu-inline.ant-menu-submenu-open > ul > li:nth-child(2) > a',
+    SitesTable: 'div.ant-table.appsero-table-default.sites-table.appsero-responsive-table',
+    SiteExportBtn: 'div.ant-row-flex.ant-row-flex-middle.ant-row-flex-space-between.table-filters > div:nth-child(2) > button',
     UnknMsg: '//div[@class="ant-message"]//div[@class="ant-message-custom-content ant-message-error"]/span[.="Unknown error occurred."]',
     PremiumModal: 'div.ant-modal-wrap > div > div.ant-modal-content > div',
     SkipBilling: 'button.ant-btn.ant-btn-default.ant-btn-lg'

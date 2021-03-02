@@ -38,7 +38,6 @@ Scenario('@explore_analytics release test', async({ I }) => {
     I.seeElementInDOM(locator.MainContentAnalytics);
     I.seeElementInDOM(locator.SkippedUser);
     I.seeElementInDOM(locator.Deactivation);
-    I.moveCursorTo(locator.MySqlVersion);
     I.seeElementInDOM(locator.MySqlVersion);
 
 

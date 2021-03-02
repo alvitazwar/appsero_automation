@@ -13,8 +13,9 @@ exports.config = {
     output: './output',
     helpers: {
         Puppeteer: {
-            url: 'https://dashboard.appsero.com', //https://staging.appsero.com  
-            show: true,
+            //  url: 'https://dashboard.appsero.com',
+            url: 'https://staging.appsero.com', //https://staging.appsero.com  
+            show: false,
             windowSize: '1366x768',
             smartWait: 5000,
             waitForAction: 2000,
