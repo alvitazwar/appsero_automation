@@ -7,7 +7,7 @@ module.exports = function() {
             this.amOnPage('/login');
             //this.click('Log in');
             this.fillField('Email Address', 'alvitazwar@wedevs.com');
-            this.fillField('Password', 'crisis052');
+            this.fillField('Password', 'appsero1234');
             this.click('Log in');
             this.see('Plugins');
         },

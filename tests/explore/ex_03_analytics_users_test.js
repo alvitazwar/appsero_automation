@@ -1,9 +1,9 @@
 Feature('Appsero Analytics Explore');
 const { ifError, strict } = require("assert");
-const { assert } = require("console");
+const { assert, Console } = require("console");
 const locator = require('../analytics/analytics_locator_test.js');
 
-Scenario('analytics Sites test', async({ I }) => {
+Scenario('analytics Users test', async({ I }) => {
 
     I.loginAsAdmin();
     I.amOnPage('/plugins');
@@ -17,7 +17,8 @@ Scenario('analytics Sites test', async({ I }) => {
 
     I.waitForVisible(locator.Analytics);
     I.click(locator.Analytics);
-    I.click(locator.SitesMenu);
+    I.click(locator.UserMenu);
+
 
     tryTo(async() => {
         let msg = '';
@@ -34,19 +35,23 @@ Scenario('analytics Sites test', async({ I }) => {
     I.seeElementInDOM(locator.ExportBtn).then((result) => {
         console.log("Export Btn is Visible");
 
+
     }).catch((error) => {
-        console.log('Button is not not loading');
+        console.log('This is Btn Error');
+
     });
     I.seeElementInDOM(locator.StatusDrpDwn).then((result) => {
         console.log("Status Drop Down is Present");
+
     }).catch((err) => {
         console.log("Status Dropdown is not Present");
     });
-    I.seeElementInDOM(locator.SitesTable).catch((e) => {
-        console.log("Table is Not Loading");
-    })
+    I.seeElementInDOM(locator.UserTable).then((result) => {
+        console.log("Users Table is Visible");
+
+    }).catch((err) => {
+        console.log("Users Table is Not Loading")
+    });
 
 
-    // I.seeElementInDOM(locator.SitesTable);
-
-}).tag('@explore_analytics').tag('@cd');
+}).tag('@explore_analytics').tag('@ef');

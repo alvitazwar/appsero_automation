@@ -3,11 +3,12 @@ const { ifError, strict } = require("assert");
 const { assert } = require("console");
 const locator = require('../analytics/analytics_locator_test.js');
 
-Scenario('@explore_analytics release test', async({ I }) => {
+Scenario('analytics Stats test', async({ I }) => {
 
     I.loginAsAdmin();
     I.amOnPage('/plugins');
-    I.click('Fastspring_affiliate2'); //envato plg test
+    I.click('Fastspring_affiliate2');
+    //I.click('envato plg test'); //envato plg test
 
     tryTo(() => {
         I.seeElement(locator.PremiumModal);
@@ -41,4 +42,4 @@ Scenario('@explore_analytics release test', async({ I }) => {
     I.seeElementInDOM(locator.MySqlVersion);
 
 
-}).tag('@explore_analytics');
+}).tag('@explore_analytics').tag('@ab');

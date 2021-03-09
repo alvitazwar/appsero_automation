@@ -1,9 +1,9 @@
 Feature('Appsero Analytics Explore');
 const { ifError, strict } = require("assert");
-const { assert } = require("console");
+const { assert, Console } = require("console");
 const locator = require('../analytics/analytics_locator_test.js');
 
-Scenario('analytics Sites test', async({ I }) => {
+Scenario('analytics Deactivation test', async({ I }) => {
 
     I.loginAsAdmin();
     I.amOnPage('/plugins');
@@ -17,7 +17,8 @@ Scenario('analytics Sites test', async({ I }) => {
 
     I.waitForVisible(locator.Analytics);
     I.click(locator.Analytics);
-    I.click(locator.SitesMenu);
+    I.click(locator.DeactMenu);
+
 
     tryTo(async() => {
         let msg = '';
@@ -31,22 +32,32 @@ Scenario('analytics Sites test', async({ I }) => {
         strict.notEqual(msg, 'Unknown error occurred.', 'This Page has Functional Problem');
     });
     I.wait(3);
-    I.seeElementInDOM(locator.ExportBtn).then((result) => {
-        console.log("Export Btn is Visible");
+    I.dontSeeElementInDOM(locator.ExportBtn).then((result) => {
+        console.log("Export Btn is Visible", result);
+
 
     }).catch((error) => {
-        console.log('Button is not not loading');
+        console.log('Button is not loading', error);
+
     });
-    I.seeElementInDOM(locator.StatusDrpDwn).then((result) => {
-        console.log("Status Drop Down is Present");
+    I.seeElementInDOM(locator.DeactFilter).then((result) => {
+        console.log("Filter is Present");
+
     }).catch((err) => {
-        console.log("Status Dropdown is not Present");
+        console.log("Filter is not Present");
     });
-    I.seeElementInDOM(locator.SitesTable).catch((e) => {
-        console.log("Table is Not Loading");
-    })
+    I.seeElementInDOM(locator.DeactChart).then((result) => {
+        console.log("Chart is Visible");
+
+    }).catch((err) => {
+        console.log("Chart is Not Loading")
+    });
+    I.seeElementInDOM(locator.DeactTable).then((result) => {
+        console.log("Details Table is Visible");
+
+    }).catch((err) => {
+        console.log("Details Table is Not Loading")
+    });
 
 
-    // I.seeElementInDOM(locator.SitesTable);
-
-}).tag('@explore_analytics').tag('@cd');
+}).tag('@explore_analytics');

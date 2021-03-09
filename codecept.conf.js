@@ -13,8 +13,8 @@ exports.config = {
     output: './output',
     helpers: {
         Puppeteer: {
-            //  url: 'https://dashboard.appsero.com',
-            url: 'https://staging.appsero.com', //https://staging.appsero.com  
+            url: 'https://dashboard.appsero.com',
+            // url: 'https://staging.appsero.com', //https://staging.appsero.com  
             show: false,
             windowSize: '1366x768',
             smartWait: 5000,
@@ -45,7 +45,7 @@ exports.config = {
         },
         multiple: {
 
-            grep: '@accounts'
+            smoke: '@explore_analytics'
 
         },
         allure: {
