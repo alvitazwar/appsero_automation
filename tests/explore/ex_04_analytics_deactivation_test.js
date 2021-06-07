@@ -7,8 +7,8 @@ Scenario('analytics Deactivation test', async({ I }) => {
 
     I.loginAsAdmin();
     I.amOnPage('/plugins');
-    I.click('Fastspring_affiliate2'); //envato plg test
-    // I.click('envato plg test');
+    // I.click('Fastspring_affiliate2'); //envato plg test
+    I.click('envato plg test');
     tryTo(() => {
         I.seeElement(locator.PremiumModal);
         I.click(locator.SkipBilling);

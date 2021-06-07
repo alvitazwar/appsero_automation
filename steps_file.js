@@ -6,8 +6,8 @@ module.exports = function() {
         loginAsAdmin: function() {
             this.amOnPage('/login');
             //this.click('Log in');
-            this.fillField('Email Address', 'alvitazwar@wedevs.com');
-            this.fillField('Password', 'appsero1234');
+            this.fillField('Email Address', 'atd.mondol@gmail.com');
+            this.fillField('Password', 'appsero@4321');
             this.click('Log in');
             this.see('Plugins');
         },
