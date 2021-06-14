@@ -8,7 +8,7 @@ Scenario('analytics Stats test', async({ I }) => {
     I.loginAsAdmin();
     I.amOnPage('/plugins');
     // I.click('Fastspring_affiliate2');
-    I.click('envato plg test'); //envato plg test
+    I.click('FastSpring_License_subs'); //envato plg test
 
     tryTo(() => {
         I.seeElement(locator.PremiumModal);

@@ -22,7 +22,7 @@ Scenario('analytics Deactivation test', function _callee2(_ref) {
           I.loginAsAdmin();
           I.amOnPage('/plugins'); // I.click('Fastspring_affiliate2'); //envato plg test
 
-          I.click('envato plg test');
+          I.click('FastSpring_License_subs');
           tryTo(function () {
             I.seeElement(locator.PremiumModal);
             I.click(locator.SkipBilling);
@@ -63,9 +63,9 @@ Scenario('analytics Deactivation test', function _callee2(_ref) {
               }
             }, null, null, [[1, 7]]);
           });
-          I.wait(3);
-          I.dontSeeElementInDOM(locator.ExportBtn).then(function (result) {
-            console.log("Export Btn is Visible", result);
+          I.wait(5);
+          I.seeElementInDOM(locator.ExportBtn).then(function (result) {
+            console.log("Export Btn is Visible");
           })["catch"](function (error) {
             console.log('Button is not loading', error);
           });

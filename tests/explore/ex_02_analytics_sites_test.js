@@ -8,7 +8,7 @@ Scenario('analytics Sites test', async({ I }) => {
     I.loginAsAdmin();
     I.amOnPage('/plugins');
     // I.click('Fastspring_affiliate2'); //envato plg test
-    I.click('envato plg test');
+    I.click('FastSpring_License_subs');
     tryTo(() => {
         I.seeElement(locator.PremiumModal);
         I.click(locator.SkipBilling);
@@ -37,7 +37,7 @@ Scenario('analytics Sites test', async({ I }) => {
     }).catch((error) => {
         console.log('Button is not not loading');
     });
-    I.seeElementInDOM(locator.StatusDrpDwn).then((result) => {
+    I.seeElementInDOM(locator.SiteDrpDwn).then((result) => {
         console.log("Status Drop Down is Present");
     }).catch((err) => {
         console.log("Status Dropdown is not Present");

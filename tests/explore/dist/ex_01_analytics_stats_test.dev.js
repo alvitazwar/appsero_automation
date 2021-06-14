@@ -21,7 +21,7 @@ Scenario('analytics Stats test', function _callee2(_ref) {
           I.loginAsAdmin();
           I.amOnPage('/plugins'); // I.click('Fastspring_affiliate2');
 
-          I.click('envato plg test'); //envato plg test
+          I.click('FastSpring_License_subs'); //envato plg test
 
           tryTo(function () {
             I.seeElement(locator.PremiumModal);

@@ -20,10 +20,9 @@ Scenario('analytics Users test', function _callee2(_ref) {
         case 0:
           I = _ref.I;
           I.loginAsAdmin();
-          I.amOnPage('/plugins');
-          I.click('Fastspring_affiliate2'); //envato plg test
-          // I.click('envato plg test');
+          I.amOnPage('/plugins'); // I.click('Fastspring_affiliate2'); //envato plg test
 
+          I.click('FastSpring_License_subs');
           tryTo(function () {
             I.seeElement(locator.PremiumModal);
             I.click(locator.SkipBilling);

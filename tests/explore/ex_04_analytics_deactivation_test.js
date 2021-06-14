@@ -8,7 +8,7 @@ Scenario('analytics Deactivation test', async({ I }) => {
     I.loginAsAdmin();
     I.amOnPage('/plugins');
     // I.click('Fastspring_affiliate2'); //envato plg test
-    I.click('envato plg test');
+    I.click('FastSpring_License_subs');
     tryTo(() => {
         I.seeElement(locator.PremiumModal);
         I.click(locator.SkipBilling);
@@ -31,9 +31,9 @@ Scenario('analytics Deactivation test', async({ I }) => {
         console.log("The message We got is :", msg, );
         strict.notEqual(msg, 'Unknown error occurred.', 'This Page has Functional Problem');
     });
-    I.wait(3);
-    I.dontSeeElementInDOM(locator.ExportBtn).then((result) => {
-        console.log("Export Btn is Visible", result);
+    I.wait(5);
+    I.seeElementInDOM(locator.ExportBtn).then((result) => {
+        console.log("Export Btn is Visible");
 
 
     }).catch((error) => {
