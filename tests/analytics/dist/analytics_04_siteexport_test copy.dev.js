@@ -9,7 +9,7 @@ var _require = require("assert"),
 var _require2 = require("console"),
     assert = _require2.assert;
 
-var locator = require('../analytics/analytics_locator_test.js');
+var locator = require('./analytics_locator_test.js');
 
 Scenario('@analytics user report export', function _callee(_ref) {
   var I;
@@ -23,7 +23,7 @@ Scenario('@analytics user report export', function _callee(_ref) {
           I.click('FastSpring_License_subs');
           I.waitForVisible(locator.Analytics);
           I.click(locator.Analytics);
-          I.click(locator.SitesMenu);
+          I.click(locator.UserMenu);
           I.click('Export');
           I.wait(2);
           I.waitForVisible(locator.RequestMsg);

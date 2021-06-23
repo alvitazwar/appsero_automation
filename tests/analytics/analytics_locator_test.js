@@ -13,6 +13,8 @@ module.exports = {
     SitesMenu: 'li.ant-menu-submenu.ant-menu-submenu-inline.ant-menu-submenu-open > ul > li:nth-child(2) > a',
     SitesTable: 'div.ant-table.appsero-table-default.sites-table.appsero-responsive-table',
     ExportBtn: 'div.ant-row-flex.ant-row-flex-middle.ant-row-flex-space-between.table-filters > div:nth-child(2) > button',
+    SiteExportoggle: 'div > form > div:nth-child(1) > div > div > span > button',
+    SiteExportBtn: ' div > div.ant-modal-content > div > div > button',
     SiteDrpDwn: 'div.ant-row-flex.ant-row-flex-middle.ant-row-flex-space-between.table-filters > div:nth-child(1) > div > div > div',
     StatusDrpDwn: 'div.ant-row-flex.ant-row-flex-middle.ant-row-flex-space-between.table-filters > div:nth-child(2) > div > div > div',
     UnknMsg: '//div[@class="ant-message"]//div[@class="ant-message-custom-content ant-message-error"]/span[.="Unknown error occurred."]',
@@ -33,6 +35,10 @@ module.exports = {
     Orders: '//li[2]/a[@href="/plugins/fastspring-license-subs/sales/orders"]',
     Orders_Search: 'div.ant-row-flex.ant-row-flex-middle.ant-row-flex-space-between > div > div:nth-child(1) > span > input',
     Orders_Create_btn: ' div.ant-row-flex.ant-row-flex-middle.ant-row-flex-space-between > div > div:nth-child(3) > div > button',
+    //Deactivation Locator
+    deactthemechckbox: ' div.ant-modal-content > div > div.mb-8 > label > span:nth-child(2)',
+    deatclientemailchkbox: 'div.ant-modal-content > div > div:nth-child(3) > label > span:nth-child(2)',
+    deactexportbtn: 'div.ant-modal-content > div > div.align-center.pt-30 > button',
 
 
 

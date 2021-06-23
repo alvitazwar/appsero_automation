@@ -10,7 +10,7 @@ Scenario('@analytics user report export', async({ I }) => {
     I.click('FastSpring_License_subs');
     I.waitForVisible(locator.Analytics);
     I.click(locator.Analytics);
-    I.click(locator.UserMenu);
+    I.click(locator.SitesMenu);
     I.click('Export');
     I.wait(2);
     I.waitForVisible(locator.RequestMsg);

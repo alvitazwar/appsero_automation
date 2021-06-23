@@ -25,9 +25,9 @@ Scenario('@analytics deactivations report export', function _callee(_ref) {
           I.click(locator.Analytics);
           I.click(locator.DeactMenu);
           I.click('Export');
-          I.checkOption(' div.ant-modal-content > div > div.mb-8 > label > span:nth-child(2)');
-          I.checkOption('div.ant-modal-content > div > div:nth-child(3) > label > span:nth-child(2)');
-          I.click('div.ant-modal-content > div > div.align-center.pt-30 > button');
+          I.checkOption(locator.deactthemechckbox);
+          I.checkOption(locator.deatclientemailchkbox);
+          I.click(locator.deactexportbtn);
           I.seeTextEquals('The request has been submitted', locator.RequestMsg).then(function (result) {
             console.log("Message is Showing Correctly");
           })["catch"](function (err) {

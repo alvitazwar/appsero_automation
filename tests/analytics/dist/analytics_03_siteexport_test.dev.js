@@ -9,7 +9,7 @@ var _require = require("assert"),
 var _require2 = require("console"),
     assert = _require2.assert;
 
-var locator = require('../analytics/analytics_locator_test.js');
+var locator = require('./analytics_locator_test.js');
 
 Scenario('@analytics user report export', function _callee(_ref) {
   var I;
@@ -26,6 +26,8 @@ Scenario('@analytics user report export', function _callee(_ref) {
           I.click(locator.SitesMenu);
           I.click('Export');
           I.wait(2);
+          I.click(locator.SiteExportoggle);
+          I.click(locator.SiteExportBtn);
           I.waitForVisible(locator.RequestMsg);
           I.seeTextEquals('The request has been submitted', locator.RequestMsg).then(function (result) {
             console.log("Message is Showing Correctly");
@@ -33,7 +35,7 @@ Scenario('@analytics user report export', function _callee(_ref) {
             console.log("Message fetching failed");
           });
 
-        case 11:
+        case 13:
         case "end":
           return _context.stop();
       }
