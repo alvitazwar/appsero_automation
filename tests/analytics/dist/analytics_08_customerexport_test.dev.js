@@ -9,7 +9,7 @@ var _require = require("assert"),
 var _require2 = require("console"),
     assert = _require2.assert;
 
-var locator = require('../analytics/analytics_locator_test.js');
+var locator = require('./analytics_locator_test.js');
 
 Scenario('@analytics customer export', function _callee(_ref) {
   var I;

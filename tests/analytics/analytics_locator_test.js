@@ -35,10 +35,14 @@ module.exports = {
     Orders: '//li[2]/a[@href="/plugins/fastspring-license-subs/sales/orders"]',
     Orders_Search: 'div.ant-row-flex.ant-row-flex-middle.ant-row-flex-space-between > div > div:nth-child(1) > span > input',
     Orders_Create_btn: ' div.ant-row-flex.ant-row-flex-middle.ant-row-flex-space-between > div > div:nth-child(3) > div > button',
+    Customer: 'div:nth-child(2) > div > ul > li.ant-menu-submenu.ant-menu-submenu-inline.ant-menu-submenu-open > ul > li:nth-child(4) > a',
     //Deactivation Locator
     deactthemechckbox: ' div.ant-modal-content > div > div.mb-8 > label > span:nth-child(2)',
     deatclientemailchkbox: 'div.ant-modal-content > div > div:nth-child(3) > label > span:nth-child(2)',
     deactexportbtn: 'div.ant-modal-content > div > div.align-center.pt-30 > button',
+    //License Locator
+    License: ' div:nth-child(2) > div > ul > li.ant-menu-item.ant-menu-item-selected > a',
+
 
 
 
