@@ -3,6 +3,9 @@ var Factory = require('rosie');
 var faker = require('faker');
 module.exports = function() {
     return actor({
+        Selectplugin: function() {
+            this.click('FastSpring_License_subs');
+        },
         loginAsAdmin: function() {
             this.amOnPage('/login');
             //this.click('Log in');
@@ -19,7 +22,6 @@ module.exports = function() {
         },
         metadataCreate: function() {
             this.fillField('Name', faker.name.firstName());
-
 
         },
         metadataPlugin: function() {
@@ -46,12 +48,14 @@ module.exports = function() {
 
         },
         valid_email: function() {
-                this.clearField('//*[@id="app"]//div/span/input');
-                this.fillField('//*[@id="app"]//div/span/input', faker.internet.email());
+            this.clearField('//*[@id="app"]//div/span/input');
+            this.fillField('//*[@id="app"]//div/span/input', faker.internet.email());
 
-            }
-            // Define custom steps here, use 'this' to access default methods of I.
-            // It is recommended to place a general 'login' function here.
+        },
+
+
+        // Define custom steps here, use 'this' to access default methods of I.
+        // It is recommended to place a general 'login' function here.
 
 
     });

@@ -7,11 +7,12 @@ Scenario('@analytics user report export', async({ I }) => {
 
     I.loginAsAdmin();
     I.amOnPage('/plugins');
-    I.click('FastSpring_License_subs');
+    I.Selectplugin();
     I.waitForVisible(locator.Analytics);
     I.click(locator.Analytics);
     I.click(locator.SitesMenu);
     I.click('Export');
+    I.click(locator.StatExportBtn);
     I.wait(2);
     I.waitForVisible(locator.RequestMsg);
     I.seeTextEquals('The request has been submitted', locator.RequestMsg).then((result) => {

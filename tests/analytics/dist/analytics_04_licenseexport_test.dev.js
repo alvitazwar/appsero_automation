@@ -20,7 +20,7 @@ Scenario('@analytics licenses Export', function _callee(_ref) {
           I = _ref.I;
           I.loginAsAdmin();
           I.amOnPage('/plugins');
-          I.click('FastSpring_License_subs');
+          I.Selectplugin();
           I.forceClick('Licenses');
           I.wait(2);
           I.click('Export');

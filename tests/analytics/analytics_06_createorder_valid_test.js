@@ -1,25 +1,21 @@
 Feature('Appsero');
-
-Scenario('@analytics create order valid', async ({ I }) => {
-    I.amOnPage('https://staging.appsero.com/login');
-    I.fillField('Email Address', 'alvitazwar@wedevs.com');
-    I.fillField('Password', 'crisis052');
-    I.click('Log in');
-    I.see('Plugins');
-    I.amOnPage('https://staging.appsero.com/plugins');
-    I.click('envato plg test');
-    I.click('Sales');
-    I.amOnPage('https://staging.appsero.com/plugins/envato-plg-test/sales/orders');
+var Factory = require('rosie');
+var faker = require('faker');
+const locator = require('../analytics/analytics_locator_test.js');
+Scenario('@analytics create order valid', async({ I }) => {
+    I.loginAsAdmin();
+    I.amOnPage('/plugins');
+    I.Selectplugin();
+    I.click(locator.Sales);
+    I.click(locator.Orders);
     I.click('Create Order');
-    I.fillField('Customer Name', 'Automated_Valid');
-    I.fillField('Customer Email', 'customer@gm.com');
+    I.fillField('Customer Name', faker.name.firstName());
+    I.fillField('Customer Email', faker.internet.email());
     I.fillField('Customer Phone', '2321');
-    I.fillField('Price', '22');
-    I.fillField('Discount', '32');
+    I.fillField('Price', '100');
+    I.fillField('Discount', '0');
     I.click('Submit');
-    I.see('Sent Successfully');
     I.wait(2);
-    I.see('Automated_Valid');
-
+    I.see('Order created Successfully');
 
 }).tag('@analytics');

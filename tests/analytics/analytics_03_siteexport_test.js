@@ -3,11 +3,11 @@ const { ifError, strict } = require("assert");
 const { assert } = require("console");
 const locator = require('./analytics_locator_test.js');
 
-Scenario('@analytics user report export', async({ I }) => {
+Scenario('@analytics site report export', async({ I }) => {
 
     I.loginAsAdmin();
     I.amOnPage('/plugins');
-    I.click('FastSpring_License_subs');
+    I.Selectplugin();
     I.waitForVisible(locator.Analytics);
     I.click(locator.Analytics);
     I.click(locator.SitesMenu);

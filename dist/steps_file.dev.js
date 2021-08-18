@@ -7,6 +7,9 @@ var faker = require('faker');
 
 module.exports = function () {
   return actor({
+    Selectplugin: function Selectplugin() {
+      this.click('FastSpring_License_subs');
+    },
     loginAsAdmin: function loginAsAdmin() {
       this.amOnPage('/login'); //this.click('Log in');
 

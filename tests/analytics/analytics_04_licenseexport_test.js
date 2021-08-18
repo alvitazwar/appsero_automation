@@ -6,7 +6,7 @@ const locator = require('../analytics/analytics_locator_test.js');
 Scenario('@analytics licenses Export', async({ I }) => {
     I.loginAsAdmin();
     I.amOnPage('/plugins');
-    I.click('FastSpring_License_subs');
+    I.Selectplugin();
     I.forceClick('Licenses');
     I.wait(2);
     I.click('Export');

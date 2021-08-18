@@ -4,6 +4,7 @@ const {
 module.exports = {
     Analytics: 'li:nth-of-type(2) > .ant-menu-submenu-title',
     StatsMenu: 'li.ant-menu-submenu.ant-menu-submenu-inline.ant-menu-submenu-open > ul > li:nth-child(1) > a',
+    StatExportBtn: 'div.ant-modal-wrap > div > div.ant-modal-content > div > div > button',
     MainContentAnalytics: '#app > section > section > main',
     RequestMsg: 'div > div > div > div.ant-notification-notice-message',
     OptinUser: 'div.overview-items-row.overview-items-style-2.ant-row > div:nth-child(1) > div',
@@ -42,6 +43,12 @@ module.exports = {
     deactexportbtn: 'div.ant-modal-content > div > div.align-center.pt-30 > button',
     //License Locator
     License: ' div:nth-child(2) > div > ul > li.ant-menu-item.ant-menu-item-selected > a',
+    LicenseMenu: 'div > div:nth-child(2) > div > ul > li:nth-child(4) > a',
+    SelectLicense: 'tbody > tr:nth-child(5) > td.tcol-action > button.mr-8.ant-btn',
+    CalenderInput: 'div.ant-col.ant-form-item-control-wrapper > div > span > span > div > input',
+    CalenderDate: 'div > div.ant-calendar-date-panel > div.ant-calendar-footer > span > a',
+    CalenderBtn: 'div.ant-modal-footer > div > button.ant-btn.ant-btn-primary',
+
 
 
 

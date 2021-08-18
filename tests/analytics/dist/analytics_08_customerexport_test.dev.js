@@ -20,7 +20,7 @@ Scenario('@analytics customer export', function _callee(_ref) {
           I = _ref.I;
           I.loginAsAdmin();
           I.amOnPage('/plugins');
-          I.click('FastSpring_License_subs');
+          I.Selectplugin();
           I.click(locator.Sales); //I.waitForVisible(locator.Customer, 5);
 
           I.forceClick(locator.Customer);

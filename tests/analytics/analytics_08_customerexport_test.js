@@ -6,7 +6,7 @@ Scenario('@analytics customer export', async({ I }) => {
 
     I.loginAsAdmin();
     I.amOnPage('/plugins');
-    I.click('FastSpring_License_subs');
+    I.Selectplugin();
 
     I.click(locator.Sales);
     //I.waitForVisible(locator.Customer, 5);

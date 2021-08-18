@@ -20,7 +20,7 @@ Scenario('@analytics deactivations report export', function _callee(_ref) {
           I = _ref.I;
           I.loginAsAdmin();
           I.amOnPage('/plugins');
-          I.click('FastSpring_License_subs');
+          I.Selectplugin();
           I.waitForVisible(locator.Analytics);
           I.click(locator.Analytics);
           I.click(locator.DeactMenu);

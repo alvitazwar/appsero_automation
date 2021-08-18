@@ -20,11 +20,12 @@ Scenario('@analytics user report export', function _callee(_ref) {
           I = _ref.I;
           I.loginAsAdmin();
           I.amOnPage('/plugins');
-          I.click('FastSpring_License_subs');
+          I.Selectplugin();
           I.waitForVisible(locator.Analytics);
           I.click(locator.Analytics);
           I.click(locator.SitesMenu);
           I.click('Export');
+          I.click(locator.StatExportBtn);
           I.wait(2);
           I.waitForVisible(locator.RequestMsg);
           I.seeTextEquals('The request has been submitted', locator.RequestMsg).then(function (result) {
@@ -33,7 +34,7 @@ Scenario('@analytics user report export', function _callee(_ref) {
             console.log("Message fetching failed");
           });
 
-        case 11:
+        case 12:
         case "end":
           return _context.stop();
       }

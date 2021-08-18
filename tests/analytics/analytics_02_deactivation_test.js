@@ -6,7 +6,7 @@ const locator = require('../analytics/analytics_locator_test.js');
 Scenario('@analytics deactivations report export', async({ I }) => {
     I.loginAsAdmin();
     I.amOnPage('/plugins');
-    I.click('FastSpring_License_subs');
+    I.Selectplugin();
     I.waitForVisible(locator.Analytics);
     I.click(locator.Analytics);
     I.click(locator.DeactMenu);

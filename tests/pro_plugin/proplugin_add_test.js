@@ -1,10 +1,7 @@
 Feature('Appsero');
 
-Scenario('@pro_plugin_woocommerce',async ({ I }) => {
-    I.amOnPage('https://staging.appsero.com/login');
-    I.fillField('Email Address', 'alvitazwar@wedevs.com');
-    I.fillField('Password','crisis052');
-    I.click('Log in');
+Scenario('@pro_plugin_woocommerce', async({ I }) => {
+    I.loginAsAdmin();
     I.click('//li[2]/a[@href="/plugins"]');
     I.see('Plugins');
     I.click('Add Plugin');
@@ -14,7 +11,11 @@ Scenario('@pro_plugin_woocommerce',async ({ I }) => {
     I.metadataPHP();
     I.metadataWordpress();
     I.metadataTested();
-    pause();
+    I.click('Next');
+    I.click('Next');
+    I.click('Yes');
+
+
 
 
 }).tag('@pro_plugin');

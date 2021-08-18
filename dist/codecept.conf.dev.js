@@ -52,5 +52,10 @@ exports.config = {
     tryTo: {
       enabled: true
     }
+  },
+  rerun: {
+    // run all tests must pass exactly 5 times
+    minSuccess: 5,
+    maxReruns: 5
   }
 };

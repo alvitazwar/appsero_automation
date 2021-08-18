@@ -11,7 +11,7 @@ var _require2 = require("console"),
 
 var locator = require('./analytics_locator_test.js');
 
-Scenario('@analytics user report export', function _callee(_ref) {
+Scenario('@analytics site report export', function _callee(_ref) {
   var I;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
@@ -20,7 +20,7 @@ Scenario('@analytics user report export', function _callee(_ref) {
           I = _ref.I;
           I.loginAsAdmin();
           I.amOnPage('/plugins');
-          I.click('FastSpring_License_subs');
+          I.Selectplugin();
           I.waitForVisible(locator.Analytics);
           I.click(locator.Analytics);
           I.click(locator.SitesMenu);

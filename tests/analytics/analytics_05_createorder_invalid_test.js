@@ -3,7 +3,7 @@ const locator = require('../analytics/analytics_locator_test.js');
 Scenario('@analytics create order invalid', async({ I }) => {
     I.loginAsAdmin();
     I.amOnPage('/plugins');
-    I.click('FastSpring_License_subs');
+    I.Selectplugin();
     I.click(locator.Sales);
     I.click(locator.Orders);
     I.click('Create Order');
