@@ -7,7 +7,7 @@ Feature('Appsero');
 Scenario('@email insert email digest valid', async({ I }) => {
     I.loginAsAdmin();
     I.amOnPage('/plugins');
-    I.click('woo_retest');
+    I.Selectplugin();
     I.click(locator.EmailMenu);
     I.waitForVisible(locator.EmailDigest);
     I.click(locator.EmailDigest);
@@ -17,8 +17,8 @@ Scenario('@email insert email digest valid', async({ I }) => {
     I.click(locator.FrequencyWeekly);
     I.click(locator.SendOn);
     I.click(locator.SendOnFriday);
-    I.fillField('Digest Name', 'Test automation');
+    I.fillField('Digest Name', faker.name.title());
     I.click('Submit');
-    I.see('Test automation');
+    I.see('Email digest created successfully.');
 
 }).tag('@email');

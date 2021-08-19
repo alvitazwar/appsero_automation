@@ -21,7 +21,7 @@ Scenario('@analytics Edit License', function _callee(_ref) {
           I.click(locator.CalenderInput);
           I.forceClick('//div[4]/div/div/div/div/div[1]/div/input');
           I.click(locator.CalenderDate);
-          I.fillField('Activation Limit', '5');
+          I.fillField('div:nth-child(2) > div.ant-col.ant-form-item-control-wrapper > div > span > input', '5');
           I.click(locator.CalenderBtn);
           I.see('Updated successfully.');
 

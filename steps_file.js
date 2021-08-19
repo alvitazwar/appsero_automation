@@ -50,6 +50,8 @@ module.exports = function() {
         valid_email: function() {
             this.clearField('//*[@id="app"]//div/span/input');
             this.fillField('//*[@id="app"]//div/span/input', faker.internet.email());
+        },
+        objecttest: function() {
 
         },
 

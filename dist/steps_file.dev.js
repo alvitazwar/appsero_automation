@@ -51,7 +51,8 @@ module.exports = function () {
     valid_email: function valid_email() {
       this.clearField('//*[@id="app"]//div/span/input');
       this.fillField('//*[@id="app"]//div/span/input', faker.internet.email());
-    } // Define custom steps here, use 'this' to access default methods of I.
+    },
+    objecttest: function objecttest() {} // Define custom steps here, use 'this' to access default methods of I.
     // It is recommended to place a general 'login' function here.
 
   });

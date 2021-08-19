@@ -4,13 +4,11 @@ var Factory = require('rosie');
 
 var faker = require('faker');
 
-var helper = require('./helpers');
-
 var locator = require('../email/email_locator_test.js');
 
 Feature('Appsero');
-Scenario('@email insert email digest valid', function _callee(_ref) {
-  var I;
+Scenario('@email send now email digest ', function _callee(_ref) {
+  var I, msg;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
@@ -22,19 +20,13 @@ Scenario('@email insert email digest valid', function _callee(_ref) {
           I.click(locator.EmailMenu);
           I.waitForVisible(locator.EmailDigest);
           I.click(locator.EmailDigest);
-          I.click('Add Email Digest');
-          I.fillField('Send To', helper.range(5, function () {
-            return faker.internet.email();
-          }).join(','));
-          I.click(locator.Frequency);
-          I.click(locator.FrequencyWeekly);
-          I.click(locator.SendOn);
-          I.click(locator.SendOnFriday);
-          I.fillField('Digest Name', faker.name.title());
-          I.click('Submit');
-          I.see('Email digest created successfully.');
+          I.moveCursorTo(locator.svgicon);
+          I.forceClick(locator.SendNowbtn);
+          I.wait(2);
+          msg = 'Mail has been sent successfully.';
+          I.see(msg);
 
-        case 16:
+        case 12:
         case "end":
           return _context.stop();
       }
