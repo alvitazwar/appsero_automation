@@ -9,20 +9,11 @@ Scenario('@email Responder function valid ', async({ I }) => {
     I.Selectplugin();
     I.click(locator.EmailMenu);
     I.click(locator.AutoResponder);
-    // tryTo(async() => {
-    //     helpers.enablefuntion();
-    //     
-    // });
-    //I.wait(3);
-    //I.click(locator.SwitchBtn);
-    // I.wait(2);
-    // I.see('Deactivation auto responder disabled successfully');
-
-    // var status = await I.grabCssPropertyFrom(locator.SwitchBtn);
-    // I.grabValueFrom()
-    console.log(status);
-
-
-
+    tryTo(async() => {
+        helpers.enablefuntion();
+    });
+    I.click(locator.SwitchBtn);
+    I.wait(2);
+    //I.see('Deactivation auto responder disabled successfully');
 }).tag('@email');
 //email_05_pause_test.js

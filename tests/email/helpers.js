@@ -15,10 +15,10 @@ module.exports = {
     enablefuntion() {
         I.click(locator.SwitchBtn);
         I.wait(2);
-        I.see('Deactivation auto responder enabled successfully');
-        I.valid_email();
-        I.click('Update');
-        I.wait(2);
-        I.see('Reply to email updated successfully');
+        // I.see('Deactivation auto responder enabled successfully');
+        //I.valid_email();
+        //I.click('Update');
+        //I.wait(2);
+        //I.see('Reply to email updated successfully');
     },
 }
