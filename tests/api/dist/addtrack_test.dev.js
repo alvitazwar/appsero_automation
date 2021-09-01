@@ -21,7 +21,7 @@ Scenario('Login Successfull', function _callee(_ref) {
             "admin_email": email,
             "first_name": fname,
             "last_name": lname,
-            "hash": "d1a0129b-2049-4922-8133-ad300a9dd887",
+            "hash": "c0492353-38aa-47b6-80ee-4e64ae077a4e",
             "server": {
               "software": "LiteSpeed/1.24",
               "php_version": "7.4.1-ubuntu",
