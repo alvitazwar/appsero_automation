@@ -17,11 +17,23 @@ exports.config = {
       // url: 'https://dashboard.appsero.com',
       url: 'https://staging.appsero.com',
       //https://staging.appsero.com  
-      show: true,
+      show: false,
       windowSize: '1366x768',
       smartWait: 5000,
       waitForAction: 2000,
       keepCookies: true
+    },
+    REST: {
+      endpoint: 'https://staging.api.appsero.com',
+      onRequest: function onRequest(request) {// request.headers.auth = '123';
+      },
+      defaultHeaders: {
+        "accept": 'application/json',
+        "authorization": 'Bearer dLSU7QA9adNnybjwhF6zWNUN6kzwuXSt'
+      }
+    },
+    "ChaiWrapper": {
+      "require": "codeceptjs-chai"
     }
   },
   include: {

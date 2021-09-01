@@ -14,8 +14,4 @@ Scenario('@pro_plugin_woocommerce', async({ I }) => {
     I.click('Next');
     I.click('Next');
     I.click('Yes');
-
-
-
-
 }).tag('@pro_plugin');

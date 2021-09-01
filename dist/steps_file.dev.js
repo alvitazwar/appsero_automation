@@ -13,7 +13,8 @@ module.exports = function () {
     loginAsAdmin: function loginAsAdmin() {
       this.amOnPage('/login'); //this.click('Log in');
 
-      this.fillField('Email Address', 'atd.mondol@gmail.com');
+      this.fillField('Email Address', 'atd.mondol@gmail.com'); //
+
       this.fillField('Password', 'appsero@4321');
       this.click('Log in');
       this.see('Plugins');
