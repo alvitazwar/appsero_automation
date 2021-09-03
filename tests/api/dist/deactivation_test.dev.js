@@ -9,12 +9,12 @@ Scenario('Deactivation', function _callee(_ref) {
         case 0:
           I = _ref.I;
           data = {
-            url: "https://hank.biz",
-            site: "Legacy Factors Specialist",
-            admin_email: "Deja.Jast85@hotmail.com",
-            first_name: "Makenna",
-            last_name: "Islam",
-            hash: "d1a0129b-2049-4922-8133-ad300a9dd887",
+            url: "http://hallie.name",
+            site: "Investor Web Strategist",
+            admin_email: "Alan_Walter@yahoo.com",
+            first_name: "Grayce",
+            last_name: "Romaguera",
+            hash: "4543047e-bd71-4bc8-bcba-2dc66244678b",
             server: {
               software: "nginx/1.21.0",
               php_version: "7.4.21",

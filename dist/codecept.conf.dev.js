@@ -17,11 +17,12 @@ exports.config = {
       // url: 'https://dashboard.appsero.com',
       url: 'https://staging.appsero.com',
       //https://staging.appsero.com  
-      show: false,
+      show: true,
       windowSize: '1366x768',
       smartWait: 5000,
       waitForAction: 2000,
-      keepCookies: true
+      keepCookies: false,
+      restart: true
     },
     REST: {
       endpoint: 'https://staging.api.appsero.com',
@@ -53,7 +54,7 @@ exports.config = {
       enabled: true
     },
     screenshotOnFail: {
-      enabled: true
+      enabled: false
     },
     multiple: {
       smoke: '@explore_analytics'
