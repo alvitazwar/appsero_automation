@@ -2,14 +2,13 @@ var faker = require('faker');
 const {
     I
 } = inject();
-
+let url = faker.internet.url();
+let site = faker.name.title();
+let email = faker.internet.email();
+let fname = faker.name.firstName();
+let lname = faker.name.lastName();
 module.exports = {
     getTrackingInfo() {
-        let url = faker.internet.url();
-        let site = faker.name.title();
-        let email = faker.internet.email();
-        let fname = faker.name.firstName();
-        let lname = faker.name.lastName();
         var track = {
             "url": url,
             "site": site,

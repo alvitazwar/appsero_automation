@@ -4,8 +4,8 @@ var faker = require('faker');
 
 var payload = require('./payload');
 
-Feature('Add Tracking');
-Scenario('Add Data', function _callee(_ref) {
+Feature('Site activate and Deactivate Scenario');
+Scenario('Add & Deactivate Track', function _callee(_ref) {
   var I, i, demo, res;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {

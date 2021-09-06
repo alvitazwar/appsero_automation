@@ -1,13 +1,14 @@
 var faker = require('faker');
 const payload = require('./payload');
-Feature('Add Tracking');
+Feature('Site activate and Deactivate Scenario');
 
-Scenario('Add Data', async({ I }) => {
-    for (let i = 1; i <= 10; i++) {
+Scenario('Add & Deactivate Track', async({ I }) => {
+    for (let i = 1; i <= 2; i++) {
         var demo = payload.getTrackingInfo();
         if (i % 2 == 0) {
             await I.sendPostRequest('https://api.appsero.com/track', demo).then((res) => {
                 I.assertEqual(res.status, 200);
+                console.log(res.data);
             });
 
             setTimeout(() => {
@@ -15,7 +16,12 @@ Scenario('Add Data', async({ I }) => {
                     I.assertEqual(res.status, 200);
                 });
             }, 5000);
-        } else { const res = await I.sendPostRequest('https://api.appsero.com/track', demo); }
+        } else {
+            const res = await I.sendPostRequest('https://api.appsero.com/track', demo).then(res => {
+                I.assertEqual(res.status, 200);
+                console.log(res.data);
+            });
+        }
     }
     // const res = await I.sendPostRequest('https://api.appsero.com/track', payload.trackinData);
     // await I.assertEqual(res.status, 200);

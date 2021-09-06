@@ -42,7 +42,7 @@ Scenario('Check Single Plugin Details', function _callee2(_ref2) {
 
         case 3:
           res = _context2.sent;
-          console.log(res);
+          console.log(res.data);
           _context2.next = 7;
           return regeneratorRuntime.awrap(I.assertEqual(res.status, 200));
 
