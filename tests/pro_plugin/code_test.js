@@ -14,9 +14,9 @@ const { assert } = require("console");
 //     console.log(msg);
 
 // });
-Scenario('@code export', async({ I }) => {
+Scenario('test', async({ I }) => {
     I.loginAsAdmin();
-    for (let i = 0; i <= 6; i++) {
+    for (let i = 0; i <= 7; i++) {
         await console.log('step number', i);
         if (i % 2 == 0) {
             I.click('//li[2]/a[@href="/plugins"]');
@@ -31,12 +31,10 @@ Scenario('@code export', async({ I }) => {
             I.click('Next');
             I.click('Next');
             I.click('Yes');
-
-
         } else {
             I.say("loop not exectued");
         }
     }
 
 
-})
+});

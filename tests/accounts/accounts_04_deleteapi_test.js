@@ -1,17 +1,13 @@
 Feature('Appsero');
-
-Scenario('@accounts api delete ',async ({ I }) => {
-  // I.amOnPage('https://staging.appsero.com/login');
-  // I.fillField('Email Address', 'alvitazwar@wedevs.com');
-  // I.fillField('Password','crisis052');
-  // I.click('Log in');
-  // I.see('Plugins');
-  I.loginAsAdmin();
-  I.click('//*[@id="app"]/section/aside/div/div[2]/ul/li[6]/a');
-  I.see('Not connected');
-  I.click('//*[@id="app"]//div[2]/table/tbody/tr[2]/td[4]/button');
-  I.click('Yes');
-  I.see('API Key Deleted Successfully.');
+const locator = require('./accounts_locator_test');
+Scenario('@accounts api delete ', async({ I }) => {
+    I.loginAsAdmin();
+    I.click(locator.apikeymenu);
+    I.click(locator.createapibutton);
+    I.see('Not connected');
+    I.click(locator.firstdelete);
+    I.click('Yes');
+    I.see('API Key Deleted Successfully.');
 
 
 

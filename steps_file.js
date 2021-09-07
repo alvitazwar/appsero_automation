@@ -3,6 +3,13 @@ var Factory = require('rosie');
 var faker = require('faker');
 module.exports = function() {
     return actor({
+        getfakepass() {
+            return data = {
+                oldpass: faker.internet.password(),
+                nwpass: faker.internet.password(),
+                old2pass: nwpass,
+            }
+        },
         Selectplugin: function() {
             this.click('FastSpring_License_subs');
         },
@@ -11,6 +18,14 @@ module.exports = function() {
             //this.click('Log in');
             this.fillField('Email Address', 'atd.mondol@gmail.com'); //
             this.fillField('Password', 'appsero@4321');
+            this.click('Log in');
+            this.see('Plugins');
+        },
+        loginAsAdminProduction: function() {
+            this.amOnPage('https://dashboard.appsero.com/login');
+            //this.click('Log in');
+            this.fillField('Email Address', 'atd.mondol@gmail.com'); //
+            this.fillField('Password', 'alvi@4321');
             this.click('Log in');
             this.see('Plugins');
         },

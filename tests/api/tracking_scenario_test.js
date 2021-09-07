@@ -16,10 +16,7 @@ Scenario('Add & Deactivate Track', async({ I }) => {
                         console.log(res.data);
                     });
                 }
-
             });
-
-
         } else {
             const res = await I.sendPostRequest('/track', getrack).then(res => {
                 I.assertEqual(res.status, 200);
@@ -27,8 +24,6 @@ Scenario('Add & Deactivate Track', async({ I }) => {
             });
         }
     }
-    // const res = await I.sendPostRequest('https://api.appsero.com/track', payload.trackinData);
-    // await I.assertEqual(res.status, 200);
-    // console.log(res.data);
+
 
 });

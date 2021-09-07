@@ -7,16 +7,27 @@ var _require = require("assert"),
     strict = _require.strict;
 
 var _require2 = require("console"),
-    assert = _require2.assert;
+    assert = _require2.assert; //const locator = require('../analytics/analytics_locator_test.js');
+// Scenario('@code export', async({ I }) => {
+//     I.loginAsAdmin();
+//     I.amOnPage('/plugins');
+//     I.click('bizon_paddle');
+//     I.click('Integrate Appsero SDK.');
+//     I.scrollTo('div > div > div > h2.mt-30');
+//     let msg = '';
+//     msg = await I.grabTextFrom('#user_guide_with_license');
+//     console.log(msg);
+// });
 
-Scenario('@code export', function _callee(_ref) {
+
+Scenario('test', function _callee(_ref) {
   var I, i;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
           I = _ref.I;
-          I.loginAsAdminProduction();
+          I.loginAsAdmin();
           i = 0;
 
         case 3:

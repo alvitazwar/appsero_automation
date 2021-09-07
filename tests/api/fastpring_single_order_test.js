@@ -1,4 +1,4 @@
-Feature('Fastspring Single Order');
+Feature('Fastspring Single Order test');
 const payload = require('./payload');
 Scenario('Fastspring Single order Place', async({ I }) => {
     var load = payload.getFastSpringOrder();
