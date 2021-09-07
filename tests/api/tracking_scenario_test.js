@@ -4,20 +4,24 @@ Feature('Site activate and Deactivate Scenario');
 
 Scenario('Add & Deactivate Track', async({ I }) => {
     for (let i = 1; i <= 2; i++) {
-        var demo = payload.getTrackingInfo();
+        const fake_data = payload.getFakerData();
+        const getrack = payload.getTrackingInfo(fake_data);
         if (i % 2 == 0) {
-            await I.sendPostRequest('https://api.appsero.com/track', demo).then((res) => {
+            await I.sendPostRequest('/track', getrack).then((res) => {
                 I.assertEqual(res.status, 200);
                 console.log(res.data);
+                if (res.status == 200) {
+                    dec = I.sendPostRequest('/deactivate', getrack).then(res => {
+                        I.assertEqual(res.status, 200);
+                        console.log(res.data);
+                    });
+                }
+
             });
 
-            setTimeout(() => {
-                dec = I.sendPostRequest('https://api.appsero.com/deactivate', demo).then(res => {
-                    I.assertEqual(res.status, 200);
-                });
-            }, 5000);
+
         } else {
-            const res = await I.sendPostRequest('https://api.appsero.com/track', demo).then(res => {
+            const res = await I.sendPostRequest('/track', getrack).then(res => {
                 I.assertEqual(res.status, 200);
                 console.log(res.data);
             });

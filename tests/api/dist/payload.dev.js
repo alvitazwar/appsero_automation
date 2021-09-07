@@ -24,7 +24,7 @@ module.exports = {
       "admin_email": data.email,
       "first_name": data.fname,
       "last_name": data.lname,
-      "hash": "95821e3e-d772-4a24-9057-fb3930423973",
+      "hash": "176d73b0-3118-4e4e-98d8-ad39e2aed5a0",
       "server": {
         "software": "LiteSpeed/1.24",
         "php_version": "7.4.1-ubuntu",
