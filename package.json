@@ -25,6 +25,7 @@
     "webdriverio": "^7.0.7"
   },
   "dependencies": {
-    "codeceptjs-chai": "^2.3.1"
+    "codeceptjs-chai": "^2.3.1",
+    "crypto-js": "^4.1.1"
   }
 }

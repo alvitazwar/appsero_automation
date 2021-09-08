@@ -11,7 +11,7 @@ module.exports = {
             email: faker.internet.email(),
             fname: faker.name.firstName(),
             lname: faker.name.lastName(),
-            value: faker.random.alphaNumeric(),
+            value: faker.random.alphaNumeric(30),
             phone: faker.phone.phoneNumber(),
         }
 
@@ -711,5 +711,120 @@ module.exports = {
         }
         return subs;
     },
-
+    getPartialReturn(data) {
+        var partial = {
+            "events": [{
+                    "id": data.value,
+                    "processed": false,
+                    "created": 1631092446792,
+                    "type": "return.created",
+                    "live": false,
+                    "data": {
+                        "return": data.value,
+                        "quote": null,
+                        "reference": "WEDEVSS210908-7784-57119X",
+                        "completed": true,
+                        "changed": 1631092446656,
+                        "changedValue": 1631092446656,
+                        "changedInSeconds": 1631092446,
+                        "changedDisplay": "9/8/21",
+                        "live": false,
+                        "account": "iNGMjK4yR0K6DENUc2eTkA",
+                        "currency": "USD",
+                        "payoutCurrency": "USD",
+                        "totalReturn": 15,
+                        "totalReturnDisplay": "$15.00",
+                        "totalReturnInPayoutCurrency": 15,
+                        "totalReturnInPayoutCurrencyDisplay": "$15.00",
+                        "tax": 0,
+                        "taxDisplay": "$0.00",
+                        "taxInPayoutCurrency": 0,
+                        "taxInPayoutCurrencyDisplay": "$0.00",
+                        "subtotal": 15,
+                        "subtotalDisplay": "$15.00",
+                        "subtotalInPayoutCurrency": 15,
+                        "subtotalInPayoutCurrencyDisplay": "$15.00",
+                        "totalRefundInPayoutCurrency": 15,
+                        "payment": {
+                            "type": "test",
+                            "cardEnding": "4242"
+                        },
+                        "reason": "Product Not As Expected",
+                        "note": "",
+                        "type": "RETURN",
+                        "original": {
+                            "id": data.value,
+                            "order": data.value,
+                            "reference": "WEDEVSS210908-5720-35132",
+                            "account": "iNGMjK4yR0K6DENUc2eTkA",
+                            "currency": "USD",
+                            "payoutCurrency": "USD",
+                            "total": 20,
+                            "totalDisplay": "$20.00",
+                            "totalInPayoutCurrency": 20,
+                            "totalInPayoutCurrencyDisplay": "$20.00",
+                            "tax": 0,
+                            "taxDisplay": "$0.00",
+                            "taxInPayoutCurrency": 0,
+                            "taxInPayoutCurrencyDisplay": "$0.00",
+                            "subtotal": 20,
+                            "subtotalDisplay": "$20.00",
+                            "subtotalInPayoutCurrency": 20,
+                            "subtotalInPayoutCurrencyDisplay": "$20.00",
+                            "notes": []
+                        },
+                        "customer": {
+                            "first": data.fname,
+                            "last": data.lname,
+                            "email": data.email,
+                            "company": null,
+                            "phone": data.phone,
+                            "subscribed": true
+                        },
+                        "items": [{
+                            "product": "test-fastspring-return",
+                            "quantity": 0,
+                            "display": "Test_ fastspring Return",
+                            "sku": null,
+                            "subtotal": 15,
+                            "subtotalDisplay": "$15.00",
+                            "subtotalInPayoutCurrency": 15,
+                            "subtotalInPayoutCurrencyDisplay": "$15.00"
+                        }]
+                    }
+                },
+                {
+                    "id": data.value,
+                    "processed": false,
+                    "created": 1631092446786,
+                    "type": "payoutEntry.created",
+                    "live": false,
+                    "data": {
+                        "return": data.value,
+                        "account": "iNGMjK4yR0K6DENUc2eTkA",
+                        "live": false,
+                        "subscriptions": [],
+                        "subtractions": {
+                            "tax": {
+                                "amount": 0,
+                                "percentage": 0
+                            },
+                            "fastspring": {
+                                "amount": 0,
+                                "percentage": 0
+                            }
+                        },
+                        "subtotal": -15,
+                        "payouts": [{
+                            "payee": "wedevss",
+                            "currency": "USD",
+                            "payout": "-15.00",
+                            "totalReturn": "-15.00"
+                        }]
+                    }
+                }
+            ]
+        }
+        return partial;
+    },
 }
