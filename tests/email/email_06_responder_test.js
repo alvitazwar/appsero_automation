@@ -1,27 +1,19 @@
+var Factory = require('rosie');
+var faker = require('faker');
+const locator = require('../email/email_locator_test.js');
+const helpers = require('./helpers.js');
 Feature('Appsero');
-
-Scenario('@email Responder function valid ',async (I) => {
-  I.amOnPage('https://staging.appsero.com/login');
-  I.fillField('Email Address', 'alvitazwar@wedevs.com');
-  I.fillField('Password','crisis052');
-  I.click('Log in');
-  I.see('Plugins');
-  I.amOnPage('https://staging.appsero.com/plugins');
-  I.click('envato plg test');
-  I.click('Email');
-  I.amOnPage('https://staging.appsero.com/plugins/envato-plg-test/settings/deactivation-auto-responder');
-  I.click('//div[@id="app"]//section[@class="ant-layout content-main"]//div[@class="ant-row-flex ant-row-flex-center"]//button[@role="switch"]');
-  I.wait(2);
-  I.see('Updated Successfully');
-  I.fillField('//*[@id="app"]//div/span/input','adbc@gm.com');
-  I.click('Update');
-  I.wait(2);
-  I.see('Reply To Eimail Updated Successfully');
-  I.wait(3);
-  I.click('//div[@id="app"]//section[@class="ant-layout content-main"]//div[@class="ant-row-flex ant-row-flex-center"]//button[@role="switch"]');
-
-
-
-
+Scenario('@email Responder function valid ', async({ I }) => {
+    I.loginAsAdmin();
+    I.amOnPage('/plugins');
+    I.Selectplugin();
+    I.click(locator.EmailMenu);
+    I.click(locator.AutoResponder);
+    tryTo(async() => {
+        helpers.enablefuntion();
+    });
+    I.click(locator.SwitchBtn);
+    I.wait(2);
+    //I.see('Deactivation auto responder disabled successfully');
 }).tag('@email');
 //email_05_pause_test.js

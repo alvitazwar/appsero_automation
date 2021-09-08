@@ -1,6 +1,6 @@
 Feature('Appsero');
 
-Scenario('Plugin add',async (I) => {
+Scenario('Plugin add',async ({ I }) => {
   I.amOnPage('https://staging.appsero.com/login');
   I.fillField('Email Address', 'alvitazwar@wedevs.com');
   I.fillField('Password','crisis052');

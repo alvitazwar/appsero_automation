@@ -1,6 +1,6 @@
 Feature('Appsero');
 
-Scenario('@settings edit price_regular ',async (I) => {
+Scenario('@settings edit price_regular ',async ({ I }) => {
   I.loginAsAdmin();
   // I.amOnPage('https://staging.appsero.com/login');
   // I.fillField('Email Address', 'alvitazwar@wedevs.com');
