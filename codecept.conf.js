@@ -15,7 +15,7 @@ exports.config = {
         Puppeteer: {
             // url: 'https://dashboard.appsero.com',
             url: 'https://staging.appsero.com', //https://staging.appsero.com  
-            show: true,
+            show: false,
             windowSize: '1366x768',
             smartWait: 5000,
             waitForAction: 2000,
@@ -23,7 +23,7 @@ exports.config = {
             restart: true,
         },
         REST: {
-            endpoint: 'https://staging.api.appsero.com',
+            endpoint: 'https://staging.api.appsero.com', //'https://staging.api.appsero.com'
             onRequest: (request) => {
                 // request.headers.auth = '123';
             },
