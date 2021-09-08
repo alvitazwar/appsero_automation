@@ -1,0 +1,31 @@
+{
+  "name": "appsero_automation",
+  "version": "1.0.0",
+  "description": "This project contains the automation codes for appesero acceptance testusing Codeceptjs and puppetiers",
+  "main": "appserologin_test.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alvitazwar/appsero_automation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alvitazwar/appsero_automation/issues"
+  },
+  "homepage": "https://github.com/alvitazwar/appsero_automation#readme",
+  "devDependencies": {
+    "codeceptjs": "^3.0.5",
+    "webdriverio": "^7.0.7"
+  },
+  "dependencies": {
+    "codeceptjs-chai": "^2.3.1",
+    "crypto-js": "^4.1.1"
+  }
+}

@@ -1,6 +1,6 @@
 Feature('Appsero');
 
-Scenario('login test', (I) => {
+Scenario('login test', ({ I }) => {
   I.amOnPage('https://staging.appsero.com/login');
   I.fillField('Email Address', 'alvitazwar@wedevs.com');
   I.fillField('Password','crisis052');

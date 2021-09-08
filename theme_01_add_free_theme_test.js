@@ -1,6 +1,6 @@
 Feature('Appsero');
 
-Scenario('@themes add free theme ',async (I) => {
+Scenario('@themes add free theme ',async ({ I }) => {
   I.amOnPage('https://staging.appsero.com/login');
   I.fillField('Email Address', 'alvitazwar@wedevs.com');
   I.fillField('Password','crisis052');

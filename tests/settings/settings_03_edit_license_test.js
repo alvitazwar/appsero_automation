@@ -1,6 +1,6 @@
 Feature('Appsero');
 
-Scenario('@settings edit License ',async (I) => {
+Scenario('@settings edit License ',async ({ I }) => {
   I.loginAsAdmin();
   I.amOnPage('https://staging.appsero.com/plugins');
   I.click('envato plg test');

@@ -1,24 +1,24 @@
 Feature('Appsero');
+const { ifError, strict } = require("assert");
+const { assert } = require("console");
+const locator = require('../analytics/analytics_locator_test.js');
 
-Scenario('@analytics user report export',async (I) => {
-  I.amOnPage('https://staging.appsero.com/login');
-  I.fillField('Email Address', 'alvitazwar@wedevs.com');
-  I.fillField('Password','crisis052');
-  I.click('Log in');
-  I.see('Plugins');
-  //I.click('//*[@id="app"]/section/section/header/div[2]/a');
-  //I.click('Teams');
-  I.amOnPage('https://staging.appsero.com/plugins');
-  I.click('envato plg test');
-  //I.refreshPage();
-  //I.click('//*[@id="app"]//main//div[2]/div[2]/div//div[3]/a');
-  //I.waitForElement('/html/body/div[3]/div/div/ul/li/span',30);
-  I.click('Analytics');
-  I.amOnPage('https://staging.appsero.com/plugins/envato-plg-test/users');
-  I.click('Export');
-  I.wait(4);
-  //I.waitForElement('//body/div[3]/span/div/div/div/div[2]');
-  //I.see('//body/div[3]/span/div/div/div/div[2]')
-  //I.waitForElement('//div[@class="ant-dropdown ant-dropdown-placement-bottomRight"]/ul[@role="menu"]/li[@role="menuitem"]/span[.=" Remove "]',30);
+Scenario('@analytics user report export', async({ I }) => {
 
+    I.loginAsAdmin();
+    I.amOnPage('/plugins');
+    I.Selectplugin();
+    I.waitForVisible(locator.Analytics);
+    I.click(locator.Analytics);
+    I.click(locator.SitesMenu);
+    I.click('Export');
+    I.click(locator.StatExportBtn);
+    I.wait(2);
+    I.waitForVisible(locator.RequestMsg);
+    I.seeTextEquals('The request has been submitted', locator.RequestMsg).then((result) => {
+        console.log("Message is Showing Correctly");
+
+    }).catch((err) => {
+        console.log("Message fetching failed");
+    });
 }).tag('@analytics');
