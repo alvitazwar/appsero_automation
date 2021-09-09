@@ -1,5 +1,5 @@
 Feature('Fastspring Single Order test');
-const payload = require('./payload');
+const payload = require('./fastspring_payload');
 Scenario('Fastspring Single order Place', async({ I }) => {
     const data = payload.getFakerData();
     var load = payload.getFastSpringOrder(data);

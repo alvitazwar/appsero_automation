@@ -1,5 +1,5 @@
 Feature('Fastspring subscription Order test');
-const payload = require('./payload');
+const payload = require('./fastspring_payload');
 Scenario('Fastspring subscription order create', async({ I }) => {
     var data = payload.getFakerData();
     var load = payload.getFastspringSubsorder(data);

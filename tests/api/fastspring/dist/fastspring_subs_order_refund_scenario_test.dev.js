@@ -2,10 +2,10 @@
 
 var faker = require('faker');
 
-var payload = require('./payload');
+var payload = require('./fastspring_payload');
 
-Feature('Appsero Analytics');
-Scenario('Site activate and Deactivate Scenario', function _callee(_ref) {
+Feature('Subscription order & refund');
+Scenario('Subscription type product order and return', function _callee(_ref) {
   var I, _loop, i;
 
   return regeneratorRuntime.async(function _callee$(_context2) {
@@ -15,48 +15,47 @@ Scenario('Site activate and Deactivate Scenario', function _callee(_ref) {
           I = _ref.I;
 
           _loop = function _loop(i) {
-            var fake_data, getrack, res;
+            var data, data_order, data_ref, res;
             return regeneratorRuntime.async(function _loop$(_context) {
               while (1) {
                 switch (_context.prev = _context.next) {
                   case 0:
-                    fake_data = payload.getFakerData();
-                    getrack = payload.getTrackingInfo(fake_data);
+                    data = payload.getFakerData();
+                    data_order = payload.getFastspringSubsorder(data);
+                    data_ref = payload.getFastspringSubreturn(data);
 
                     if (!(i % 2 == 0)) {
-                      _context.next = 7;
+                      _context.next = 8;
                       break;
                     }
 
-                    _context.next = 5;
-                    return regeneratorRuntime.awrap(I.sendPostRequest('/track', getrack).then(function (res) {
+                    _context.next = 6;
+                    return regeneratorRuntime.awrap(I.sendPostRequest('/webhook/fastspring/7d494986-fe98-413e-b671-565a8dfaae30', data_order).then(function (res) {
                       I.assertEqual(res.status, 200);
-                      console.log(res.data);
 
                       if (res.status == 200) {
-                        I.wait(3);
-                        I.sendPostRequest('/deactivate', getrack).then(function (res) {
+                        I.wait(5);
+                        dec = I.sendPostRequest('/webhook/fastspring/7d494986-fe98-413e-b671-565a8dfaae30', data_ref).then(function (res) {
                           I.assertEqual(res.status, 200);
-                          console.log(res.data);
                         });
                       }
                     }));
 
-                  case 5:
-                    _context.next = 10;
+                  case 6:
+                    _context.next = 11;
                     break;
 
-                  case 7:
-                    _context.next = 9;
-                    return regeneratorRuntime.awrap(I.sendPostRequest('/track', getrack).then(function (res) {
+                  case 8:
+                    _context.next = 10;
+                    return regeneratorRuntime.awrap(I.sendPostRequest('/webhook/fastspring/7d494986-fe98-413e-b671-565a8dfaae30', data_order).then(function (res) {
                       I.assertEqual(res.status, 200);
                       console.log(res.data);
                     }));
 
-                  case 9:
+                  case 10:
                     res = _context.sent;
 
-                  case 10:
+                  case 11:
                   case "end":
                     return _context.stop();
                 }
