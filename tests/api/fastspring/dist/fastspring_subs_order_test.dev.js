@@ -18,7 +18,7 @@ Scenario('Fastspring subscription order create', function _callee(_ref) {
 
         case 5:
           res = _context.sent;
-          console.log(res.data.id);
+          console.log(res);
           I.assertEqual(res.status, 200);
 
         case 8:

@@ -1,34 +1,27 @@
 "use strict";
 
-Feature('Appsero');
+Feature('Appsero'); // const { ifError, strict } = require("assert");
+// const { assert } = require("console");
+// var faker = require('faker');
+// const cry = require('crypto');
+// Scenario('test', async({ I }) => {
+//     for (let i = 0; i <= 3; i++) {
+//         var data = cry.randomBytes(10).toString("hex");
+//         //console.log(data);
+//         var fake = faker.random.alphaNumeric(20);
+//         console.log(fake);
+//     }
+// });
 
-var _require = require("assert"),
-    ifError = _require.ifError,
-    strict = _require.strict;
-
-var _require2 = require("console"),
-    assert = _require2.assert;
-
-var faker = require('faker');
-
-var cry = require('crypto');
-
-Scenario('test', function _callee(_ref) {
-  var I, i, data, fake;
+Scenario('Test', function _callee(_ref) {
+  var I;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
           I = _ref.I;
 
-          for (i = 0; i <= 3; i++) {
-            data = cry.randomBytes(10).toString("hex"); //console.log(data);
-
-            fake = faker.random.alphaNumeric(20);
-            console.log(fake);
-          }
-
-        case 2:
+        case 1:
         case "end":
           return _context.stop();
       }

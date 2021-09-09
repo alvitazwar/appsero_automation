@@ -3,7 +3,7 @@ const payload = require('./payload');
 Feature('Appsero Analytics');
 
 Scenario('Site activate and Deactivate Scenario', async({ I }) => {
-    for (let i = 1; i <= 2; i++) {
+    for (let i = 1; i <= 10; i++) {
         const fake_data = payload.getFakerData();
         const getrack = payload.getTrackingInfo(fake_data);
         if (i % 2 == 0) {
