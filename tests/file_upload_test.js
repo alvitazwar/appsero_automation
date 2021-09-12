@@ -19,7 +19,7 @@ Scenario('Upload a file in Appsero', async({ I }) => {
     I.checkOption(' div.ant-modal-content > div.ant-modal-footer > div > label > span.ant-checkbox > input');
     // I.waitForEnabled('div.ant-col.ant-form-item-control-wrapper > div > span > span > div > span > button');
     // I.waitForClickable('div.ant-col.ant-form-item-control-wrapper > div > span > span > div > span > button');
-    // I.attachFile('div.ant-col.ant-form-item-control-wrapper > div > span > span > div > span > button', 'data/fastspring_license_subs.zip');
+    I.attachFile('div.ant-col.ant-form-item-control-wrapper > div > span > span > div > span > button', 'data/fastspring_license_subs.zip');
     I.wait(3);
     const [fileChooser] = await Promise.all([
         page.waitForFileChooser(),

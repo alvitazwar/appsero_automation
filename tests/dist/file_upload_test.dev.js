@@ -43,24 +43,24 @@ Scenario('Upload a file in Appsero', function _callee(_ref) {
           I.fillField('Changelog', 'Test New File upload');
           I.checkOption(' div.ant-modal-content > div.ant-modal-footer > div > label > span.ant-checkbox > input'); // I.waitForEnabled('div.ant-col.ant-form-item-control-wrapper > div > span > span > div > span > button');
           // I.waitForClickable('div.ant-col.ant-form-item-control-wrapper > div > span > span > div > span > button');
-          // I.attachFile('div.ant-col.ant-form-item-control-wrapper > div > span > span > div > span > button', 'data/fastspring_license_subs.zip');
 
+          I.attachFile('div.ant-col.ant-form-item-control-wrapper > div > span > span > div > span > button', 'data/fastspring_license_subs.zip');
           I.wait(3);
-          _context.next = 20;
+          _context.next = 21;
           return regeneratorRuntime.awrap(Promise.all([page.waitForFileChooser(), page.click('span[role="button"] > .ant-btnspan[role="button"] > .ant-btn')]));
 
-        case 20:
+        case 21:
           _ref2 = _context.sent;
           _ref3 = _slicedToArray(_ref2, 1);
           fileChooser = _ref3[0];
-          _context.next = 25;
+          _context.next = 26;
           return regeneratorRuntime.awrap(fileChooser.accept(['data/fastspring_license_subs.zip']));
 
-        case 25:
-          _context.next = 27;
+        case 26:
+          _context.next = 28;
           return regeneratorRuntime.awrap(browser.close());
 
-        case 27:
+        case 28:
         case "end":
           return _context.stop();
       }
