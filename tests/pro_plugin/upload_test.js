@@ -7,6 +7,8 @@ Scenario('upload file', async({ I }) => {
     I.click('Log In');
     I.waitForClickable('#rtm_show_upload_ui', 3);
     I.click('#rtm_show_upload_ui');
+
+
     I.usePuppeteerTo('upload action', async({ page, browser }) => {
         const [fileChooser] = await Promise.all([
             page.waitForFileChooser(),
@@ -26,5 +28,7 @@ Scenario('upload file', async({ I }) => {
     //I.ImageUpload();
     //I.amOnPage('https://qa.rtcamp.net/members/demo/media/1651/');
     //I.wait(2);
+
+
 
 });
