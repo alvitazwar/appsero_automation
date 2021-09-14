@@ -102,22 +102,22 @@ module.exports = function () {
               case 0:
                 page = _ref.page, browser = _ref.browser;
                 _context.next = 3;
-                return regeneratorRuntime.awrap(Promise.all([page.waitForFileChooser(), page.click('#rtMedia-upload-button')]));
+                return regeneratorRuntime.awrap(Promise.all([page.waitForFileChooser(), page.click()]));
 
               case 3:
                 _ref2 = _context.sent;
                 _ref3 = _slicedToArray(_ref2, 1);
                 fileChooser = _ref3[0];
                 _context.next = 8;
-                return regeneratorRuntime.awrap(fileChooser.accept(['data/img1.png', 'data/img2.png', 'data/img3.png', 'data/img4.png']));
+                return regeneratorRuntime.awrap(fileChooser.accept());
 
               case 8:
                 _context.next = 10;
-                return regeneratorRuntime.awrap(page.waitForSelector('#drag-drop-area > input'));
+                return regeneratorRuntime.awrap(page.waitForSelector());
 
               case 10:
                 _context.next = 12;
-                return regeneratorRuntime.awrap(page.click('#drag-drop-area > input'));
+                return regeneratorRuntime.awrap(page.click());
 
               case 12:
                 _this.wait(10); //await page.waitForTimeout(5000);

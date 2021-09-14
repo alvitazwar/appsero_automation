@@ -74,13 +74,13 @@ module.exports = function() {
             this.usePuppeteerTo('upload action', async({ page, browser }) => {
                 const [fileChooser] = await Promise.all([
                         page.waitForFileChooser(),
-                        page.click('#rtMedia-upload-button')
+                        page.click()
                     ])
                     //await fileChooser.accept(['data/img1.png']);
-                await fileChooser.accept(['data/img1.png', 'data/img2.png', 'data/img3.png', 'data/img4.png']);
+                await fileChooser.accept();
 
-                await page.waitForSelector('#drag-drop-area > input');
-                await page.click('#drag-drop-area > input');
+                await page.waitForSelector();
+                await page.click();
                 this.wait(10)
                     //await page.waitForTimeout(5000);
             })
