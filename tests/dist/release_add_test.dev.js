@@ -8,22 +8,35 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+Feature('Appsero');
+
+var puppeteer = require('puppeteer');
+
 var faker = require('faker');
 
-Feature('test upload');
-Scenario('upload file', function _callee2(_ref) {
+Scenario('release test', function _callee2(_ref) {
   var I;
   return regeneratorRuntime.async(function _callee2$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
           I = _ref.I;
-          I.amOnPage('https://qa.rtcamp.net/members/demo/media/1651/');
-          I.fillField('Username', 'demo');
-          I.fillField('Password', 'demo');
-          I.click('Log In');
-          I.waitForClickable('#rtm_show_upload_ui', 3);
-          I.click('#rtm_show_upload_ui');
+          I.loginAsAdmin(); //const files = await Promise.all['data/file1.zip', 'data/file2.zip', 'data/file3.zip', 'data/file4.zip', 'data/file5.zip'];
+          //for (let i = 0; i <= 1; i++) {
+          //const files = await Promise.all["data/file1.zip", "data/file2.zip", 'data/file3.zip', 'data/file4.zip', 'data/file5.zip'];
+          //const test = Array(['data/file1.zip', 'data/file2.zip', 'data/file3.zip', 'data/file4.zip', 'data/file5.zip']);
+
+          I.amOnPage('/plugins');
+          I.Selectplugin();
+          I.click('Releases');
+          I.click('Add New Release');
+          I.fillField('Version', faker.random["float"]({
+            min: 1.0,
+            max: 2.0
+          }));
+          I.click('//*[@id="release_date"]/div/input');
+          I.click('div > div > div.ant-calendar-date-panel > div.ant-calendar-footer > span > a');
+          I.fillField('Changelog', faker.random.words(4));
           I.usePuppeteerTo('upload action', function _callee(_ref2) {
             var page, browser, _ref3, _ref4, fileChooser;
 
@@ -33,39 +46,30 @@ Scenario('upload file', function _callee2(_ref) {
                   case 0:
                     page = _ref2.page, browser = _ref2.browser;
                     _context.next = 3;
-                    return regeneratorRuntime.awrap(Promise.all([page.waitForFileChooser(), page.click('#rtMedia-upload-button')]));
+                    return regeneratorRuntime.awrap(Promise.all([page.waitForFileChooser(), page.click('div.ant-col.ant-form-item-control-wrapper > div > span > span > div > span > button')]));
 
                   case 3:
                     _ref3 = _context.sent;
                     _ref4 = _slicedToArray(_ref3, 1);
                     fileChooser = _ref4[0];
                     _context.next = 8;
-                    return regeneratorRuntime.awrap(fileChooser.accept(['data/img1.jpeg', 'data/img2.png', 'data/img3.png', 'data/img4.png', 'data/img5.png']));
+                    return regeneratorRuntime.awrap(fileChooser.accept(['data/file1.zip', 'data/file2.zip', 'data/file3.zip', 'data/file4.zip', 'data/file5.zip']));
 
                   case 8:
                     _context.next = 10;
-                    return regeneratorRuntime.awrap(page.waitForSelector('#drag-drop-area > input'));
+                    return regeneratorRuntime.awrap(page.waitForTimeout(5000));
 
                   case 10:
-                    //await page.click('#drag-drop-area > input');
-                    I.click('#drag-drop-area > input').then(function (result) {
-                      I.wait(10);
-                    })["catch"](function (error) {
-                      console.log(error);
-                    });
-
-                  case 11:
                   case "end":
                     return _context.stop();
                 }
               }
             });
           });
-          console.log('success'); //I.ImageUpload();
-          //I.amOnPage('https://qa.rtcamp.net/members/demo/media/1651/');
-          //I.wait(2);
+          I.click('div.ant-modal-content > div.ant-modal-footer > div > label > span.ant-checkbox > input');
+          I.click('div > div.ant-modal-content > div.ant-modal-footer > button'); //}
 
-        case 9:
+        case 13:
         case "end":
           return _context2.stop();
       }

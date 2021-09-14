@@ -18,7 +18,14 @@ exports.config = {
       url: 'https://staging.appsero.com',
       //https://staging.appsero.com  
       show: true,
-      windowSize: '1366x768',
+      browser: 'chrome',
+      windowSize: '1440 x900',
+      // desiredCapabilities: {
+      //     chromeOptions: {
+      //         args: ["--window-size=1400,900", "--disable-gpu", "--no-sandbox"]
+      //     },
+      //     defaultViewport: null
+      // },
       smartWait: 5000,
       waitForAction: 2000,
       keepCookies: true,

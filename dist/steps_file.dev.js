@@ -8,6 +8,18 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+function _templateObject() {
+  var data = _taggedTemplateLiteral([""]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 // in this file you can append custom step methods to 'I' object
 var Factory = require('rosie');
 
@@ -78,7 +90,9 @@ module.exports = function () {
       this.fillField('//*[@id="app"]//div/span/input', faker.internet.email());
     },
     objecttest: function objecttest() {},
-    ImageUpload: function ImageUpload() {
+    ImageUpload: function () {
+      var _this = this;
+
       this.usePuppeteerTo('upload action', function _callee(_ref) {
         var page, browser, _ref2, _ref3, fileChooser;
 
@@ -95,7 +109,7 @@ module.exports = function () {
                 _ref3 = _slicedToArray(_ref2, 1);
                 fileChooser = _ref3[0];
                 _context.next = 8;
-                return regeneratorRuntime.awrap(fileChooser.accept(['data/img.png']));
+                return regeneratorRuntime.awrap(fileChooser.accept(['data/img1.png', 'data/img2.png', 'data/img3.png', 'data/img4.png']));
 
               case 8:
                 _context.next = 10;
@@ -106,17 +120,17 @@ module.exports = function () {
                 return regeneratorRuntime.awrap(page.click('#drag-drop-area > input'));
 
               case 12:
-                _context.next = 14;
-                return regeneratorRuntime.awrap(page.waitForTimeout(5000));
+                _this.wait(10); //await page.waitForTimeout(5000);
 
-              case 14:
+
+              case 13:
               case "end":
                 return _context.stop();
             }
           }
         });
       });
-    } // Define custom steps here, use 'this' to access default methods of I.
+    }(_templateObject()) // Define custom steps here, use 'this' to access default methods of I.
     // It is recommended to place a general 'login' function here.
 
   });
