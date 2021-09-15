@@ -6,13 +6,13 @@ var payload = require('./payload');
 
 Feature('Appsero Analytics');
 Scenario('Site activate and Deactivate Scenario', function _callee(_ref) {
-  var I, _loop, i;
+  var I, loginAs, _loop, i;
 
   return regeneratorRuntime.async(function _callee$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
-          I = _ref.I;
+          I = _ref.I, loginAs = _ref.loginAs;
 
           _loop = function _loop(i) {
             var fake_data, getrack, res;

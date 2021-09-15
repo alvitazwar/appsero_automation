@@ -28,7 +28,7 @@ exports.config = {
       // },
       smartWait: 5000,
       waitForAction: 2000,
-      keepCookies: true,
+      keepCookies: false,
       restart: false
     },
     REST: {
@@ -80,12 +80,15 @@ exports.config = {
       users: {
         admin_staging: {
           login: function login(I) {
-            I.amOnPage('/login');
+            I.amOnPage('https://staging.appsero.com/login');
             I.fillField('Email Address', 'atd.mondol@gmail.com'); //
 
             I.fillField('Password', 'appsero@4321');
             I.click('Log in');
             I.see('Plugins');
+          },
+          check: function check(I) {
+            I.seeCurrentUrlEquals('/login');
           }
         },
         admin_production: {

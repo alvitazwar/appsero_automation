@@ -1,8 +1,8 @@
 Feature('Appsero');
 const puppeteer = require('puppeteer');
 var faker = require('faker');
-Scenario('release test', async({ I }) => {
-    I.loginAsAdmin();
+Scenario('release test22', async({ I, loginAs }) => {
+    loginAs('admin_staging');
     I.amOnPage('/plugins');
     I.Selectplugin();
     I.click('Releases');

@@ -1,6 +1,6 @@
 Feature('Paddle Subs order');
 const payload = require('./paddle_payload');
-Scenario('Paddle subscription purchase scenario', async({ I }) => {
+Scenario('Paddle subscription purchase scenario', async({ I, loginAs }) => {
     var data = payload.getFakerData();
     var load = payload.getSubsCreateOrder(data);
     var succ = payload.getSubsPaymentSucceed(data);

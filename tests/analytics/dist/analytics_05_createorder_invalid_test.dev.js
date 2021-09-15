@@ -5,13 +5,13 @@ Feature('Appsero');
 var locator = require('../analytics/analytics_locator_test.js');
 
 Scenario('@analytics create order invalid', function _callee(_ref) {
-  var I;
+  var I, loginAs;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          I = _ref.I;
-          I.loginAsAdmin();
+          I = _ref.I, loginAs = _ref.loginAs;
+          loginAs('admin_staging');
           I.amOnPage('/plugins');
           I.Selectplugin();
           I.click(locator.Sales);

@@ -1,7 +1,7 @@
 Feature('Appsero');
 const puppeteer = require('puppeteer');
 var faker = require('faker');
-Scenario('release test', async({ I }) => {
+Scenario('release test', async({ I, loginAs }) => {
     I.amOnPage('http://dokan-pro.test/my-account/');
     I.fillField('username', 'admin');
     I.fillField('password', 'admin');

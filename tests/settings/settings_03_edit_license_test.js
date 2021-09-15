@@ -1,7 +1,7 @@
 Feature('Appsero');
 const locator = require('./settings_locator_test');
-Scenario('@settings edit License ', async({ I }) => {
-    I.loginAsAdmin();
+Scenario('@settings edit License ', async({ I, loginAs }) => {
+    loginAs('admin_staging');
     I.amOnPage('/plugins');
     I.Selectplugin();
     I.click('//*[@id="app"]//section/main//div[1]/ul[2]/li[1]');

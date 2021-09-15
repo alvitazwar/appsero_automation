@@ -1,8 +1,8 @@
 Feature('Appsero');
 
-Scenario(' Password ', async({ I }) => {
+Scenario(' Password ', async({ I, loginAs }) => {
 
-    I.loginAsAdmin();
+    loginAs('admin_staging');
     I.click('//*[@id="app"]/section/section/header/div[2]/a');
     I.click('Account');
     I.click('Security');

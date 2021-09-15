@@ -7,13 +7,13 @@ var locator = require('./settings_locator_test');
 var faker = require('faker');
 
 Scenario('@settings edit invalid ', function _callee(_ref) {
-  var I;
+  var I, loginAs;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          I = _ref.I;
-          I.loginAsAdmin();
+          I = _ref.I, loginAs = _ref.loginAs;
+          loginAs('admin_staging');
           I.amOnPage('/plugins');
           I.Selectplugin();
           I.click(locator.settingsmenu);

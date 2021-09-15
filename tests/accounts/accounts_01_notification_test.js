@@ -1,9 +1,9 @@
 const locator = require('./accounts_locator_test');
 Feature('Appsero');
 
-Scenario('@accounts Toggle Notification ', async({ I }) => {
+Scenario('@accounts Toggle Notification ', async({ I, loginAs }) => {
 
-    I.loginAsAdmin();
+    loginAs('admin_staging');
     I.click(locator.profilemenu);
     I.click('Account');
     I.click('Notification Settings');

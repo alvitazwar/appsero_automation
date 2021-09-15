@@ -5,12 +5,12 @@ Feature('Fastspring Single Order test');
 var payload = require('./fastspring_payload');
 
 Scenario('Fastspring Single order Place', function _callee(_ref) {
-  var I, data, load, res;
+  var I, loginAs, data, load, res;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          I = _ref.I;
+          I = _ref.I, loginAs = _ref.loginAs;
           data = payload.getFakerData();
           load = payload.getFastSpringOrder(data);
           _context.next = 5;

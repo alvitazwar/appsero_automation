@@ -1,13 +1,13 @@
 const puppeteer = require('puppeteer');
 Feature('File Upload Test');
 
-Scenario('Upload a file in Appsero', async({ I }) => {
+Scenario('Upload a file in Appsero', async({ I, loginAs }) => {
     const browser = await puppeteer.launch({
         "headless": false,
         "slowMo": 50
     });
     const page = await browser.newPage();
-    I.loginAsAdmin();
+    loginAs('admin_staging');
     I.amOnPage('/plugins');
     I.click('FastSpring_License_subs');
     I.click('Releases');

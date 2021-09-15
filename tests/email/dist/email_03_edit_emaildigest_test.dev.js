@@ -8,13 +8,13 @@ var locator = require('../email/email_locator_test.js');
 
 Feature('Appsero');
 Scenario('@email edit email digest', function _callee(_ref) {
-  var I, name;
+  var I, loginAs, name;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          I = _ref.I;
-          I.loginAsAdmin();
+          I = _ref.I, loginAs = _ref.loginAs;
+          loginAs('admin_staging');
           I.amOnPage('/plugins');
           I.Selectplugin();
           I.click(locator.EmailMenu);

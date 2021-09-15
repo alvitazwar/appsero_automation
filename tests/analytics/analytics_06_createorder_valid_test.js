@@ -2,8 +2,8 @@ Feature('Appsero');
 var Factory = require('rosie');
 var faker = require('faker');
 const locator = require('../analytics/analytics_locator_test.js');
-Scenario('@analytics create order valid', async({ I }) => {
-    I.loginAsAdmin();
+Scenario('@analytics create order valid', async({ I, loginAs }) => {
+    loginAs('admin_staging');
     I.amOnPage('/plugins');
     I.Selectplugin();
     I.click(locator.Sales);

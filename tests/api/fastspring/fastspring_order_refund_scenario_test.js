@@ -2,7 +2,7 @@ var faker = require('faker');
 const payload = require('./fastspring_payload');
 Feature('Order create and refund');
 
-Scenario('Single product order and Full-Refund Test', async({ I }) => {
+Scenario('Single product order and Full-Refund Test', async({ I, loginAs }) => {
     for (let i = 1; i <= 2; i++) {
         const data = payload.getFakerData();
         const data_order = payload.getFastSpringOrder(data);

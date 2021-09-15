@@ -2,12 +2,12 @@
 
 Feature('Basic API Check');
 Scenario('Check Login API', function _callee(_ref) {
-  var I, data, res;
+  var I, loginAs, data, res;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          I = _ref.I;
+          I = _ref.I, loginAs = _ref.loginAs;
           data = {
             "email": "atd.mondol@gmail.com",
             "password": "appsero@4321"
@@ -31,12 +31,12 @@ Scenario('Check Login API', function _callee(_ref) {
   });
 });
 Scenario('Check Single Plugin Details', function _callee2(_ref2) {
-  var I, res;
+  var I, loginAs, res;
   return regeneratorRuntime.async(function _callee2$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
-          I = _ref2.I;
+          I = _ref2.I, loginAs = _ref2.loginAs;
           _context2.next = 3;
           return regeneratorRuntime.awrap(I.sendGetRequest('/v1/plugins/fastspring-license-subs'));
 
@@ -54,12 +54,12 @@ Scenario('Check Single Plugin Details', function _callee2(_ref2) {
   });
 });
 Scenario('Check All plugin Details', function _callee3(_ref3) {
-  var I, res;
+  var I, loginAs, res;
   return regeneratorRuntime.async(function _callee3$(_context3) {
     while (1) {
       switch (_context3.prev = _context3.next) {
         case 0:
-          I = _ref3.I;
+          I = _ref3.I, loginAs = _ref3.loginAs;
           _context3.next = 3;
           return regeneratorRuntime.awrap(I.sendGetRequest('/v1/plugins?page=1'));
 

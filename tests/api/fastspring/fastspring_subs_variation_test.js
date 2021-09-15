@@ -1,6 +1,6 @@
 Feature('Fastspring subscription Order test');
 const payload = require('./fastspring_payload');
-Scenario('Fastspring subscription variation upgrade order create', async({ I }) => {
+Scenario('Fastspring subscription variation upgrade order create', async({ I, loginAs }) => {
     var data = payload.getFakerData();
     var load = payload.getFastspringSubsorder(data);
     var variation = payload.getvariationproduct(data);

@@ -12,13 +12,13 @@ var puppeteer = require('puppeteer');
 
 Feature('File Upload Test');
 Scenario('Upload a file in Appsero', function _callee(_ref) {
-  var I, browser, page, _ref2, _ref3, fileChooser;
+  var I, loginAs, browser, page, _ref2, _ref3, fileChooser;
 
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          I = _ref.I;
+          I = _ref.I, loginAs = _ref.loginAs;
           _context.next = 3;
           return regeneratorRuntime.awrap(puppeteer.launch({
             "headless": false,
@@ -32,7 +32,7 @@ Scenario('Upload a file in Appsero', function _callee(_ref) {
 
         case 6:
           page = _context.sent;
-          I.loginAsAdmin();
+          loginAs('admin_staging');
           I.amOnPage('/plugins');
           I.click('FastSpring_License_subs');
           I.click('Releases');

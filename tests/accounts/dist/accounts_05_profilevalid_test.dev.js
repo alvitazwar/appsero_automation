@@ -5,13 +5,13 @@ Feature('Appsero');
 var locator = require('./accounts_locator_test');
 
 Scenario('@accounts profile update ', function _callee(_ref) {
-  var I;
+  var I, loginAs;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          I = _ref.I;
-          I.loginAsAdmin();
+          I = _ref.I, loginAs = _ref.loginAs;
+          loginAs('admin_staging');
           I.click(locator.profilemenu);
           I.click('Account');
           I.clearField('First Name');

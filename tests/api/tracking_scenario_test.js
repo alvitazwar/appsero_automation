@@ -2,7 +2,7 @@ var faker = require('faker');
 const payload = require('./payload');
 Feature('Appsero Analytics');
 
-Scenario('Site activate and Deactivate Scenario', async({ I }) => {
+Scenario('Site activate and Deactivate Scenario', async({ I, loginAs }) => {
     for (let i = 1; i <= 30; i++) {
         const fake_data = payload.getFakerData();
         const getrack = payload.getTrackingInfo(fake_data);

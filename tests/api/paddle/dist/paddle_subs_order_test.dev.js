@@ -5,12 +5,12 @@ Feature('Paddle Subs order');
 var payload = require('./paddle_payload');
 
 Scenario('Paddle subscription purchase scenario', function _callee(_ref) {
-  var I, data, load, succ, res, payment;
+  var I, loginAs, data, load, succ, res, payment;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          I = _ref.I;
+          I = _ref.I, loginAs = _ref.loginAs;
           data = payload.getFakerData();
           load = payload.getSubsCreateOrder(data);
           succ = payload.getSubsPaymentSucceed(data);

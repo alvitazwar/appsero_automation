@@ -1,5 +1,5 @@
 Feature('test email sending');
-Scenario('email sending', async({ I }) => {
+Scenario('email sending', async({ I, loginAs }) => {
     const mailbox = await I.haveNewMailbox().then((inbox) => {
         var inbox = { id: 't31q24', emailAddress: 'test431@mailslurp.com' }
         console.log('inbox contains', inbox);

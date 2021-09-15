@@ -2,12 +2,12 @@
 
 Feature('test email sending');
 Scenario('email sending', function _callee(_ref) {
-  var I, mailbox;
+  var I, loginAs, mailbox;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          I = _ref.I;
+          I = _ref.I, loginAs = _ref.loginAs;
           _context.next = 3;
           return regeneratorRuntime.awrap(I.haveNewMailbox().then(function (inbox) {
             var inbox = {
