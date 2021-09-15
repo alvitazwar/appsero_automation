@@ -3,12 +3,6 @@ const puppeteer = require('puppeteer');
 var faker = require('faker');
 Scenario('release test', async({ I }) => {
     I.loginAsAdmin();
-    //const files = await Promise.all['data/file1.zip', 'data/file2.zip', 'data/file3.zip', 'data/file4.zip', 'data/file5.zip'];
-    //for (let i = 0; i <= 1; i++) {
-    //const files = await Promise.all["data/file1.zip", "data/file2.zip", 'data/file3.zip', 'data/file4.zip', 'data/file5.zip'];
-
-    //const test = Array(['data/file1.zip', 'data/file2.zip', 'data/file3.zip', 'data/file4.zip', 'data/file5.zip']);
-
     I.amOnPage('/plugins');
     I.Selectplugin();
     I.click('Releases');
@@ -25,7 +19,7 @@ Scenario('release test', async({ I }) => {
             ])
             //var test_file = test[0];
             //await console.log(file[i]);
-        await fileChooser.accept(['data/file1.zip', 'data/file2.zip', 'data/file3.zip', 'data/file4.zip', 'data/file5.zip']);
+        await fileChooser.accept(['data/fastspring_license_subs.zip']);
         await page.waitForTimeout(5000);
     })
     I.click('div.ant-modal-content > div.ant-modal-footer > div > label > span.ant-checkbox > input');

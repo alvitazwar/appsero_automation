@@ -10,17 +10,17 @@ var _require2 = require("console"),
     assert = _require2.assert;
 
 Scenario('@code export', function _callee(_ref) {
-  var I, i;
+  var I, loginAs, i;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          I = _ref.I;
-          I.loginAsAdminProduction();
+          I = _ref.I, loginAs = _ref.loginAs;
+          loginAs('admin_staging');
           i = 0;
 
         case 3:
-          if (!(i <= 7)) {
+          if (!(i <= 2)) {
             _context.next = 10;
             break;
           }

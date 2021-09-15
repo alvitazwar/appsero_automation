@@ -29,13 +29,13 @@ Scenario('Site activate and Deactivate Scenario', function _callee(_ref) {
                     }
 
                     _context.next = 5;
-                    return regeneratorRuntime.awrap(I.sendPostRequest('/track', getrack).then(function (res) {
+                    return regeneratorRuntime.awrap(I.sendPostRequest('http://a1fa-103-108-147-143.ngrok.io/track', getrack).then(function (res) {
                       I.assertEqual(res.status, 200);
                       console.log(res.data);
 
                       if (res.status == 200) {
                         I.wait(3);
-                        I.sendPostRequest('/deactivate', getrack).then(function (res) {
+                        I.sendPostRequest('http://a1fa-103-108-147-143.ngrok.io/deactivate', getrack).then(function (res) {
                           I.assertEqual(res.status, 200);
                           console.log(res.data);
                         });
@@ -48,7 +48,7 @@ Scenario('Site activate and Deactivate Scenario', function _callee(_ref) {
 
                   case 7:
                     _context.next = 9;
-                    return regeneratorRuntime.awrap(I.sendPostRequest('/track', getrack).then(function (res) {
+                    return regeneratorRuntime.awrap(I.sendPostRequest('http://a1fa-103-108-147-143.ngrok.io/track', getrack).then(function (res) {
                       I.assertEqual(res.status, 200);
                       console.log(res.data);
                     }));
@@ -67,7 +67,7 @@ Scenario('Site activate and Deactivate Scenario', function _callee(_ref) {
           i = 1;
 
         case 3:
-          if (!(i <= 10)) {
+          if (!(i <= 30)) {
             _context2.next = 9;
             break;
           }

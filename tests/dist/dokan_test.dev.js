@@ -21,18 +21,12 @@ Scenario('release test', function _callee2(_ref) {
       switch (_context2.prev = _context2.next) {
         case 0:
           I = _ref.I;
-          I.loginAsAdmin();
-          I.amOnPage('/plugins');
-          I.Selectplugin();
-          I.click('Releases');
-          I.click('Add New Release');
-          I.fillField('Version', faker.random["float"]({
-            min: 1.0,
-            max: 2.0
-          }));
-          I.click('//*[@id="release_date"]/div/input');
-          I.click('div > div > div.ant-calendar-date-panel > div.ant-calendar-footer > span > a');
-          I.fillField('Changelog', faker.random.words(4));
+          I.amOnPage('http://dokan-pro.test/my-account/');
+          I.fillField('username', 'admin');
+          I.fillField('password', 'admin');
+          I.click('form > p:nth-child(4) > button');
+          I.amOnPage('http://dokan-pro.test/product/celia/edit/');
+          I.click('div.dokan-feat-image-upload.dokan-new-product-featured-img > div.instruction-inside > a');
           I.usePuppeteerTo('upload action', function _callee(_ref2) {
             var page, browser, _ref3, _ref4, fileChooser;
 
@@ -42,30 +36,44 @@ Scenario('release test', function _callee2(_ref) {
                   case 0:
                     page = _ref2.page, browser = _ref2.browser;
                     _context.next = 3;
-                    return regeneratorRuntime.awrap(Promise.all([page.waitForFileChooser(), page.click('div.ant-col.ant-form-item-control-wrapper > div > span > span > div > span > button')]));
+                    return regeneratorRuntime.awrap(Promise.all([page.waitForFileChooser(), page.waitForSelector('#__wp-uploader-id-1'), page.click('#__wp-uploader-id-1')]));
 
                   case 3:
                     _ref3 = _context.sent;
                     _ref4 = _slicedToArray(_ref3, 1);
                     fileChooser = _ref4[0];
                     _context.next = 8;
-                    return regeneratorRuntime.awrap(fileChooser.accept(['data/fastspring_license_subs.zip']));
+                    return regeneratorRuntime.awrap(fileChooser.accept(['data/img.jpeg']));
 
                   case 8:
                     _context.next = 10;
-                    return regeneratorRuntime.awrap(page.waitForTimeout(5000));
+                    return regeneratorRuntime.awrap(page.waitForTimeout(10000));
 
                   case 10:
+                    _context.next = 12;
+                    return regeneratorRuntime.awrap(page.waitForSelector('div > div.media-toolbar-primary.search-form > button'));
+
+                  case 12:
+                    ;
+                    _context.next = 15;
+                    return regeneratorRuntime.awrap(page.click('div > div.media-toolbar-primary.search-form > button'));
+
+                  case 15:
+                    _context.next = 17;
+                    return regeneratorRuntime.awrap(page.waitForTimeout(2000));
+
+                  case 17:
                   case "end":
                     return _context.stop();
                 }
               }
             });
           });
-          I.click('div.ant-modal-content > div.ant-modal-footer > div > label > span.ant-checkbox > input');
-          I.click('div > div.ant-modal-content > div.ant-modal-footer > button'); //}
+          I.click('div > form > input.dokan-btn.dokan-btn-theme.dokan-btn-lg.dokan-right'); // I.click('div.ant-modal-content > div.ant-modal-footer > div > label > span.ant-checkbox > input');
+          // I.click('div > div.ant-modal-content > div.ant-modal-footer > button');
+          //}
 
-        case 13:
+        case 9:
         case "end":
           return _context2.stop();
       }

@@ -24,7 +24,7 @@ module.exports = {
       "admin_email": data.email,
       "first_name": data.fname,
       "last_name": data.lname,
-      "hash": "8e3c7d22-0c59-48da-b23d-f47b645b9a23",
+      "hash": "1f8cda81-26f5-486d-871b-9e60e9733db3",
       "server": {
         "software": "LiteSpeed/1.24",
         "php_version": "7.4.1-ubuntu",
@@ -59,7 +59,17 @@ module.exports = {
       "tracking_skipped": "0",
       "reason_id": "not-have-that-feature",
       "reason_info": null,
-      "client": "1.2.0"
+      "client": "1.2.0",
+      "plugins": {
+        "test-plugin-one": {
+          "name": data.fname,
+          "version": faker.random["float"](10, 20)
+        },
+        "test-plugin-two": {
+          "name": data.fname,
+          "version": faker.random["float"](10, 20)
+        }
+      }
     };
     return track;
   }

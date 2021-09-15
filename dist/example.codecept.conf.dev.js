@@ -14,9 +14,7 @@ exports.config = {
   output: './output',
   helpers: {
     Puppeteer: {
-      // url: 'https://dashboard.appsero.com',
-      url: 'https://staging.appsero.com',
-      //https://staging.appsero.com  
+      url: 'https://test.com',
       show: true,
       browser: 'chrome',
       windowSize: '1440 x900',
@@ -32,13 +30,11 @@ exports.config = {
       restart: false
     },
     REST: {
-      endpoint: 'https://staging.api.appsero.com',
-      //'https://staging.api.appsero.com'
-      onRequest: function onRequest(request) {// request.headers.auth = '123';
-      },
+      endpoint: 'https://test.api.com',
+      onRequest: function onRequest(request) {},
       defaultHeaders: {
         "accept": 'application/json',
-        "authorization": 'Bearer dLSU7QA9adNnybjwhF6zWNUN6kzwuXSt'
+        "authorization": 'Bearer [Your Token]'
       }
     },
     "ChaiWrapper": {
@@ -78,25 +74,13 @@ exports.config = {
       saveToFile: false,
       inject: 'loginAs',
       users: {
-        admin_staging: {
+        admin: {
           login: function login(I) {
             I.amOnPage('/login');
-            I.fillField('Email Address', 'atd.mondol@gmail.com'); //
-
-            I.fillField('Password', 'appsero@4321');
-            I.click('Log in');
-            I.see('Plugins');
-          }
-        },
-        admin_production: {
-          login: function login(I) {
-            I.amOnPage('https://dashboard.appsero.com/login'); //this.click('Log in');
-
-            I.fillField('Email Address', 'atd.mondol@gmail.com'); //
-
-            I.fillField('Password', 'alvi@4321');
-            I.click('Log in');
-            I.see('Plugins');
+            I.fillField('Username', 'YourUsername');
+            I.fillField('Password', secret('YourPassword'));
+            I.checkOption('Remember Me');
+            I.click('Log In');
           }
         }
       }

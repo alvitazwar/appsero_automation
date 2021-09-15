@@ -17,7 +17,7 @@ module.exports = {
       phone: faker.phone.phoneNumber()
     };
   },
-  getPaddlesSingleOrder: function getPaddlesSingleOrder(data) {
+  getPaddleSingleOrder: function getPaddleSingleOrder(data) {
     var singleorder = {
       "alert_id": data.value,
       "alert_name": "payment_succeeded",

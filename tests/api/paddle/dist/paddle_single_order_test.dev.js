@@ -12,7 +12,7 @@ Scenario('Paddle Single order Place', function _callee(_ref) {
         case 0:
           I = _ref.I;
           data = payload.getFakerData();
-          load = payload.getSubsCreateOrder(data);
+          load = payload.getPaddleSingleOrder(data);
           _context.next = 5;
           return regeneratorRuntime.awrap(I.sendPostRequest('/webhook/paddle/7d494986-fe98-413e-b671-565a8dfaae30', load));
 

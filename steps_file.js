@@ -13,22 +13,7 @@ module.exports = function() {
         Selectplugin: function() {
             this.click('FastSpring_License_subs');
         },
-        loginAsAdmin: function() {
-            this.amOnPage('/login');
-            //this.click('Log in');
-            this.fillField('Email Address', 'atd.mondol@gmail.com'); //
-            this.fillField('Password', 'appsero@4321');
-            this.click('Log in');
-            this.see('Plugins');
-        },
-        loginAsAdminProduction: function() {
-            this.amOnPage('https://dashboard.appsero.com/login');
-            //this.click('Log in');
-            this.fillField('Email Address', 'atd.mondol@gmail.com'); //
-            this.fillField('Password', 'alvi@4321');
-            this.click('Log in');
-            this.see('Plugins');
-        },
+
         checkError: function() {
             this.dontSee('Unknown error occurred.');
             this.dontSee('Warning');
@@ -69,23 +54,6 @@ module.exports = function() {
         objecttest: function() {
 
         },
-        ImageUpload: function() {
-
-            this.usePuppeteerTo('upload action', async({ page, browser }) => {
-                const [fileChooser] = await Promise.all([
-                        page.waitForFileChooser(),
-                        page.click()
-                    ])
-                    //await fileChooser.accept(['data/img1.png']);
-                await fileChooser.accept();
-
-                await page.waitForSelector();
-                await page.click();
-                this.wait(10)
-                    //await page.waitForTimeout(5000);
-            })
-        }
-        ``
 
 
         // Define custom steps here, use 'this' to access default methods of I.
