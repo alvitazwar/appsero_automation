@@ -1,4 +1,4 @@
-Feature('Appsero');
+Feature('Appsero Accounts');
 
 Scenario(' Password ', async({ I, loginAs }) => {
 

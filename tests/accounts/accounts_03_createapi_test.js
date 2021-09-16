@@ -1,4 +1,4 @@
-Feature('Appsero');
+Feature('Appsero Accounts');
 const locator = require('./accounts_locator_test');
 Scenario('@accounts api create ', async({ I, loginAs }) => {
     loginAs('admin_staging');

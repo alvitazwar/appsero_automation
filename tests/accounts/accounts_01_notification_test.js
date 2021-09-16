@@ -1,5 +1,5 @@
 const locator = require('./accounts_locator_test');
-Feature('Appsero');
+Feature('Appsero Accounts');
 
 Scenario('@accounts Toggle Notification ', async({ I, loginAs }) => {
 

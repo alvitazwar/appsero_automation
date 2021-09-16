@@ -21,42 +21,44 @@ Scenario('Site activate and Deactivate Scenario', function _callee(_ref) {
                 switch (_context.prev = _context.next) {
                   case 0:
                     fake_data = payload.getFakerData();
+                    console.log(fake_data); // const plugin_data = payload.getPluginData()
+
                     getrack = payload.getTrackingInfo(fake_data);
 
                     if (!(i % 2 == 0)) {
-                      _context.next = 7;
+                      _context.next = 8;
                       break;
                     }
 
-                    _context.next = 5;
-                    return regeneratorRuntime.awrap(I.sendPostRequest('http://a1fa-103-108-147-143.ngrok.io/track', getrack).then(function (res) {
+                    _context.next = 6;
+                    return regeneratorRuntime.awrap(I.sendPostRequest('/track', getrack).then(function (res) {
                       I.assertEqual(res.status, 200);
                       console.log(res.data);
 
                       if (res.status == 200) {
                         I.wait(3);
-                        I.sendPostRequest('http://a1fa-103-108-147-143.ngrok.io/deactivate', getrack).then(function (res) {
+                        I.sendPostRequest('/deactivate', getrack).then(function (res) {
                           I.assertEqual(res.status, 200);
                           console.log(res.data);
                         });
                       }
                     }));
 
-                  case 5:
-                    _context.next = 10;
+                  case 6:
+                    _context.next = 11;
                     break;
 
-                  case 7:
-                    _context.next = 9;
-                    return regeneratorRuntime.awrap(I.sendPostRequest('http://a1fa-103-108-147-143.ngrok.io/track', getrack).then(function (res) {
+                  case 8:
+                    _context.next = 10;
+                    return regeneratorRuntime.awrap(I.sendPostRequest('/track', getrack).then(function (res) {
                       I.assertEqual(res.status, 200);
                       console.log(res.data);
                     }));
 
-                  case 9:
+                  case 10:
                     res = _context.sent;
 
-                  case 10:
+                  case 11:
                   case "end":
                     return _context.stop();
                 }
@@ -67,7 +69,7 @@ Scenario('Site activate and Deactivate Scenario', function _callee(_ref) {
           i = 1;
 
         case 3:
-          if (!(i <= 30)) {
+          if (!(i <= 3)) {
             _context2.next = 9;
             break;
           }

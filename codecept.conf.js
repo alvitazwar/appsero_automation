@@ -15,7 +15,7 @@ exports.config = {
         Puppeteer: {
             // url: 'https://dashboard.appsero.com',
             url: 'https://staging.appsero.com', //https://staging.appsero.com  
-            show: true,
+            show: false,
             browser: 'chrome',
             windowSize: '1440 x900',
             // desiredCapabilities: {
@@ -37,7 +37,7 @@ exports.config = {
             },
             defaultHeaders: {
                 "accept": 'application/json',
-                "authorization": 'Bearer dLSU7QA9adNnybjwhF6zWNUN6kzwuXSt'
+                "authorization": 'Bearer ycSRuZO2JjyWycDP6lMsvvkU04cjDdNO'
 
             }
         },
@@ -50,14 +50,14 @@ exports.config = {
         I: './steps_file.js'
     },
     bootstrap: null,
-    mocha: {
-        reporterOptions: {
-            reportDir: 'output'
-        },
-        reporterOptions: {
-            mochaFile: 'output/result.xml'
-        }
-    },
+    // mocha: {
+    //     reporterOptions: {
+    //         reportDir: 'output'
+    //     },
+    //     reporterOptions: {
+    //         mochaFile: 'output/result.xml'
+    //     }
+    // },
     name: 'codecept_puppetiers',
     plugins: {
         retryFailedStep: {
@@ -86,7 +86,7 @@ exports.config = {
                     login: (I) => {
                         I.amOnPage('https://staging.appsero.com/login');
                         I.fillField('Email Address', 'atd.mondol@gmail.com'); //
-                        I.fillField('Password', 'appsero@4321');
+                        I.fillField('Password', 'appsero@_6598');
                         I.click('Log in');
                         I.see('Plugins');
                     },
@@ -99,7 +99,7 @@ exports.config = {
                         I.amOnPage('https://dashboard.appsero.com/login');
                         //this.click('Log in');
                         I.fillField('Email Address', 'atd.mondol@gmail.com'); //
-                        I.fillField('Password', 'alvi@4321');
+                        I.fillField('Password', 'appsero@_6598');
                         I.click('Log in');
                         I.see('Plugins');
                     },

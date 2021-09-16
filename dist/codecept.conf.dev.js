@@ -1,7 +1,5 @@
 "use strict";
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 var _require = require('@codeceptjs/configure'),
     setHeadlessWhen = _require.setHeadlessWhen; // turn on headless mode when running with HEADLESS=true environment variable
 // HEADLESS=true npx codecept run
@@ -17,7 +15,7 @@ exports.config = {
       // url: 'https://dashboard.appsero.com',
       url: 'https://staging.appsero.com',
       //https://staging.appsero.com  
-      show: true,
+      show: false,
       browser: 'chrome',
       windowSize: '1440 x900',
       // desiredCapabilities: {
@@ -38,7 +36,7 @@ exports.config = {
       },
       defaultHeaders: {
         "accept": 'application/json',
-        "authorization": 'Bearer dLSU7QA9adNnybjwhF6zWNUN6kzwuXSt'
+        "authorization": 'Bearer ycSRuZO2JjyWycDP6lMsvvkU04cjDdNO'
       }
     },
     "ChaiWrapper": {
@@ -49,13 +47,14 @@ exports.config = {
     I: './steps_file.js'
   },
   bootstrap: null,
-  mocha: _defineProperty({
-    reporterOptions: {
-      reportDir: 'output'
-    }
-  }, "reporterOptions", {
-    mochaFile: 'output/result.xml'
-  }),
+  // mocha: {
+  //     reporterOptions: {
+  //         reportDir: 'output'
+  //     },
+  //     reporterOptions: {
+  //         mochaFile: 'output/result.xml'
+  //     }
+  // },
   name: 'codecept_puppetiers',
   plugins: {
     retryFailedStep: {
@@ -83,7 +82,7 @@ exports.config = {
             I.amOnPage('https://staging.appsero.com/login');
             I.fillField('Email Address', 'atd.mondol@gmail.com'); //
 
-            I.fillField('Password', 'appsero@4321');
+            I.fillField('Password', 'appsero@_6598');
             I.click('Log in');
             I.see('Plugins');
           },
@@ -97,7 +96,7 @@ exports.config = {
 
             I.fillField('Email Address', 'atd.mondol@gmail.com'); //
 
-            I.fillField('Password', 'alvi@4321');
+            I.fillField('Password', 'appsero@_6598');
             I.click('Log in');
             I.see('Plugins');
           }

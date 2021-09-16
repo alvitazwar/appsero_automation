@@ -51,7 +51,9 @@ module.exports = function () {
       this.clearField('//*[@id="app"]//div/span/input');
       this.fillField('//*[@id="app"]//div/span/input', faker.internet.email());
     },
-    objecttest: function objecttest() {} // Define custom steps here, use 'this' to access default methods of I.
+    slug_return: function slug_return() {
+      return faker.random.arrayElement(["Woo funnel", "Astra wp", "Ocean wp", "Avada", "X theme", "Studio press", "Jupiter den"]);
+    } // Define custom steps here, use 'this' to access default methods of I.
     // It is recommended to place a general 'login' function here.
 
   });

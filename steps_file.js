@@ -51,7 +51,8 @@ module.exports = function() {
             this.clearField('//*[@id="app"]//div/span/input');
             this.fillField('//*[@id="app"]//div/span/input', faker.internet.email());
         },
-        objecttest: function() {
+        slug_return: function() {
+            return faker.random.arrayElement(["Woo funnel", "Astra wp", "Ocean wp", "Avada", "X theme", "Studio press", "Jupiter den"])
 
         },
 

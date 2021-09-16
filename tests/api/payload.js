@@ -1,56 +1,22 @@
 var faker = require('faker');
+var slugify = require('slugify');
 const {
     I
 } = inject();
 
 module.exports = {
-    getFakerData() {
-        return data = {
-            url: faker.internet.url(),
-            site: faker.name.title(),
-            email: faker.internet.email(),
-            fname: faker.name.firstName(),
-            lname: faker.name.lastName(),
-            value: faker.random.alphaNumeric(30),
-            phone: faker.phone.phoneNumber(),
-        }
 
-    },
     getTrackingInfo(data) {
-        var track = {
+        let track = {
             "url": data.url,
             "site": data.site,
             "admin_email": data.email,
             "first_name": data.fname,
             "last_name": data.lname,
-            "hash": "1f8cda81-26f5-486d-871b-9e60e9733db3",
-            "server": {
-                "software": "LiteSpeed/1.24",
-                "php_version": "7.4.1-ubuntu",
-                "mysql_version": "8.5.3-release",
-                "php_max_upload_size": "120 MB",
-                "php_default_timezone": "UTC",
-                "php_soap": "No",
-                "php_fsockopen": "Yes",
-                "php_curl": "Yes"
-            },
-            "wp": {
-                "memory_limit": "256M",
-                "debug_mode": "Yes",
-                "locale": "en_US",
-                "version": "5.7-alpha-release-ch3",
-                "multisite": "No",
-                "theme_slug": "goblog-free",
-                "theme_name": "Goblog Free",
-                "theme_version": "3.1.1",
-                "theme_uri": "https://gothemeshop.com/theme-wordpress-goblog-free/",
-                "theme_author": "Yuky Hendiawan"
-            },
-            "users": {
-                "total": "2",
-                "administrator": "1",
-                "subscriber": "1"
-            },
+            "hash": "23140ebb-d13f-4ec8-814e-a2d4ed55e942",
+            "server": this.getServerData(data),
+            "wp": this.getWordpressData(data),
+            "users": this.getUsersData(),
             "active_plugins": "8",
             "inactive_plugins": "5",
             "ip_address": "2a01:4f8:10a:3a5c::2",
@@ -59,18 +25,77 @@ module.exports = {
             "reason_id": "not-have-that-feature",
             "reason_info": null,
             "client": "1.2.0",
-            "plugins": {
-                "test-plugin-one": {
-                    "name": data.fname,
-                    "version": faker.random.float(10, 20)
-                },
-                "test-plugin-two": {
-                    "name": data.fname,
-                    "version": faker.random.float(10, 20)
-                }
-            }
+            "plugins": this.getPluginData(5),
         }
         return track;
     },
+    getFakerData() {
+
+        return {
+            url: faker.internet.url(),
+            site: faker.name.title(),
+            email: faker.internet.email(),
+            fname: faker.name.firstName(),
+            lname: faker.name.lastName(),
+            value: faker.random.alphaNumeric(30),
+            phone: faker.phone.phoneNumber(),
+            // software: ,
+            php_version: faker.random.arrayElement(["7.4.1-ubuntu", "7.4.7-ubuntu", "5.4.3-ubuntu"]),
+            my_sql: faker.random.arrayElement(["8.5.3-release", "8.4.1-release", "4.5.5-release"]),
+            size: faker.random.arrayElement(["120 MB", "240 MB", "256 MB", "512 MB"]),
+            yes_no: faker.random.arrayElement(["No", "Yes"]),
+            theme_version: faker.datatype.float({ min: 3.0, max: 7.0 }).toFixed(2),
+
+        }
+
+    },
+    getServerData(data) {
+        return {
+            "software": faker.random.arrayElement(["LiteSpeed/1.24", "nginxd/1.25", "apache/1.27"]),
+            "php_version": data.php_version,
+            "mysql_version": data.mysql_version,
+            "php_max_upload_size": data.size,
+            "php_default_timezone": "UTC",
+            "php_soap": data.yes_no,
+            "php_fsockopen": data.yes_no,
+            "php_curl": data.yes_no
+        }
+    },
+    getWordpressData(data) {
+        return {
+            "memory_limit": data.size,
+            "debug_mode": data.yes_no,
+            "locale": "en_US",
+            "version": faker.datatype.float({ min: 7.0, max: 8.0 }).toFixed(1),
+            "multisite": data.yes_no,
+            "theme_slug": "goblog-free",
+            "theme_name": "Goblog Free",
+            "theme_version": data.theme_version,
+            "theme_uri": data.url,
+            "theme_author": faker.name.firstName()
+        }
+    },
+    getUsersData() {
+        return {
+            "total": faker.datatype.number({ min: 2, max: 10 }),
+            "administrator": faker.datatype.number({ min: 2, max: 10 }),
+            "subscriber": faker.datatype.number({ min: 2, max: 10 })
+        }
+    },
+    getPluginData(total) {
+        let data = {};
+        for (let i = 0; i < total; i++) {
+            let pname = faker.name.firstName();
+            let slug = slugify(pname);
+
+            data[slug] = {
+                name: pname,
+                version: faker.random.arrayElement(["1.2", "1.5", "2.1"]),
+            };
+        }
+        return data;
+
+    },
+
 
 }

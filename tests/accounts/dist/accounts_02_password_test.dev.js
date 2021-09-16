@@ -1,6 +1,6 @@
 "use strict";
 
-Feature('Appsero');
+Feature('Appsero Accounts');
 Scenario(' Password ', function _callee(_ref) {
   var I, loginAs;
   return regeneratorRuntime.async(function _callee$(_context) {

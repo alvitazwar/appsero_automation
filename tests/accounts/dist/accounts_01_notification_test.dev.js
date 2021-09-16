@@ -2,7 +2,7 @@
 
 var locator = require('./accounts_locator_test');
 
-Feature('Appsero');
+Feature('Appsero Accounts');
 Scenario('@accounts Toggle Notification ', function _callee(_ref) {
   var I, loginAs;
   return regeneratorRuntime.async(function _callee$(_context) {

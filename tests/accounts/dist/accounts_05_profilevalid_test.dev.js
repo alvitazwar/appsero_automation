@@ -1,6 +1,6 @@
 "use strict";
 
-Feature('Appsero');
+Feature('Appsero Accounts');
 
 var locator = require('./accounts_locator_test');
 
