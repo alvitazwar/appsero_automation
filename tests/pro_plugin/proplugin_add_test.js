@@ -1,9 +1,9 @@
 Feature('Appsero');
 const { ifError, strict } = require("assert");
 const { assert } = require("console");
-Scenario('@code export', async({ I }) => {
-    I.loginAsAdminProduction();
-    for (let i = 0; i <= 7; i++) {
+Scenario('@code export', async({ I, loginAs }) => {
+    loginAs('admin_staging');
+    for (let i = 0; i <= 2; i++) {
         await console.log('step number', i);
         if (i % 2 == 0) {
             I.click('//li[2]/a[@href="/plugins"]');

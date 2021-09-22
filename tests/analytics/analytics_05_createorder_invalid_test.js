@@ -1,7 +1,7 @@
 Feature('Appsero');
 const locator = require('../analytics/analytics_locator_test.js');
-Scenario('@analytics create order invalid', async({ I }) => {
-    I.loginAsAdmin();
+Scenario('@analytics create order invalid', async({ I, loginAs }) => {
+    loginAs('admin_staging');
     I.amOnPage('/plugins');
     I.Selectplugin();
     I.click(locator.Sales);

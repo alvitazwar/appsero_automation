@@ -6,12 +6,12 @@ var faker = require('faker');
 
 Feature('Wemail');
 Scenario('Form submission', function _callee(_ref) {
-  var I;
+  var I, loginAs;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          I = _ref.I;
+          I = _ref.I, loginAs = _ref.loginAs;
           I.amOnPage('https://stagingwp.getwemail.io/');
           I.fillField('#wemail-form-field-4-first', faker.name.firstName());
           I.fillField('#wemail-form-field-4-last', faker.name.lastName());

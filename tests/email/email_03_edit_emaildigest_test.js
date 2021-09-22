@@ -3,8 +3,8 @@ var faker = require('faker');
 const locator = require('../email/email_locator_test.js');
 Feature('Appsero');
 
-Scenario('@email edit email digest', async({ I }) => {
-    I.loginAsAdmin();
+Scenario('@email edit email digest', async({ I, loginAs }) => {
+    loginAs('admin_staging');
     I.amOnPage('/plugins');
     I.Selectplugin();
     I.click(locator.EmailMenu);

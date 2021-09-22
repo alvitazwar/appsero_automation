@@ -4,8 +4,8 @@ const helper = require('./helpers');
 const locator = require('../email/email_locator_test.js');
 Feature('Appsero');
 
-Scenario('@email insert email digest valid', async({ I }) => {
-    I.loginAsAdmin();
+Scenario('@email insert email digest valid', async({ I, loginAs }) => {
+    loginAs('admin_staging');
     I.amOnPage('/plugins');
     I.Selectplugin();
     I.click(locator.EmailMenu);

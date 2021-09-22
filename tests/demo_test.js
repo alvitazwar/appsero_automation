@@ -2,7 +2,7 @@ var Factory = require('rosie');
 var faker = require('faker');
 Feature('Wemail');
 
-Scenario('Form submission', async({ I }) => {
+Scenario('Form submission', async({ I, loginAs }) => {
     I.amOnPage('https://stagingwp.getwemail.io/');
     I.fillField('#wemail-form-field-4-first', faker.name.firstName());
     I.fillField('#wemail-form-field-4-last', faker.name.lastName());

@@ -1,31 +1,27 @@
 "use strict";
 
-Feature('Appsero');
+Feature('All the test codes are held');
 
-var _require = require("assert"),
-    ifError = _require.ifError,
-    strict = _require.strict;
-
-var _require2 = require("console"),
-    assert = _require2.assert;
+var slugify = require('slugify');
 
 var faker = require('faker');
 
-var cry = require('crypto');
-
-Scenario('test', function _callee(_ref) {
-  var I, i, data, fake;
+Scenario('Experiment ZOne', function _callee(_ref) {
+  var I, i, city;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
           I = _ref.I;
 
-          for (i = 0; i <= 3; i++) {
-            data = cry.randomBytes(10).toString("hex"); //console.log(data);
+          for (i = 0; i <= 1; i++) {
+            // var variable = faker.datatype.number({ min: 10, max: 20 });
+            // var slug_var = faker.datatype.uuid(10);
+            // var seeds = faker.seed(142);
+            city = Date(); // console.log('The value of variable', variable);
+            // console.log('the value of slug', slug_var);
 
-            fake = faker.random.alphaNumeric(20);
-            console.log(fake);
+            console.log('I am currently in', city);
           }
 
         case 2:

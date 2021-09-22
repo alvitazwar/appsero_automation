@@ -2,12 +2,12 @@
 
 Feature('Appsero deactivation test');
 Scenario('Deactivation', function _callee(_ref) {
-  var I, data, res;
+  var I, loginAs, data, res;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          I = _ref.I;
+          I = _ref.I, loginAs = _ref.loginAs;
           data = {
             url: "http://hallie.name",
             site: "Investor Web Strategist",

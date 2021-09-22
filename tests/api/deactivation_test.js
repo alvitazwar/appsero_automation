@@ -1,6 +1,6 @@
 Feature('Appsero deactivation test');
 
-Scenario('Deactivation', async({ I }) => {
+Scenario('Deactivation', async({ I, loginAs }) => {
     var data = {
         url: "http://hallie.name",
         site: "Investor Web Strategist",

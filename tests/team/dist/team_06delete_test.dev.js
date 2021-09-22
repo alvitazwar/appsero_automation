@@ -2,14 +2,14 @@
 
 Feature('Appsero');
 Scenario('Team  delete', function _callee(_ref) {
-  var I;
+  var I, loginAs;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          I = _ref.I;
+          I = _ref.I, loginAs = _ref.loginAs;
           I.clearCookie();
-          I.loginAsAdmin();
+          loginAs('admin_staging');
           I.click('//*[@id="app"]/section/section/header/div[2]/a');
           I.click('Teams');
           I.click('Automated team');

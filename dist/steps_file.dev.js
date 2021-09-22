@@ -17,24 +17,6 @@ module.exports = function () {
     Selectplugin: function Selectplugin() {
       this.click('FastSpring_License_subs');
     },
-    loginAsAdmin: function loginAsAdmin() {
-      this.amOnPage('/login'); //this.click('Log in');
-
-      this.fillField('Email Address', 'atd.mondol@gmail.com'); //
-
-      this.fillField('Password', 'appsero@4321');
-      this.click('Log in');
-      this.see('Plugins');
-    },
-    loginAsAdminProduction: function loginAsAdminProduction() {
-      this.amOnPage('https://dashboard.appsero.com/login'); //this.click('Log in');
-
-      this.fillField('Email Address', 'atd.mondol@gmail.com'); //
-
-      this.fillField('Password', 'alvi@4321');
-      this.click('Log in');
-      this.see('Plugins');
-    },
     checkError: function checkError() {
       this.dontSee('Unknown error occurred.');
       this.dontSee('Warning');
@@ -69,7 +51,9 @@ module.exports = function () {
       this.clearField('//*[@id="app"]//div/span/input');
       this.fillField('//*[@id="app"]//div/span/input', faker.internet.email());
     },
-    objecttest: function objecttest() {} // Define custom steps here, use 'this' to access default methods of I.
+    slug_return: function slug_return() {
+      return faker.random.arrayElement(["Woo funnel", "Astra wp", "Ocean wp", "Avada", "X theme", "Studio press", "Jupiter den"]);
+    } // Define custom steps here, use 'this' to access default methods of I.
     // It is recommended to place a general 'login' function here.
 
   });

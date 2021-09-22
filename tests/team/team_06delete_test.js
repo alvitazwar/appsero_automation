@@ -1,8 +1,8 @@
 Feature('Appsero');
 
-Scenario('Team  delete', async({ I }) => {
+Scenario('Team  delete', async({ I, loginAs }) => {
     I.clearCookie();
-    I.loginAsAdmin();
+    loginAs('admin_staging');
     I.click('//*[@id="app"]/section/section/header/div[2]/a');
     I.click('Teams');
     I.click('Automated team');

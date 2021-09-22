@@ -1,10 +1,12 @@
 var faker = require('faker');
 const payload = require('./payload');
-Feature('Site activate and Deactivate Scenario');
+Feature('Appsero Analytics');
 
-Scenario('Add & Deactivate Track', async({ I }) => {
-    for (let i = 1; i <= 10; i++) {
+Scenario('Site activate and Deactivate Scenario', async({ I, loginAs }) => {
+    for (let i = 1; i <= 3; i++) {
         const fake_data = payload.getFakerData();
+        console.log(fake_data)
+            // const plugin_data = payload.getPluginData()
         const getrack = payload.getTrackingInfo(fake_data);
         if (i % 2 == 0) {
             await I.sendPostRequest('/track', getrack).then((res) => {
