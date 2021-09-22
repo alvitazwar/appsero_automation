@@ -1,7 +1,7 @@
 Feature('Appsero');
 const locator = require('../analytics/analytics_locator_test.js');
-Scenario('@analytics Edit License', async({ I }) => {
-    I.loginAsAdmin();
+Scenario('@analytics Edit License', async({ I, loginAs }) => {
+    loginAs('admin_staging');
     I.amOnPage('/plugins')
     I.Selectplugin();
     I.click(locator.LicenseMenu);

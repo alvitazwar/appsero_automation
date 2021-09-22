@@ -3,9 +3,9 @@ const { ifError, strict } = require("assert");
 const { assert } = require("console");
 const locator = require('../analytics/analytics_locator_test.js');
 
-Scenario('analytics Stats test', async({ I }) => {
+Scenario('analytics Stats test', async({ I, loginAs }) => {
 
-    I.loginAsAdmin();
+    loginAs('admin_staging');
     I.amOnPage('/plugins');
     // I.click('Fastspring_affiliate2');
     I.click('FastSpring_License_subs'); //envato plg test

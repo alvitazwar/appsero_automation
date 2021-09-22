@@ -18,7 +18,7 @@ Scenario('@explore_analytics release test', function _callee(_ref) {
             switch (_context.prev = _context.next) {
                 case 0:
                     I = _ref.I;
-                    I.loginAsAdmin();
+                    loginAs('admin_staging');
                     I.amOnPage('/plugins');
                     I.click('envato plg test'); //Fastspring_affiliate2
                     // I.seeElement(locator.PremiumModal);

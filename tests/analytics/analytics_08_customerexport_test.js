@@ -2,9 +2,9 @@ Feature('Appsero');
 const { ifError, strict } = require("assert");
 const { assert } = require("console");
 const locator = require('./analytics_locator_test.js');
-Scenario('@analytics customer export', async({ I }) => {
+Scenario('@analytics customer export', async({ I, loginAs }) => {
 
-    I.loginAsAdmin();
+    loginAs('admin_staging');
     I.amOnPage('/plugins');
     I.Selectplugin();
 

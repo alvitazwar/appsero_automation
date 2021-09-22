@@ -2,18 +2,18 @@
 
 Feature('Appsero');
 Scenario(' Responder function invalid ', function _callee(_ref) {
-  var I;
+  var I, loginAs;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          I = _ref.I;
+          I = _ref.I, loginAs = _ref.loginAs;
           // I.amOnPage('https://staging.appsero.com/login');
           // I.fillField('Email Address', 'alvitazwar@wedevs.com');
           // I.fillField('Password','crisis052');
           // I.click('Log in');
           // I.see('Plugins');
-          I.loginAsAdmin();
+          loginAs('admin_staging');
           I.amOnPage('/plugins');
           I.click('envato plg test');
           I.click('Email');

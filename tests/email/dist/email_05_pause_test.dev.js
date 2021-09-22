@@ -4,13 +4,13 @@ var locator = require('../email/email_locator_test.js');
 
 Feature('Appsero');
 Scenario('@email pause-active function ', function _callee2(_ref) {
-  var I;
+  var I, loginAs;
   return regeneratorRuntime.async(function _callee2$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
-          I = _ref.I;
-          I.loginAsAdmin();
+          I = _ref.I, loginAs = _ref.loginAs;
+          loginAs('admin_staging');
           I.amOnPage('/plugins');
           I.Selectplugin();
           I.click(locator.EmailMenu);

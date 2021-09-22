@@ -12,13 +12,13 @@ var _require2 = require("console"),
 var locator = require('../analytics/analytics_locator_test.js');
 
 Scenario('Sales Explore test', function _callee3(_ref) {
-  var I;
+  var I, loginAs;
   return regeneratorRuntime.async(function _callee3$(_context3) {
     while (1) {
       switch (_context3.prev = _context3.next) {
         case 0:
-          I = _ref.I;
-          I.loginAsAdmin();
+          I = _ref.I, loginAs = _ref.loginAs;
+          loginAs('admin_staging');
           I.amOnPage('/plugins'); // I.click('Fastspring_affiliate2');
 
           I.click('FastSpring_License_subs'); //envato plg test

@@ -2,8 +2,8 @@ var Factory = require('rosie');
 var faker = require('faker');
 const locator = require('../email/email_locator_test.js');
 Feature('Appsero');
-Scenario('@email send now email digest ', async({ I }) => {
-    I.loginAsAdmin();
+Scenario('@email send now email digest ', async({ I, loginAs }) => {
+    loginAs('admin_staging');
     I.amOnPage('/plugins');
     I.Selectplugin();
     I.click(locator.EmailMenu);

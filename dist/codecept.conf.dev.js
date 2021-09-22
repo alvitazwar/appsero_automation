@@ -1,7 +1,5 @@
 "use strict";
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 var _require = require('@codeceptjs/configure'),
     setHeadlessWhen = _require.setHeadlessWhen; // turn on headless mode when running with HEADLESS=true environment variable
 // HEADLESS=true npx codecept run
@@ -18,11 +16,18 @@ exports.config = {
       url: 'https://staging.appsero.com',
       //https://staging.appsero.com  
       show: false,
-      windowSize: '1366x768',
+      browser: 'chrome',
+      windowSize: '1440 x900',
+      // desiredCapabilities: {
+      //     chromeOptions: {
+      //         args: ["--window-size=1400,900", "--disable-gpu", "--no-sandbox"]
+      //     },
+      //     defaultViewport: null
+      // },
       smartWait: 5000,
       waitForAction: 2000,
       keepCookies: false,
-      restart: true
+      restart: false
     },
     REST: {
       endpoint: 'https://staging.api.appsero.com',
@@ -31,7 +36,7 @@ exports.config = {
       },
       defaultHeaders: {
         "accept": 'application/json',
-        "authorization": 'Bearer dLSU7QA9adNnybjwhF6zWNUN6kzwuXSt'
+        "authorization": 'Bearer ycSRuZO2JjyWycDP6lMsvvkU04cjDdNO'
       }
     },
     "ChaiWrapper": {
@@ -42,17 +47,18 @@ exports.config = {
     I: './steps_file.js'
   },
   bootstrap: null,
-  mocha: _defineProperty({
-    reporterOptions: {
-      reportDir: 'output'
-    }
-  }, "reporterOptions", {
-    mochaFile: 'output/result.xml'
-  }),
+  // mocha: {
+  //     reporterOptions: {
+  //         reportDir: 'output'
+  //     },
+  //     reporterOptions: {
+  //         mochaFile: 'output/result.xml'
+  //     }
+  // },
   name: 'codecept_puppetiers',
   plugins: {
     retryFailedStep: {
-      enabled: true
+      enabled: false
     },
     screenshotOnFail: {
       enabled: false
@@ -65,6 +71,37 @@ exports.config = {
     },
     tryTo: {
       enabled: true
+    },
+    autoLogin: {
+      enabled: true,
+      saveToFile: false,
+      inject: 'loginAs',
+      users: {
+        admin_staging: {
+          login: function login(I) {
+            I.amOnPage('https://staging.appsero.com/login');
+            I.fillField('Email Address', 'atd.mondol@gmail.com'); //
+
+            I.fillField('Password', 'appsero@_6598');
+            I.click('Log in');
+            I.see('Plugins');
+          },
+          check: function check(I) {
+            I.seeCurrentUrlEquals('/login');
+          }
+        },
+        admin_production: {
+          login: function login(I) {
+            I.amOnPage('https://dashboard.appsero.com/login'); //this.click('Log in');
+
+            I.fillField('Email Address', 'atd.mondol@gmail.com'); //
+
+            I.fillField('Password', 'appsero@_6598');
+            I.click('Log in');
+            I.see('Plugins');
+          }
+        }
+      }
     }
   },
   rerun: {

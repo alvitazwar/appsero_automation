@@ -1,7 +1,7 @@
 const locator = require('../email/email_locator_test.js');
 Feature('Appsero');
-Scenario('@email pause-active function ', async({ I }) => {
-    I.loginAsAdmin();
+Scenario('@email pause-active function ', async({ I, loginAs }) => {
+    loginAs('admin_staging');
     I.amOnPage('/plugins');
     I.Selectplugin();
     I.click(locator.EmailMenu);

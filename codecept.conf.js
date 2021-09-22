@@ -16,11 +16,19 @@ exports.config = {
             // url: 'https://dashboard.appsero.com',
             url: 'https://staging.appsero.com', //https://staging.appsero.com  
             show: false,
-            windowSize: '1366x768',
+            browser: 'chrome',
+            windowSize: '1440 x900',
+            // desiredCapabilities: {
+            //     chromeOptions: {
+            //         args: ["--window-size=1400,900", "--disable-gpu", "--no-sandbox"]
+            //     },
+            //     defaultViewport: null
+            // },
             smartWait: 5000,
             waitForAction: 2000,
             keepCookies: false,
-            restart: true,
+            restart: false,
+
         },
         REST: {
             endpoint: 'https://staging.api.appsero.com', //'https://staging.api.appsero.com'
@@ -29,7 +37,7 @@ exports.config = {
             },
             defaultHeaders: {
                 "accept": 'application/json',
-                "authorization": 'Bearer dLSU7QA9adNnybjwhF6zWNUN6kzwuXSt'
+                "authorization": 'Bearer ycSRuZO2JjyWycDP6lMsvvkU04cjDdNO'
 
             }
         },
@@ -42,18 +50,18 @@ exports.config = {
         I: './steps_file.js'
     },
     bootstrap: null,
-    mocha: {
-        reporterOptions: {
-            reportDir: 'output'
-        },
-        reporterOptions: {
-            mochaFile: 'output/result.xml'
-        }
-    },
+    // mocha: {
+    //     reporterOptions: {
+    //         reportDir: 'output'
+    //     },
+    //     reporterOptions: {
+    //         mochaFile: 'output/result.xml'
+    //     }
+    // },
     name: 'codecept_puppetiers',
     plugins: {
         retryFailedStep: {
-            enabled: true
+            enabled: false
         },
         screenshotOnFail: {
             enabled: false
@@ -68,7 +76,38 @@ exports.config = {
         },
         tryTo: {
             enabled: true
+        },
+        autoLogin: {
+            enabled: true,
+            saveToFile: false,
+            inject: 'loginAs',
+            users: {
+                admin_staging: {
+                    login: (I) => {
+                        I.amOnPage('https://staging.appsero.com/login');
+                        I.fillField('Email Address', 'atd.mondol@gmail.com'); //
+                        I.fillField('Password', 'appsero@_6598');
+                        I.click('Log in');
+                        I.see('Plugins');
+                    },
+                    check: (I) => {
+                        I.seeCurrentUrlEquals('/login');
+                    },
+                },
+                admin_production: {
+                    login: (I) => {
+                        I.amOnPage('https://dashboard.appsero.com/login');
+                        //this.click('Log in');
+                        I.fillField('Email Address', 'atd.mondol@gmail.com'); //
+                        I.fillField('Password', 'appsero@_6598');
+                        I.click('Log in');
+                        I.see('Plugins');
+                    },
+                }
+
+            },
         }
+
 
     },
     rerun: {

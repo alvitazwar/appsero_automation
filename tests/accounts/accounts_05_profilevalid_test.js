@@ -1,7 +1,7 @@
-Feature('Appsero');
+Feature('Appsero Accounts');
 const locator = require('./accounts_locator_test');
-Scenario('@accounts profile update ', async({ I }) => {
-    I.loginAsAdmin();
+Scenario('@accounts profile update ', async({ I, loginAs }) => {
+    loginAs('admin_staging');
     I.click(locator.profilemenu);
     I.click('Account');
     I.clearField('First Name');
@@ -10,6 +10,4 @@ Scenario('@accounts profile update ', async({ I }) => {
     I.fillField('Last Name', 'Tazwar');
     I.click('Update Profile');
     I.see('Profile updated successfully!');
-
-
 }).tag('@accounts');

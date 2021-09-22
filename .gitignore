@@ -2,7 +2,8 @@ node_modules
 package-lock.json
 config.json
 output
-
+codecept.conf.js
 # Composer
+data
 /vendor/
 phpcs-report.txt
