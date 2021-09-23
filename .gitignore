@@ -7,4 +7,4 @@ codecept.conf.js
 data
 /vendor/
 phpcs-report.txt
-
+.DS_Store
