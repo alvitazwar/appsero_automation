@@ -81,6 +81,9 @@ exports.config = {
             I.fillField('Password', secret('YourPassword'));
             I.checkOption('Remember Me');
             I.click('Log In');
+          },
+          check: function check(I) {
+            I.seeCurrentUrlEquals('/login');
           }
         }
       }
