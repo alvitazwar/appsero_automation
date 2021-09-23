@@ -90,6 +90,9 @@ exports.config = {
                         I.checkOption('Remember Me');
                         I.click('Log In');
                     },
+                    check: (I) => {
+                        I.seeCurrentUrlEquals('/login');
+                    },
                 },
 
             },
