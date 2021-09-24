@@ -1,7 +1,8 @@
 const locator = require('./accounts_locator_test');
 Feature('Appsero Accounts');
 Scenario('@accounts Integration', async({ I, loginAs }) => {
-    loginAs('admin_staging');
+    // loginAs('admin_staging');
+    I.amOnPage('/');
     I.click(locator.integrationmenu);
     I.seeElementInDOM(locator.mailchimpdiv);
     I.seeElementInDOM(locator.wemaildiv);
@@ -17,9 +18,4 @@ Scenario('@accounts Integration', async({ I, loginAs }) => {
     I.seeElementInDOM(locator.helpscoutdiv).then((result) => {
         console.log('All elements are loaded successfully');
     });
-
-
-
-
-
 }).tag('@accounts');

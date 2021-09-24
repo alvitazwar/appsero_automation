@@ -10,7 +10,8 @@ Scenario('@accounts Integration', function _callee(_ref) {
       switch (_context.prev = _context.next) {
         case 0:
           I = _ref.I, loginAs = _ref.loginAs;
-          loginAs('admin_staging');
+          // loginAs('admin_staging');
+          I.amOnPage('/');
           I.click(locator.integrationmenu);
           I.seeElementInDOM(locator.mailchimpdiv);
           I.seeElementInDOM(locator.wemaildiv);

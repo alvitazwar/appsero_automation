@@ -18,7 +18,7 @@ Scenario('release test', async({ I, loginAs }) => {
             ])
             //var test_file = test[0];
             //await console.log(file[i]);
-        await fileChooser.accept(['data/img.jpeg']);
+        await fileChooser.accept(['data/img.png']);
         await page.waitForTimeout(10000);
         await page.waitForSelector('div > div.media-toolbar-primary.search-form > button');;
         await page.click('div > div.media-toolbar-primary.search-form > button');

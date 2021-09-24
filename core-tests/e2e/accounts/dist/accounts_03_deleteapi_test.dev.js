@@ -11,7 +11,8 @@ Scenario('@accounts api delete ', function _callee(_ref) {
       switch (_context.prev = _context.next) {
         case 0:
           I = _ref.I, loginAs = _ref.loginAs;
-          loginAs('admin_staging');
+          //loginAs('admin_staging');
+          I.amOnPage('/');
           I.click(locator.apikeymenu);
           I.click(locator.createapibutton);
           I.see('Not connected');

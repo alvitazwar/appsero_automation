@@ -19,7 +19,7 @@ Scenario('Experiment ZOne', async({ I, loginAs }) => {
         if (initial_val == false) {
             await checkbox_theme.click();
         }
-
+        I.say('this is value of songita')
         console.log('after the click the value', await (await checkbox_theme.getProperty('checked')).jsonValue());
     })
 

@@ -62,22 +62,23 @@ Scenario('Experiment ZOne', function _callee2(_ref) {
                     return regeneratorRuntime.awrap(checkbox_theme.click());
 
                   case 17:
+                    I.say('this is value of songita');
                     _context.t2 = console;
                     _context.t3 = regeneratorRuntime;
-                    _context.next = 21;
+                    _context.next = 22;
                     return regeneratorRuntime.awrap(checkbox_theme.getProperty('checked'));
 
-                  case 21:
+                  case 22:
                     _context.t4 = _context.sent.jsonValue();
-                    _context.next = 24;
+                    _context.next = 25;
                     return _context.t3.awrap.call(_context.t3, _context.t4);
 
-                  case 24:
+                  case 25:
                     _context.t5 = _context.sent;
 
                     _context.t2.log.call(_context.t2, 'after the click the value', _context.t5);
 
-                  case 26:
+                  case 27:
                   case "end":
                     return _context.stop();
                 }
