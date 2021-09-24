@@ -7,7 +7,7 @@ var _require = require('@codeceptjs/configure'),
 
 setHeadlessWhen(process.env.HEADLESS);
 exports.config = {
-  tests: 'tests/**/*_test.js',
+  tests: 'core-tests/**/**/*_test.js',
   //./tests./*_test.js
   output: './output',
   helpers: {
@@ -15,7 +15,7 @@ exports.config = {
       // url: 'https://dashboard.appsero.com',
       url: 'https://staging.appsero.com',
       //https://staging.appsero.com  
-      show: false,
+      show: true,
       browser: 'chrome',
       windowSize: '1440 x900',
       // desiredCapabilities: {
@@ -82,7 +82,7 @@ exports.config = {
             I.amOnPage('https://staging.appsero.com/login');
             I.fillField('Email Address', 'atd.mondol@gmail.com'); //
 
-            I.fillField('Password', 'appsero@_6598');
+            I.fillField('Password', secret('appsero@_6598'));
             I.click('Log in');
             I.see('Plugins');
           },
