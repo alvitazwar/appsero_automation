@@ -11,14 +11,14 @@ Scenario('@settings edit License ', function _callee(_ref) {
       switch (_context.prev = _context.next) {
         case 0:
           I = _ref.I, loginAs = _ref.loginAs;
-          loginAs('admin_staging');
+          //loginAs('admin_staging');
           I.amOnPage('/plugins');
           I.Selectplugin();
           I.click('//*[@id="app"]//section/main//div[1]/ul[2]/li[1]');
           I.click('Update Licensing');
           I.see('Settings has been updated.');
 
-        case 7:
+        case 6:
         case "end":
           return _context.stop();
       }

@@ -7,10 +7,10 @@ Scenario('@settings create metadata ', async({ I, loginAs }) => {
     // I.fillField('Password','crisis052');
     // I.click('Log in');
     // I.see('Plugins');
-    I.amOnPage('https://staging.appsero.com/plugins');
-    I.click('envato plg test');
+    I.amOnPage('/plugins');
+    I.Selectplugin();
     I.click('Settings');
-    I.amOnPage('https://staging.appsero.com/plugins/test-prod-subscription/settings/metadata');
+    I.amOnPage('/metadata');
     I.metadataCreate();
     //I.fillField('Name','Automated metadata');
     I.click('#datatype > div > div > div', );

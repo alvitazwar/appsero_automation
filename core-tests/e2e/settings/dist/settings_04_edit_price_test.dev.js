@@ -1,7 +1,7 @@
 "use strict";
 
 Feature('Appsero');
-Scenario('@settings edit price_regular ', function _callee(_ref) {
+Scenario('edit price_regular ', function _callee(_ref) {
   var I, loginAs;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {

@@ -13,7 +13,7 @@ Scenario('@settings edit invalid ', function _callee(_ref) {
       switch (_context.prev = _context.next) {
         case 0:
           I = _ref.I, loginAs = _ref.loginAs;
-          loginAs('admin_staging');
+          //loginAs('admin_staging');
           I.amOnPage('/plugins');
           I.Selectplugin();
           I.click(locator.settingsmenu);
@@ -34,7 +34,7 @@ Scenario('@settings edit invalid ', function _callee(_ref) {
 
           I.click('Update Plugin'); //I.see('Please fill up all the fields correctly.');
 
-        case 18:
+        case 17:
         case "end":
           return _context.stop();
       }
