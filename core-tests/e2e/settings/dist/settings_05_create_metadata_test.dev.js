@@ -1,6 +1,9 @@
 "use strict";
 
 Feature('Appsero');
+
+var locator = require('./settings_locator_test');
+
 Scenario('@settings create metadata ', function _callee(_ref) {
   var I, loginAs;
   return regeneratorRuntime.async(function _callee$(_context) {
@@ -8,20 +11,15 @@ Scenario('@settings create metadata ', function _callee(_ref) {
       switch (_context.prev = _context.next) {
         case 0:
           I = _ref.I, loginAs = _ref.loginAs;
-          loginAs('admin_staging'); // I.amOnPage('https://staging.appsero.com/login');
-          // I.fillField('Email Address', 'alvitazwar@wedevs.com');
-          // I.fillField('Password','crisis052');
-          // I.click('Log in');
-          // I.see('Plugins');
-
+          loginAs('admin_staging');
           I.amOnPage('/plugins');
           I.Selectplugin();
-          I.click('Settings');
-          I.amOnPage('/metadata');
+          I.click(locator.settingsmenu);
+          I.click(locator.metadatasubmenu);
           I.metadataCreate(); //I.fillField('Name','Automated metadata');
 
-          I.click('#datatype > div > div > div');
-          I.click('ul[role="listbox"] > li:nth-of-type(1)');
+          I.click(locator.selectdropdown);
+          I.click(locator.get_value());
           I.click('Add Field');
           I.see('Meta Field Added successfully.');
 

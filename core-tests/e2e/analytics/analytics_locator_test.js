@@ -44,10 +44,11 @@ module.exports = {
     //License Locator
     License: ' div:nth-child(2) > div > ul > li.ant-menu-item.ant-menu-item-selected > a',
     LicenseMenu: 'div > div:nth-child(2) > div > ul > li:nth-child(4) > a',
-    SelectLicense: 'tbody > tr:nth-child(5) > td.tcol-action > button.mr-8.ant-btn',
+    SelectLicense: 'tbody > tr:nth-child(1) > td.tcol-action > button.mr-8.ant-btn',
     CalenderInput: 'div.ant-col.ant-form-item-control-wrapper > div > span > span > div > input',
     CalenderDate: 'div > div.ant-calendar-date-panel > div.ant-calendar-footer > span > a',
     CalenderBtn: 'div.ant-modal-footer > div > button.ant-btn.ant-btn-primary',
+    activitionlimit: 'div:nth-child(2) > div.ant-col.ant-form-item-control-wrapper > div > span > input',
 
 
 
