@@ -49,10 +49,10 @@ chrome: {
             }
 ```
 
-Give your test site Username at  [YourUsername]
+Give your test site Username at  `[YourUsername]`
 
 
-Give your test site Password at  [YourPassword]
+Give your test site Password at  `[YourPassword]`
 
 
 ## Step 4
@@ -66,7 +66,7 @@ In order to properly run the scripts user needs to install some dependies such a
 5. puppeteer
 6. slugify
 ```
-Most of dependencies should be present in [package-lock.json] file.
+Most of dependencies should be present in `[package-lock.json]` file.
 ## Install Dependies
 At this stage, Your root will seem like : appsero/core-tests/e2e 
 then go to the test directory using 
@@ -80,7 +80,7 @@ npm install
 ## Step 5
 
 ## Running Test
-Before running tests, user need to create a plugin for this at first run `initialize_test.js` by running `npx codeceptjs run core-tests/e2e/pro-plugin/initialize_test.js`
+Before running tests, user need to create a plugin for this, at first run `initialize_test.js` by running `npx codeceptjs run core-tests/e2e/pro-plugin/initialize_test.js`
 
 For explore module run the following command:
 `npx codeceptjs run core-tests/e2e/explore/ex_01_analytics_stats_test.js` [Copy any scenario you want to test under explore module]
@@ -93,7 +93,7 @@ For Email module run the following command:
 
 ## Scenario Dependencies
 Some scenarios may require some prerequisite in order to validate Such as
-```
+
 1. Analytics, Email, Explore, Settings modules will work perfectly if the user account has premium appsero subscription and
 a real plugin with some proper data. User need to goto `steps.js` and edit 14 no line. Inside the click button user need to write the plugin name exactly like appeared inside appsero application.
 
