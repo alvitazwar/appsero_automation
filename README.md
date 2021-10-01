@@ -99,7 +99,8 @@ For Email module run the following command:
 Some scenarios may require some prerequisite in order to validate Such as
 ```
 1. Analytics, Email, Explore, Settings modules will work perfectly if the user account has premium appsero subscription and
-a real plugin with some proper data. User need to goto `steps.js` and edit 14 no line. Inside the click button user need to write the plugin name exactly like appeared inside appsero application. 
+a real plugin with some proper data. User need to goto `steps.js` and edit 14 no line. Inside the click button user need to write the plugin name exactly like appeared inside appsero application.
+
 2. Analytics Scenario requires some Real plugin information in order to validate scenarios proerply. It will work perfectly if user used the plugin in real websites
  
 
