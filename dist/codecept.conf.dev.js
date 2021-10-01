@@ -7,7 +7,7 @@ var _require = require('@codeceptjs/configure'),
 
 setHeadlessWhen(process.env.HEADLESS);
 exports.config = {
-  tests: 'tests/**/*_test.js',
+  tests: 'core-tests/**/**/*_test.js',
   //./tests./*_test.js
   output: './output',
   helpers: {
@@ -15,7 +15,7 @@ exports.config = {
       // url: 'https://dashboard.appsero.com',
       url: 'https://staging.appsero.com',
       //https://staging.appsero.com  
-      show: false,
+      show: true,
       browser: 'chrome',
       windowSize: '1440 x900',
       // desiredCapabilities: {
@@ -24,9 +24,14 @@ exports.config = {
       //     },
       //     defaultViewport: null
       // },
+      chrome: {
+        args: ["--no-sandbox", "--window-size=1440,900"],
+        "defaultViewport": null
+      },
       smartWait: 5000,
       waitForAction: 2000,
-      keepCookies: false,
+      keepCookies: true,
+      keepBrowserState: true,
       restart: false
     },
     REST: {
@@ -79,16 +84,21 @@ exports.config = {
       users: {
         admin_staging: {
           login: function login(I) {
-            I.amOnPage('https://staging.appsero.com/login');
+            I.amOnPage('/login');
             I.fillField('Email Address', 'atd.mondol@gmail.com'); //
 
-            I.fillField('Password', 'appsero@_6598');
-            I.click('Log in');
-            I.see('Plugins');
+            I.fillField('Password', secret('appsero@_6598'));
+            I.click('Log in'); //I.see('Plugins');
           },
           check: function check(I) {
-            I.seeCurrentUrlEquals('/login');
-          }
+            //I.seeInCurrentUrl('/login');
+            I.see('Plugins'); //I.amOnPage('/login');
+          } // fetch: (I) => { return I.executeScript(() => localStorage.getItem('session_id')); }, // empty function
+          // restore: (I, session) => {
+          //     I.amOnPage('https://staging.appsero.com/login');
+          //     I.executeScript((session) => localStorage.setItem('session_id', session), session);
+          // },
+
         },
         admin_production: {
           login: function login(I) {
