@@ -33,16 +33,12 @@ npm install codeceptjs puppeteer --save
  
 Open that test folder on visual studio code or your favourite Code Editor!
 
-```
 Create a file named codecept.conf.js & copy code from example.codecept.conf.js
-```
-```
+
 In codecept.conf.js file 
-Give your test Url at line `16` [Must be a complete url eg:https://dashboard.appsero.com]
-```
-```
+Give your test **url** [Must be a complete url eg:https://dashboard.appsero.com]
+
 In codecept.conf.js file if you want to run the code using chrome in full screen then provide your desired resolution for running
-```
 ```
 chrome: {
            args: [
@@ -52,26 +48,15 @@ chrome: {
                 "defaultViewport": null
             }
 ```
-```
-Give your test site Username at line `88` [YourUsername]
-```
-```
-Give your test site Password at line `89` [YourPassword]
-```
-```
-Then rename example.codecept.conf.js file as codecept.conf.js
-```
-```
-cd core-tests/e2e
-```
-```
-Your root will seem like : appsero/core-tests/e2e 
-```
-```
-npm install
-```
+
+Give your test site Username at  [YourUsername]
+
+
+Give your test site Password at  [YourPassword]
+
+
 ## Step 4
-## Install Dependies 
+## List of  Dependies 
 In order to properly run the scripts user needs to install some dependies such as
 ```
 1. Faker
@@ -80,6 +65,17 @@ In order to properly run the scripts user needs to install some dependies such a
 4. crypto js
 5. puppeteer
 6. slugify
+```
+Most of dependencies should be present in [package-lock.json] file.
+## Install Dependies
+At this stage, Your root will seem like : appsero/core-tests/e2e 
+then go to the test directory using 
+```
+cd core-tests/e2e
+```
+After that check package-lock.json file that all the dependencies are present there. Then run this command on the current directory.
+```
+npm install
 ```
 ## Step 5
 
