@@ -41,7 +41,8 @@ exports.config = {
       },
       defaultHeaders: {
         "accept": 'application/json',
-        "authorization": 'Bearer ycSRuZO2JjyWycDP6lMsvvkU04cjDdNO'
+        "authorization": 'Bearer sPSOROSOTGnPHz6aT4WlUxqJGEinGLuC' //  ycSRuZO2JjyWycDP6lMsvvkU04cjDdNO
+
       }
     },
     "ChaiWrapper": {
@@ -88,6 +89,24 @@ exports.config = {
             I.fillField('Email Address', 'atd.mondol@gmail.com'); //
 
             I.fillField('Password', secret('appsero@_6598'));
+            I.click('Log in'); //I.see('Plugins');
+          },
+          check: function check(I) {
+            //I.seeInCurrentUrl('/login');
+            I.see('Plugins'); //I.amOnPage('/login');
+          } // fetch: (I) => { return I.executeScript(() => localStorage.getItem('session_id')); }, // empty function
+          // restore: (I, session) => {
+          //     I.amOnPage('https://staging.appsero.com/login');
+          //     I.executeScript((session) => localStorage.setItem('session_id', session), session);
+          // },
+
+        },
+        admin_new: {
+          login: function login(I) {
+            I.amOnPage('/login');
+            I.fillField('Email Address', 'monirul@yopmail.com'); //
+
+            I.fillField('Password', secret('11223344'));
             I.click('Log in'); //I.see('Plugins');
           },
           check: function check(I) {

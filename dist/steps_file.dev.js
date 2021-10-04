@@ -27,7 +27,9 @@ module.exports = function () {
       this.fillField('Name', faker.name.firstName());
     },
     metadataPlugin: function metadataPlugin() {
-      this.fillField('Plugin Name', faker.name.title());
+      var name_data = faker.name.title();
+      this.fillField('Plugin Name', name_data);
+      return name_data;
     },
     metadataVersion: function metadataVersion() {
       this.fillField('Plugin Version', faker.random["float"]({

@@ -8,87 +8,91 @@ var faker = require('faker');
 
 var puppeteer = require('puppeteer');
 
-var locator = require('./../analytics/analytics_locator_test');
+var locator = require('./../analytics/analytics_locator_test'); // Scenario('Experiment ZOne', async({ I, loginAs }) => {
+//     // loginAs('admin_staging');
+//     // I.amOnPage('/plugins');
+//     // I.Selectplugin();
+//     // I.waitForVisible(locator.Analytics);
+//     // I.click(locator.Analytics);
+//     // I.click(locator.DeactMenu);
+//     // I.click('Export');
+//     // I.usePuppeteerTo('button', async({ page, browser }) => {
+//     //     await page.waitForSelector('div > div.ant-modal-content > div > div.mb-8 > label > span.ant-checkbox > input');
+//     //     const checkbox_theme = await page.$('div > div.ant-modal-content > div > div.mb-8 > label > span.ant-checkbox > input');
+//     //     let initial_val = await (await checkbox_theme.getProperty('checked')).jsonValue()
+//     //     console.log('initial state', initial_val);
+//     //     if (initial_val == false) {
+//     //         await checkbox_theme.click();
+//     //     }
+//     //     I.say('this is value of songita')
+//     //     console.log('after the click the value', await (await checkbox_theme.getProperty('checked')).jsonValue());
+//     // })
+// });
+// Scenario('Test Loweecase', async({ I, loginAs }) => {
+//     let name_data = faker.commerce.productName();
+//     console.log(name_data);
+//     console.log('lowe case:', name_data.toLowerCase());
+//     name_data = slugify(name_data, {
+//         replacement: '-',
+//         lower: true,
+//     });
+//     console.log('slugify:', name_data);
+// });
 
-Scenario('Experiment ZOne', function _callee2(_ref) {
-  var I, loginAs;
-  return regeneratorRuntime.async(function _callee2$(_context2) {
+
+Scenario('Check I see Return', function _callee(_ref) {
+  var I, loginAs, result, result1, result2;
+  return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
-      switch (_context2.prev = _context2.next) {
+      switch (_context.prev = _context.next) {
         case 0:
           I = _ref.I, loginAs = _ref.loginAs;
-          loginAs('admin_staging');
-          I.amOnPage('/plugins');
-          I.Selectplugin();
-          I.waitForVisible(locator.Analytics);
-          I.click(locator.Analytics);
-          I.click(locator.DeactMenu);
-          I.click('Export');
-          I.usePuppeteerTo('button', function _callee(_ref2) {
-            var page, browser, checkbox_theme, initial_val;
-            return regeneratorRuntime.async(function _callee$(_context) {
-              while (1) {
-                switch (_context.prev = _context.next) {
-                  case 0:
-                    page = _ref2.page, browser = _ref2.browser;
-                    _context.next = 3;
-                    return regeneratorRuntime.awrap(page.waitForSelector('div > div.ant-modal-content > div > div.mb-8 > label > span.ant-checkbox > input'));
+          loginAs('admin_new');
+          I.amOnPage('/plugins'); // try {
+          //     await I.see('please');
+          //     result = true;
+          // } catch (error) {
+          //     result = false;
+          // }
+          //tryTo(async() => {
+          // try {
+          //     await I.see('please');
+          //     result = true;
+          // } catch {
+          //     result = false;
+          // }
+          // if (result === true) {
+          //     I.amOnPage('https://github.com');
+          // } else if (result == false) {
+          //     I.amOnPage('https://google.com')
+          // }
+          //})
+          // I.see('plugins').then((result) => {
+          //     return result = true;
+          // }).catch((error) => {
+          //     return result = false;
+          // });
 
-                  case 3:
-                    _context.next = 5;
-                    return regeneratorRuntime.awrap(page.$('div > div.ant-modal-content > div > div.mb-8 > label > span.ant-checkbox > input'));
+          _context.next = 5;
+          return regeneratorRuntime.awrap(tryTo(function () {
+            return I.see('Plugins');
+          }));
 
-                  case 5:
-                    checkbox_theme = _context.sent;
-                    _context.t0 = regeneratorRuntime;
-                    _context.next = 9;
-                    return regeneratorRuntime.awrap(checkbox_theme.getProperty('checked'));
-
-                  case 9:
-                    _context.t1 = _context.sent.jsonValue();
-                    _context.next = 12;
-                    return _context.t0.awrap.call(_context.t0, _context.t1);
-
-                  case 12:
-                    initial_val = _context.sent;
-                    console.log('initial state', initial_val);
-
-                    if (!(initial_val == false)) {
-                      _context.next = 17;
-                      break;
-                    }
-
-                    _context.next = 17;
-                    return regeneratorRuntime.awrap(checkbox_theme.click());
-
-                  case 17:
-                    I.say('this is value of songita');
-                    _context.t2 = console;
-                    _context.t3 = regeneratorRuntime;
-                    _context.next = 22;
-                    return regeneratorRuntime.awrap(checkbox_theme.getProperty('checked'));
-
-                  case 22:
-                    _context.t4 = _context.sent.jsonValue();
-                    _context.next = 25;
-                    return _context.t3.awrap.call(_context.t3, _context.t4);
-
-                  case 25:
-                    _context.t5 = _context.sent;
-
-                    _context.t2.log.call(_context.t2, 'after the click the value', _context.t5);
-
-                  case 27:
-                  case "end":
-                    return _context.stop();
-                }
-              }
-            });
-          });
+        case 5:
+          result1 = _context.sent;
+          console.log('result1:', result1);
+          _context.next = 9;
+          return regeneratorRuntime.awrap(tryTo(function () {
+            return I.see('Please');
+          }));
 
         case 9:
+          result2 = _context.sent;
+          console.log('result2:', result2);
+
+        case 11:
         case "end":
-          return _context2.stop();
+          return _context.stop();
       }
     }
   });
