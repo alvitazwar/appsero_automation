@@ -6,11 +6,15 @@ var payload = require('./plugin_payload');
 
 var slugify = require('slugify');
 
+var path = require('path');
+
+var fs = require('fs');
+
 var plugin_name;
 var plugin_slug;
 var plugin_uuid;
 Scenario('Appsero Fresh start Add Plugin', function _callee(_ref) {
-  var I, loginAs;
+  var I, loginAs, mypath, data;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
@@ -26,6 +30,14 @@ Scenario('Appsero Fresh start Add Plugin', function _callee(_ref) {
 
         case 8:
           plugin_name = _context.sent;
+          mypath = path.join(__dirname, 'test.txt');
+
+          try {
+            data = fs.writeFileSync(mypath, plugin_name); //file written successfully
+          } catch (err) {
+            console.error(err);
+          }
+
           plugin_slug = slugify(plugin_name, {
             replacement: '-',
             lower: true
@@ -37,12 +49,11 @@ Scenario('Appsero Fresh start Add Plugin', function _callee(_ref) {
           I.click('Next');
           I.click('Next');
           I.click('Yes');
-          I.amOnPage('/plugins');
-          I.click('div.right-menu > div.header-project-switch > button');
-          I.fillField('.ant-input', plugin_name);
-          I.click('div > div > div > div > div.menu-project-item-text > h3');
+          I.amOnPage('/plugins'); // I.click('div.right-menu > div.header-project-switch > button');
+          // I.fillField('.ant-input', plugin_name);
+          // I.click('div > div > div > div > div.menu-project-item-text > h3');
 
-        case 21:
+        case 20:
         case "end":
           return _context.stop();
       }
@@ -158,6 +169,23 @@ Scenario('Add and Deactivate site', function _callee3(_ref4) {
         case 9:
         case "end":
           return _context4.stop();
+      }
+    }
+  });
+});
+Scenario('Check Plugin Connection', function _callee4(_ref5) {
+  var I, loginAs;
+  return regeneratorRuntime.async(function _callee4$(_context5) {
+    while (1) {
+      switch (_context5.prev = _context5.next) {
+        case 0:
+          I = _ref5.I, loginAs = _ref5.loginAs;
+          loginAs('admin_new');
+          I.Selectplugin();
+
+        case 3:
+        case "end":
+          return _context5.stop();
       }
     }
   });

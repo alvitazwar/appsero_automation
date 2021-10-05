@@ -8,7 +8,13 @@ var faker = require('faker');
 
 var puppeteer = require('puppeteer');
 
-var locator = require('./../analytics/analytics_locator_test'); // Scenario('Experiment ZOne', async({ I, loginAs }) => {
+var locator = require('./../analytics/analytics_locator_test');
+
+var path = require('path');
+
+var fs = require('fs');
+
+var read_data; // Scenario('Experiment ZOne', async({ I, loginAs }) => {
 //     // loginAs('admin_staging');
 //     // I.amOnPage('/plugins');
 //     // I.Selectplugin();
@@ -39,58 +45,46 @@ var locator = require('./../analytics/analytics_locator_test'); // Scenario('Exp
 //     console.log('slugify:', name_data);
 // });
 
-
 Scenario('Check I see Return', function _callee(_ref) {
-  var I, loginAs, result, result1, result2;
+  var I, loginAs;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
           I = _ref.I, loginAs = _ref.loginAs;
-          loginAs('admin_new');
-          I.amOnPage('/plugins'); // try {
-          //     await I.see('please');
-          //     result = true;
-          // } catch (error) {
-          //     result = false;
-          // }
-          //tryTo(async() => {
-          // try {
-          //     await I.see('please');
-          //     result = true;
-          // } catch {
-          //     result = false;
-          // }
-          // if (result === true) {
+          //let result;
+          //loginAs('admin_new');
+          // I.amOnPage('/plugins');
+          // const result1 = await tryTo(() => I.see('Plugins'));
+          // if (result1 == true) {
           //     I.amOnPage('https://github.com');
-          // } else if (result == false) {
-          //     I.amOnPage('https://google.com')
           // }
-          //})
-          // I.see('plugins').then((result) => {
-          //     return result = true;
-          // }).catch((error) => {
-          //     return result = false;
-          // });
+          // console.log('result1:', result1);
+          // const result2 = await tryTo(() => I.see('Please'));
+          // console.log('result2:', result2);
+          //console.log(__dirname);
+          // var mypath = path.join(__dirname, 'test.txt');
+          // const content = 'National Applications Designer';
+          // try {
+          //     const data = fs.writeFileSync(mypath, content)
+          //         //file written successfully
+          // } catch (err) {
+          //     console.error(err)
+          // }
+          // I.amOnPage('/plugins');
+          // try {
+          //     read_data = fs.readFileSync(mypath, 'utf8')
+          //     console.log(read_data);
+          // } catch (err) {
+          //     console.error(err)
+          // }
+          // I.click('div.right-menu > div.header-project-switch > button');
+          // I.fillField('.ant-input', read_data);
+          // I.click('div > div > div > div > div.menu-project-item-text > h3');
+          // I.wait(2);
+          console.log(__dirname);
 
-          _context.next = 5;
-          return regeneratorRuntime.awrap(tryTo(function () {
-            return I.see('Plugins');
-          }));
-
-        case 5:
-          result1 = _context.sent;
-          console.log('result1:', result1);
-          _context.next = 9;
-          return regeneratorRuntime.awrap(tryTo(function () {
-            return I.see('Please');
-          }));
-
-        case 9:
-          result2 = _context.sent;
-          console.log('result2:', result2);
-
-        case 11:
+        case 2:
         case "end":
           return _context.stop();
       }

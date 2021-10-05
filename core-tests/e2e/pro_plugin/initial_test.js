@@ -1,6 +1,8 @@
 Feature(' Initial Start appsero');
 const payload = require('./plugin_payload')
 const slugify = require('slugify');
+const path = require('path');
+const fs = require('fs');
 var plugin_name;
 var plugin_slug;
 var plugin_uuid;
@@ -11,6 +13,13 @@ Scenario('Appsero Fresh start Add Plugin', async({ I, loginAs }) => {
     I.click('Add Plugin');
     I.click('.custom-button.mr-16.premium');
     plugin_name = await I.metadataPlugin();
+    var mypath = path.join(__dirname, 'test.txt');
+    try {
+        const data = fs.writeFileSync(mypath, plugin_name)
+            //file written successfully
+    } catch (err) {
+        console.error(err)
+    }
     plugin_slug = slugify(plugin_name, {
         replacement: '-',
         lower: true,
@@ -23,9 +32,9 @@ Scenario('Appsero Fresh start Add Plugin', async({ I, loginAs }) => {
     I.click('Next');
     I.click('Yes');
     I.amOnPage('/plugins')
-    I.click('div.right-menu > div.header-project-switch > button');
-    I.fillField('.ant-input', plugin_name);
-    I.click('div > div > div > div > div.menu-project-item-text > h3');
+        // I.click('div.right-menu > div.header-project-switch > button');
+        // I.fillField('.ant-input', plugin_name);
+        // I.click('div > div > div > div > div.menu-project-item-text > h3');
 
 });
 Scenario('Check Single Plugin Details', async({ I, loginAs }) => {
@@ -63,3 +72,9 @@ Scenario('Add and Deactivate site', async({ I, loginAs }) => {
         }
     }
 });
+Scenario('Check Plugin Connection', async({ I, loginAs }) => {
+    loginAs('admin_new');
+    I.Selectplugin();
+
+
+})
