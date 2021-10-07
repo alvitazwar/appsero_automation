@@ -14,7 +14,7 @@ Scenario('Team remove team member', function _callee(_ref) {
           loginAs('admin_staging');
           I.amOnPage('/teams');
           I.click('Automated Team');
-          I.moveCursorTo('#app > section > section > main > div > div.member-inner-page.page-content > div > div > div:nth-child(2) > div:nth-child(2) > div > div > div.mr-8.ml-auto > a');
+          I.moveCur('#app > section > section > main > div > div.member-inner-page.page-content > div > div > div:nth-child(2) > div:nth-child(2) > div > div > div.mr-8.ml-auto > a > i');
           I.wait(2);
           I.click('Remove');
           I.click('Yes'); //I.pressKey("Enter");
