@@ -4,7 +4,7 @@ Feature('Appsero');
 
 var locator = require('./team_locator_test');
 
-Scenario('Team add project', function _callee(_ref) {
+Scenario('Team remove team member', function _callee(_ref) {
   var I, loginAs;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
@@ -14,17 +14,14 @@ Scenario('Team add project', function _callee(_ref) {
           loginAs('admin_staging');
           I.amOnPage('/teams');
           I.click('Automated Team');
-          I.waitForElement(locator.projectmenu, 30);
-          I.click(locator.projectmenu);
-          I.waitForClickable(locator.addproject);
-          I.click(locator.addproject);
-          I.fillField(locator.inputaddproject, 'qq');
-          I.pressKey("Enter");
-          I.see('Project Added Successfully.'); //I.refreshPage();
+          I.moveCursorTo('#app > section > section > main > div > div.member-inner-page.page-content > div > div > div:nth-child(2) > div:nth-child(2) > div > div > div.mr-8.ml-auto > a');
+          I.wait(2);
+          I.click('Remove');
+          I.click('Yes'); //I.pressKey("Enter");
 
-          I.see('qq');
+          I.dontSee('Saif');
 
-        case 12:
+        case 9:
         case "end":
           return _context.stop();
       }

@@ -47,7 +47,7 @@ Scenario('Check Single Plugin Details', async({ I, loginAs }) => {
     await I.assertEqual(status, 200);
 });
 Scenario('Add and Deactivate site', async({ I, loginAs }) => {
-    for (let i = 1; i <= 3; i++) {
+    for (let i = 1; i <= 15; i++) {
         const fake_data = payload.getFakerData();
         console.log(fake_data)
             // const plugin_data = payload.getPluginData()

@@ -153,7 +153,7 @@ Scenario('Add and Deactivate site', function _callee3(_ref4) {
           i = 1;
 
         case 3:
-          if (!(i <= 3)) {
+          if (!(i <= 15)) {
             _context4.next = 9;
             break;
           }
