@@ -2,9 +2,11 @@ Feature('Appsero');
 const account = require('./../accounts/accounts_locator_test');
 const locator = require('./team_locator_test');
 const faker = require('faker');
+var team_name = faker.name.title();
+module.exports = { team_name: team_name }
 Scenario('Team create', async({ I, loginAs }) => {
     loginAs('admin_staging');
-    let team_name = faker.name.title();
+
     I.click(account.profilemenu);
     I.click('Teams');
     I.click('New Team');

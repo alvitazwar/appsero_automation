@@ -11,7 +11,7 @@ Scenario('@accounts profile update ', function _callee(_ref) {
       switch (_context.prev = _context.next) {
         case 0:
           I = _ref.I, loginAs = _ref.loginAs;
-          //loginAs('admin_staging');
+          loginAs('admin_staging');
           I.amOnPage('/');
           I.click(locator.profilemenu);
           I.click('Account');
@@ -22,7 +22,7 @@ Scenario('@accounts profile update ', function _callee(_ref) {
           I.click('Update Profile');
           I.see('Profile updated successfully!');
 
-        case 10:
+        case 11:
         case "end":
           return _context.stop();
       }

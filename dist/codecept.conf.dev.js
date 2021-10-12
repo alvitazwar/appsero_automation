@@ -35,13 +35,13 @@ exports.config = {
       restart: false
     },
     REST: {
-      endpoint: 'https://staging.api.appsero.com',
+      endpoint: 'https://api.appsero.com',
       //'https://staging.api.appsero.com'
       onRequest: function onRequest(request) {// request.headers.auth = '123';
       },
       defaultHeaders: {
         "accept": 'application/json',
-        "authorization": 'Bearer sPSOROSOTGnPHz6aT4WlUxqJGEinGLuC' //  ycSRuZO2JjyWycDP6lMsvvkU04cjDdNO
+        "authorization": 'Bearer 5dLCUhOPcvVuQtkOujJt6cKKtyQQ2cEY' //  ycSRuZO2JjyWycDP6lMsvvkU04cjDdNO  sPSOROSOTGnPHz6aT4WlUxqJGEinGLuC
 
       }
     },

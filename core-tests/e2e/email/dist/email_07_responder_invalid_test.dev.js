@@ -8,11 +8,6 @@ Scenario(' Responder function invalid ', function _callee(_ref) {
       switch (_context.prev = _context.next) {
         case 0:
           I = _ref.I, loginAs = _ref.loginAs;
-          // I.amOnPage('https://staging.appsero.com/login');
-          // I.fillField('Email Address', 'alvitazwar@wedevs.com');
-          // I.fillField('Password','crisis052');
-          // I.click('Log in');
-          // I.see('Plugins');
           loginAs('admin_staging');
           I.amOnPage('/plugins');
           I.click('envato plg test');

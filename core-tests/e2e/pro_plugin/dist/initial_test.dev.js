@@ -20,7 +20,7 @@ Scenario('Appsero Fresh start Add Plugin', function _callee(_ref) {
       switch (_context.prev = _context.next) {
         case 0:
           I = _ref.I, loginAs = _ref.loginAs;
-          loginAs('admin_new');
+          loginAs('admin_production');
           I.click('//li[2]/a[@href="/plugins"]');
           I.see('Plugins');
           I.click('Add Plugin');
@@ -99,7 +99,7 @@ Scenario('Add and Deactivate site', function _callee3(_ref4) {
           I = _ref4.I, loginAs = _ref4.loginAs;
 
           _loop = function _loop(i) {
-            var fake_data, getrack, res;
+            var fake_data, getrack;
             return regeneratorRuntime.async(function _loop$(_context3) {
               while (1) {
                 switch (_context3.prev = _context3.next) {
@@ -107,14 +107,9 @@ Scenario('Add and Deactivate site', function _callee3(_ref4) {
                     fake_data = payload.getFakerData();
                     console.log(fake_data); // const plugin_data = payload.getPluginData()
 
-                    getrack = payload.getTrackingInfo(fake_data, plugin_uuid);
+                    getrack = payload.getTrackingInfo(fake_data, plugin_uuid); //if (i % 2 == 0) {
 
-                    if (!(i % 2 == 0)) {
-                      _context3.next = 8;
-                      break;
-                    }
-
-                    _context3.next = 6;
+                    _context3.next = 5;
                     return regeneratorRuntime.awrap(I.sendPostRequest('/track', getrack).then(function (res) {
                       I.assertEqual(res.status, 200);
                       console.log(res.data);
@@ -128,21 +123,7 @@ Scenario('Add and Deactivate site', function _callee3(_ref4) {
                       }
                     }));
 
-                  case 6:
-                    _context3.next = 11;
-                    break;
-
-                  case 8:
-                    _context3.next = 10;
-                    return regeneratorRuntime.awrap(I.sendPostRequest('/track', getrack).then(function (res) {
-                      I.assertEqual(res.status, 200);
-                      console.log(res.data);
-                    }));
-
-                  case 10:
-                    res = _context3.sent;
-
-                  case 11:
+                  case 5:
                   case "end":
                     return _context3.stop();
                 }
@@ -180,7 +161,7 @@ Scenario('Check Plugin Connection', function _callee4(_ref5) {
       switch (_context5.prev = _context5.next) {
         case 0:
           I = _ref5.I, loginAs = _ref5.loginAs;
-          loginAs('admin_new');
+          loginAs('admin_production');
           I.Selectplugin();
 
         case 3:

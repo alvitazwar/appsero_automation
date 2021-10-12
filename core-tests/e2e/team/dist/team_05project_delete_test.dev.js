@@ -4,7 +4,7 @@ Feature('Appsero');
 
 var locator = require('./team_locator_test');
 
-Scenario('Team remove team member', function _callee2(_ref) {
+Scenario('Team project delete', function _callee2(_ref) {
   var I, loginAs;
   return regeneratorRuntime.async(function _callee2$(_context2) {
     while (1) {
@@ -14,9 +14,10 @@ Scenario('Team remove team member', function _callee2(_ref) {
           loginAs('admin_staging');
           I.amOnPage('/teams');
           I.click('Automated Team');
-          I.wait(2); //I.waitForClickable('svg > circle:nth-of-type(4)');
-          //I.refreshPage();
+          I.wait(2); //I.click('//*[@id="app"]//main//div[2]/div[2]/div//div[3]/a');
+          //I.waitForElement('/html/body/div[3]/div/div/ul/li/span',30);
 
+          I.click(locator.projectmenu);
           I.usePuppeteerTo('Handle SVG action', function _callee(_ref2) {
             var page, browser;
             return regeneratorRuntime.async(function _callee$(_context) {
@@ -26,11 +27,11 @@ Scenario('Team remove team member', function _callee2(_ref) {
                     page = _ref2.page, browser = _ref2.browser;
                     I.wait(3);
                     _context.next = 4;
-                    return regeneratorRuntime.awrap(page.waitForSelector(locator.membersvgcheck));
+                    return regeneratorRuntime.awrap(page.waitForSelector(locator.projectsvgcheck));
 
                   case 4:
                     _context.next = 6;
-                    return regeneratorRuntime.awrap(page.hover(locator.membersvgcheck));
+                    return regeneratorRuntime.awrap(page.hover(locator.projectsvgcheck));
 
                   case 6:
                     _context.next = 8;
@@ -51,9 +52,9 @@ Scenario('Team remove team member', function _callee2(_ref) {
               }
             });
           });
-          I.wait(2); //I.see('Removed Successfully.');
+          I.wait(2);
 
-        case 7:
+        case 8:
         case "end":
           return _context2.stop();
       }

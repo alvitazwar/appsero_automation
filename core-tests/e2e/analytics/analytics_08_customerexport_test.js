@@ -7,7 +7,6 @@ Scenario('@analytics customer export', async({ I, loginAs }) => {
     loginAs('admin_staging');
     I.amOnPage('/plugins');
     I.Selectplugin();
-
     I.click(locator.Sales);
     //I.waitForVisible(locator.Customer, 5);
     I.forceClick(locator.Customer);

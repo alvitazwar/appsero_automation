@@ -7,7 +7,7 @@ var plugin_name;
 var plugin_slug;
 var plugin_uuid;
 Scenario('Appsero Fresh start Add Plugin', async({ I, loginAs }) => {
-    loginAs('admin_new');
+    loginAs('admin_production');
     I.click('//li[2]/a[@href="/plugins"]');
     I.see('Plugins');
     I.click('Add Plugin');
@@ -52,28 +52,28 @@ Scenario('Add and Deactivate site', async({ I, loginAs }) => {
         console.log(fake_data)
             // const plugin_data = payload.getPluginData()
         const getrack = payload.getTrackingInfo(fake_data, plugin_uuid);
-        if (i % 2 == 0) {
-            await I.sendPostRequest('/track', getrack).then((res) => {
-                I.assertEqual(res.status, 200);
-                console.log(res.data);
-                if (res.status == 200) {
-                    I.wait(3);
-                    I.sendPostRequest('/deactivate', getrack).then(res => {
-                        I.assertEqual(res.status, 200);
-                        console.log(res.data);
-                    });
-                }
-            });
-        } else {
-            const res = await I.sendPostRequest('/track', getrack).then(res => {
-                I.assertEqual(res.status, 200);
-                console.log(res.data);
-            });
-        }
+        //if (i % 2 == 0) {
+        await I.sendPostRequest('/track', getrack).then((res) => {
+            I.assertEqual(res.status, 200);
+            console.log(res.data);
+            if (res.status == 200) {
+                I.wait(3);
+                I.sendPostRequest('/deactivate', getrack).then(res => {
+                    I.assertEqual(res.status, 200);
+                    console.log(res.data);
+                });
+            }
+        });
+        // } else {
+        //     const res = await I.sendPostRequest('/track', getrack).then(res => {
+        //         I.assertEqual(res.status, 200);
+        //         console.log(res.data);
+        //     });
+        // }
     }
 });
 Scenario('Check Plugin Connection', async({ I, loginAs }) => {
-    loginAs('admin_new');
+    loginAs('admin_production');
     I.Selectplugin();
 
 

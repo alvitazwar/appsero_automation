@@ -8,15 +8,18 @@ var locator = require('./team_locator_test');
 
 var faker = require('faker');
 
+var team_name = faker.name.title();
+module.exports = {
+  team_name: team_name
+};
 Scenario('Team create', function _callee(_ref) {
-  var I, loginAs, team_name;
+  var I, loginAs;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
           I = _ref.I, loginAs = _ref.loginAs;
           loginAs('admin_staging');
-          team_name = faker.name.title();
           I.click(account.profilemenu);
           I.click('Teams');
           I.click('New Team');
@@ -28,7 +31,7 @@ Scenario('Team create', function _callee(_ref) {
           I.amOnPage('/teams');
           I.see(team_name);
 
-        case 13:
+        case 12:
         case "end":
           return _context.stop();
       }
