@@ -9,7 +9,7 @@ Scenario('@analytics Edit License', async({ I, loginAs }) => {
     I.click('Edit');
     //Calendar Access
     I.click(locator.CalenderInput);
-    I.forceClick('//div[4]/div/div/div/div/div[1]/div/input');
+    //I.forceClick('//div[4]/div/div/div/div/div[1]/div/input');
     I.click(locator.CalenderDate);
     I.fillField(locator.activitionlimit, '5');
     I.click(locator.CalenderBtn);

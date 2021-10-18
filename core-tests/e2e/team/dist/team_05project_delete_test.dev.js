@@ -4,6 +4,9 @@ Feature('Appsero');
 
 var locator = require('./team_locator_test');
 
+var create_team = require('./team_01create_test');
+
+var project_delete = create_team.team_name;
 Scenario('Team project delete', function _callee2(_ref) {
   var I, loginAs;
   return regeneratorRuntime.async(function _callee2$(_context2) {
@@ -13,13 +16,12 @@ Scenario('Team project delete', function _callee2(_ref) {
           I = _ref.I, loginAs = _ref.loginAs;
           loginAs('admin_staging');
           I.amOnPage('/teams');
-          I.click('Automated Team');
-          I.wait(2); //I.click('//*[@id="app"]//main//div[2]/div[2]/div//div[3]/a');
-          //I.waitForElement('/html/body/div[3]/div/div/ul/li/span',30);
+          I.click(project_delete); //I.click('Automated Team');
 
+          I.wait(2);
           I.click(locator.projectmenu);
           I.usePuppeteerTo('Handle SVG action', function _callee(_ref2) {
-            var page, browser;
+            var page, browser, svg;
             return regeneratorRuntime.async(function _callee$(_context) {
               while (1) {
                 switch (_context.prev = _context.next) {
@@ -30,31 +32,26 @@ Scenario('Team project delete', function _callee2(_ref) {
                     return regeneratorRuntime.awrap(page.waitForSelector(locator.projectsvgcheck));
 
                   case 4:
-                    _context.next = 6;
-                    return regeneratorRuntime.awrap(page.hover(locator.projectsvgcheck));
+                    svg = _context.sent;
+                    _context.next = 7;
+                    return regeneratorRuntime.awrap(svg.hover());
 
-                  case 6:
-                    _context.next = 8;
+                  case 7:
+                    _context.next = 9;
                     return regeneratorRuntime.awrap(page.waitForSelector(locator.removebtn));
 
-                  case 8:
-                    _context.next = 10;
-                    return regeneratorRuntime.awrap(page.click(locator.removebtn));
-
-                  case 10:
-                    //I.click('Remove');
-                    I.click('Yes');
-
-                  case 11:
+                  case 9:
                   case "end":
                     return _context.stop();
                 }
               }
             });
           });
+          I.forceClick(locator.removebtn);
+          I.forceClick('Yes');
           I.wait(2);
 
-        case 8:
+        case 10:
         case "end":
           return _context2.stop();
       }

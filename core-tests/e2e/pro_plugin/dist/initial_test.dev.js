@@ -12,7 +12,11 @@ var fs = require('fs');
 
 var plugin_name;
 var plugin_slug;
-var plugin_uuid;
+var plugin_uuid; // const readline = require('readline').createInterface({
+//     input: process.stdin,
+//     output: process.stdout
+// })
+
 Scenario('Appsero Fresh start Add Plugin', function _callee(_ref) {
   var I, loginAs, mypath, data;
   return regeneratorRuntime.async(function _callee$(_context) {
@@ -20,7 +24,7 @@ Scenario('Appsero Fresh start Add Plugin', function _callee(_ref) {
       switch (_context.prev = _context.next) {
         case 0:
           I = _ref.I, loginAs = _ref.loginAs;
-          loginAs('admin_production');
+          loginAs('admin_staging');
           I.click('//li[2]/a[@href="/plugins"]');
           I.see('Plugins');
           I.click('Add Plugin');
@@ -99,17 +103,22 @@ Scenario('Add and Deactivate site', function _callee3(_ref4) {
           I = _ref4.I, loginAs = _ref4.loginAs;
 
           _loop = function _loop(i) {
-            var fake_data, getrack;
+            var fake_data, plugin_data, getrack, res;
             return regeneratorRuntime.async(function _loop$(_context3) {
               while (1) {
                 switch (_context3.prev = _context3.next) {
                   case 0:
                     fake_data = payload.getFakerData();
-                    console.log(fake_data); // const plugin_data = payload.getPluginData()
+                    console.log(fake_data);
+                    plugin_data = payload.getPluginData();
+                    getrack = payload.getTrackingInfo(fake_data, plugin_uuid);
 
-                    getrack = payload.getTrackingInfo(fake_data, plugin_uuid); //if (i % 2 == 0) {
+                    if (!(i % 2 == 0)) {
+                      _context3.next = 9;
+                      break;
+                    }
 
-                    _context3.next = 5;
+                    _context3.next = 7;
                     return regeneratorRuntime.awrap(I.sendPostRequest('/track', getrack).then(function (res) {
                       I.assertEqual(res.status, 200);
                       console.log(res.data);
@@ -123,7 +132,21 @@ Scenario('Add and Deactivate site', function _callee3(_ref4) {
                       }
                     }));
 
-                  case 5:
+                  case 7:
+                    _context3.next = 12;
+                    break;
+
+                  case 9:
+                    _context3.next = 11;
+                    return regeneratorRuntime.awrap(I.sendPostRequest('/track', getrack).then(function (res) {
+                      I.assertEqual(res.status, 200);
+                      console.log(res.data);
+                    }));
+
+                  case 11:
+                    res = _context3.sent;
+
+                  case 12:
                   case "end":
                     return _context3.stop();
                 }
@@ -134,7 +157,7 @@ Scenario('Add and Deactivate site', function _callee3(_ref4) {
           i = 1;
 
         case 3:
-          if (!(i <= 15)) {
+          if (!(i <= 5)) {
             _context4.next = 9;
             break;
           }
@@ -161,7 +184,7 @@ Scenario('Check Plugin Connection', function _callee4(_ref5) {
       switch (_context5.prev = _context5.next) {
         case 0:
           I = _ref5.I, loginAs = _ref5.loginAs;
-          loginAs('admin_production');
+          loginAs('admin_staging');
           I.Selectplugin();
 
         case 3:

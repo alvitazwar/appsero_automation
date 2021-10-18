@@ -4,6 +4,9 @@ Feature('Appsero');
 
 var locator = require('./team_locator_test');
 
+var create_team = require('./team_01create_test');
+
+var team_choose = create_team.team_name;
 Scenario('Team add project', function _callee(_ref) {
   var I, loginAs;
   return regeneratorRuntime.async(function _callee$(_context) {
@@ -13,7 +16,7 @@ Scenario('Team add project', function _callee(_ref) {
           I = _ref.I, loginAs = _ref.loginAs;
           loginAs('admin_staging');
           I.amOnPage('/teams');
-          I.click('Automated Team');
+          I.click(team_choose);
           I.waitForElement(locator.projectmenu, 30);
           I.click(locator.projectmenu);
           I.waitForClickable(locator.addproject);

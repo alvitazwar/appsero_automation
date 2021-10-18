@@ -6,8 +6,12 @@ const fs = require('fs');
 var plugin_name;
 var plugin_slug;
 var plugin_uuid;
+// const readline = require('readline').createInterface({
+//     input: process.stdin,
+//     output: process.stdout
+// })
 Scenario('Appsero Fresh start Add Plugin', async({ I, loginAs }) => {
-    loginAs('admin_production');
+    loginAs('admin_staging');
     I.click('//li[2]/a[@href="/plugins"]');
     I.see('Plugins');
     I.click('Add Plugin');
@@ -47,33 +51,35 @@ Scenario('Check Single Plugin Details', async({ I, loginAs }) => {
     await I.assertEqual(status, 200);
 });
 Scenario('Add and Deactivate site', async({ I, loginAs }) => {
-    for (let i = 1; i <= 15; i++) {
+
+    for (let i = 1; i <= 5; i++) {
         const fake_data = payload.getFakerData();
         console.log(fake_data)
-            // const plugin_data = payload.getPluginData()
+        const plugin_data = payload.getPluginData()
         const getrack = payload.getTrackingInfo(fake_data, plugin_uuid);
-        //if (i % 2 == 0) {
-        await I.sendPostRequest('/track', getrack).then((res) => {
-            I.assertEqual(res.status, 200);
-            console.log(res.data);
-            if (res.status == 200) {
-                I.wait(3);
-                I.sendPostRequest('/deactivate', getrack).then(res => {
-                    I.assertEqual(res.status, 200);
-                    console.log(res.data);
-                });
-            }
-        });
-        // } else {
-        //     const res = await I.sendPostRequest('/track', getrack).then(res => {
-        //         I.assertEqual(res.status, 200);
-        //         console.log(res.data);
-        //     });
-        // }
+        if (i % 2 == 0) {
+            await I.sendPostRequest('/track', getrack).then((res) => {
+                I.assertEqual(res.status, 200);
+                console.log(res.data);
+                if (res.status == 200) {
+                    I.wait(3);
+                    I.sendPostRequest('/deactivate', getrack).then(res => {
+                        I.assertEqual(res.status, 200);
+                        console.log(res.data);
+                    });
+                }
+            });
+
+        } else {
+            const res = await I.sendPostRequest('/track', getrack).then(res => {
+                I.assertEqual(res.status, 200);
+                console.log(res.data);
+            });
+        }
     }
 });
 Scenario('Check Plugin Connection', async({ I, loginAs }) => {
-    loginAs('admin_production');
+    loginAs('admin_staging');
     I.Selectplugin();
 
 

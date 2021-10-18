@@ -14,7 +14,12 @@ var path = require('path');
 
 var fs = require('fs');
 
-var read_data; // Scenario('Experiment ZOne', async({ I, loginAs }) => {
+var read_data; // var loopnumber;
+// const readline = require('readline').createInterface({
+//     input: process.stdin,
+//     output: process.stdout
+// })
+// Scenario('Experiment ZOne', async({ I, loginAs }) => {
 //     // loginAs('admin_staging');
 //     // I.amOnPage('/plugins');
 //     // I.Selectplugin();
@@ -44,47 +49,49 @@ var read_data; // Scenario('Experiment ZOne', async({ I, loginAs }) => {
 //     });
 //     console.log('slugify:', name_data);
 // });
+// Scenario('Check I see Return', async({ I, loginAs }) => {
+//     //let result;
+//     //loginAs('admin_new');
+//     // I.amOnPage('/plugins');
+//     // const result1 = await tryTo(() => I.see('Plugins'));
+//     // if (result1 == true) {
+//     //     I.amOnPage('https://github.com');
+//     // }
+//     // console.log('result1:', result1);
+//     // const result2 = await tryTo(() => I.see('Please'));
+//     // console.log('result2:', result2);
+//     //console.log(__dirname);
+//     // var mypath = path.join(__dirname, 'test.txt');
+//     // const content = 'National Applications Designer';
+//     // try {
+//     //     const data = fs.writeFileSync(mypath, content)
+//     //         //file written successfully
+//     // } catch (err) {
+//     //     console.error(err)
+//     // }
+//     // I.amOnPage('/plugins');
+//     // try {
+//     //     read_data = fs.readFileSync(mypath, 'utf8')
+//     //     console.log(read_data);
+//     // } catch (err) {
+//     //     console.error(err)
+//     // }
+//     // I.click('div.right-menu > div.header-project-switch > button');
+//     // I.fillField('.ant-input', read_data);
+//     // I.click('div > div > div > div > div.menu-project-item-text > h3');
+//     // I.wait(2);
+//     console.log(__dirname);
+// });
 
-Scenario('Check I see Return', function _callee(_ref) {
+Scenario('Check Readline', function _callee(_ref) {
   var I, loginAs;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
           I = _ref.I, loginAs = _ref.loginAs;
-          //let result;
-          //loginAs('admin_new');
-          // I.amOnPage('/plugins');
-          // const result1 = await tryTo(() => I.see('Plugins'));
-          // if (result1 == true) {
-          //     I.amOnPage('https://github.com');
-          // }
-          // console.log('result1:', result1);
-          // const result2 = await tryTo(() => I.see('Please'));
-          // console.log('result2:', result2);
-          //console.log(__dirname);
-          // var mypath = path.join(__dirname, 'test.txt');
-          // const content = 'National Applications Designer';
-          // try {
-          //     const data = fs.writeFileSync(mypath, content)
-          //         //file written successfully
-          // } catch (err) {
-          //     console.error(err)
-          // }
-          // I.amOnPage('/plugins');
-          // try {
-          //     read_data = fs.readFileSync(mypath, 'utf8')
-          //     console.log(read_data);
-          // } catch (err) {
-          //     console.error(err)
-          // }
-          // I.click('div.right-menu > div.header-project-switch > button');
-          // I.fillField('.ant-input', read_data);
-          // I.click('div > div > div > div > div.menu-project-item-text > h3');
-          // I.wait(2);
-          console.log(__dirname);
 
-        case 2:
+        case 1:
         case "end":
           return _context.stop();
       }

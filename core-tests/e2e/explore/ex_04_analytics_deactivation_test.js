@@ -4,11 +4,9 @@ const { assert, Console } = require("console");
 const locator = require('../analytics/analytics_locator_test.js');
 
 Scenario('analytics Deactivation test', async({ I, loginAs }) => {
-
     loginAs('admin_staging');
     I.amOnPage('/plugins');
-    // I.click('Fastspring_affiliate2'); //envato plg test
-    I.click('FastSpring_License_subs');
+    I.Selectplugin();
     tryTo(() => {
         I.seeElement(locator.PremiumModal);
         I.click(locator.SkipBilling);

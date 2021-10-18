@@ -4,8 +4,8 @@ const { assert } = require("console");
 const locator = require('../analytics/analytics_locator_test.js');
 
 Scenario('analytics Stats test', async({ I, loginAs }) => {
-    loginAs('admin_new');
-    //loginAs('admin_staging');
+    //loginAs('admin_new');
+    loginAs('admin_staging');
     // I.amOnPage('/plugins');
     // I.click('Fastspring_affiliate2');
     // I.click('FastSpring_License_subs'); //envato plg test

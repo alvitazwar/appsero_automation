@@ -31,10 +31,7 @@ module.exports = function () {
         replacement: '-',
         lower: true
       });
-      this.amOnPage("/plugins/".concat(pluginslug, "/get-started")); // this.click('div.right-menu > div.header-project-switch > button');
-      // this.fillField('.ant-input', read_data);
-      // this.click('div > div > div > div > div.menu-project-item-text > h3');
-      //console.log(read_data);
+      this.amOnPage("/plugins/".concat(pluginslug, "/get-started"));
     },
     checkError: function checkError() {
       this.dontSee('Unknown error occurred.');

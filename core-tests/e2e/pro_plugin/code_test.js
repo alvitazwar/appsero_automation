@@ -6,6 +6,11 @@ const locator = require('./../analytics/analytics_locator_test');
 const path = require('path');
 const fs = require('fs');
 var read_data;
+// var loopnumber;
+// const readline = require('readline').createInterface({
+//     input: process.stdin,
+//     output: process.stdout
+// })
 
 // Scenario('Experiment ZOne', async({ I, loginAs }) => {
 //     // loginAs('admin_staging');
@@ -38,42 +43,57 @@ var read_data;
 //     });
 //     console.log('slugify:', name_data);
 // });
-Scenario('Check I see Return', async({ I, loginAs }) => {
-    //let result;
-    //loginAs('admin_new');
-    // I.amOnPage('/plugins');
+// Scenario('Check I see Return', async({ I, loginAs }) => {
+//     //let result;
+//     //loginAs('admin_new');
+//     // I.amOnPage('/plugins');
 
-    // const result1 = await tryTo(() => I.see('Plugins'));
-    // if (result1 == true) {
-    //     I.amOnPage('https://github.com');
-    // }
-    // console.log('result1:', result1);
-    // const result2 = await tryTo(() => I.see('Please'));
-    // console.log('result2:', result2);
-    //console.log(__dirname);
+//     // const result1 = await tryTo(() => I.see('Plugins'));
+//     // if (result1 == true) {
+//     //     I.amOnPage('https://github.com');
+//     // }
+//     // console.log('result1:', result1);
+//     // const result2 = await tryTo(() => I.see('Please'));
+//     // console.log('result2:', result2);
+//     //console.log(__dirname);
 
-    // var mypath = path.join(__dirname, 'test.txt');
-    // const content = 'National Applications Designer';
+//     // var mypath = path.join(__dirname, 'test.txt');
+//     // const content = 'National Applications Designer';
 
-    // try {
-    //     const data = fs.writeFileSync(mypath, content)
-    //         //file written successfully
-    // } catch (err) {
-    //     console.error(err)
-    // }
-    // I.amOnPage('/plugins');
-    // try {
-    //     read_data = fs.readFileSync(mypath, 'utf8')
-    //     console.log(read_data);
-    // } catch (err) {
-    //     console.error(err)
-    // }
+//     // try {
+//     //     const data = fs.writeFileSync(mypath, content)
+//     //         //file written successfully
+//     // } catch (err) {
+//     //     console.error(err)
+//     // }
+//     // I.amOnPage('/plugins');
+//     // try {
+//     //     read_data = fs.readFileSync(mypath, 'utf8')
+//     //     console.log(read_data);
+//     // } catch (err) {
+//     //     console.error(err)
+//     // }
 
-    // I.click('div.right-menu > div.header-project-switch > button');
-    // I.fillField('.ant-input', read_data);
-    // I.click('div > div > div > div > div.menu-project-item-text > h3');
-    // I.wait(2);
+//     // I.click('div.right-menu > div.header-project-switch > button');
+//     // I.fillField('.ant-input', read_data);
+//     // I.click('div > div > div > div > div.menu-project-item-text > h3');
+//     // I.wait(2);
 
-    console.log(__dirname);
+//     console.log(__dirname);
+
+// });
+
+Scenario('Check Readline', async({ I, loginAs }) => {
+
+    // readline.question(`How Many times You want to Send Data?`, loop => {
+    //     loopnumber = parseInt(loop);
+    //     //console.log(`Hi ${loop}!`)
+    //     readline.close();
+    //     for (let i = 0; i < loopnumber; i++) {
+    //         console.log("This is goog/n");
+    //     }
+    // })
+
+
 
 });

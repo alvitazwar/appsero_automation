@@ -41,7 +41,7 @@ exports.config = {
       },
       defaultHeaders: {
         "accept": 'application/json',
-        "authorization": 'Bearer 5dLCUhOPcvVuQtkOujJt6cKKtyQQ2cEY' //  ycSRuZO2JjyWycDP6lMsvvkU04cjDdNO  sPSOROSOTGnPHz6aT4WlUxqJGEinGLuC
+        "authorization": 'Bearer ycSRuZO2JjyWycDP6lMsvvkU04cjDdNO ' //  5dLCUhOPcvVuQtkOujJt6cKKtyQQ2cEY  sPSOROSOTGnPHz6aT4WlUxqJGEinGLuC
 
       }
     },

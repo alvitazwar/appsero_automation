@@ -18,8 +18,8 @@ Scenario('analytics Stats test', function _callee2(_ref) {
       switch (_context2.prev = _context2.next) {
         case 0:
           I = _ref.I, loginAs = _ref.loginAs;
-          loginAs('admin_new'); //loginAs('admin_staging');
-          // I.amOnPage('/plugins');
+          //loginAs('admin_new');
+          loginAs('admin_staging'); // I.amOnPage('/plugins');
           // I.click('Fastspring_affiliate2');
           // I.click('FastSpring_License_subs'); //envato plg test
 

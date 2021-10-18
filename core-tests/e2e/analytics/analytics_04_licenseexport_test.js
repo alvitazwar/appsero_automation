@@ -12,6 +12,6 @@ Scenario('@analytics licenses Export', async({ I, loginAs }) => {
     I.click('Export');
     I.click('Sync');
     I.click('Yes');
-    I.see('Sync started successfully. You will get an email upon completion');
+    //I.see('Sync started successfully. You will get an email upon completion');
     I.wait(3);
 }).tag('@analytics');;
