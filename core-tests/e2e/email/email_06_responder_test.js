@@ -5,7 +5,6 @@ const helpers = require('./helpers.js');
 Feature('Appsero');
 Scenario('@email Responder function valid ', async({ I, loginAs }) => {
     loginAs('admin_staging');
-    I.amOnPage('/plugins');
     I.Selectplugin();
     I.click(locator.EmailMenu);
     I.click(locator.AutoResponder);

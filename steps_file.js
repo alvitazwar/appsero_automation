@@ -19,12 +19,6 @@ module.exports = function() {
         },
         Selectplugin: function() {
             this.amOnPage('/plugins');
-            // try {
-            //     read_data = fs.readFileSync(mypath, 'utf8')
-            //         //console.log(read_data);
-            // } catch (err) {
-            //     console.error(err)
-            // }
             read_data = fs.readFileSync(mypath, 'utf8');
             pluginslug = slugify(read_data, {
                 replacement: '-',

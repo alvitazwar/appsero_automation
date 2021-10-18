@@ -15,6 +15,6 @@ Scenario('@analytics create order invalid', async({ I, loginAs }) => {
     I.click('Submit');
     I.see('The price must be a number.');
     I.see('The discount must be a number.');
-    I.say('Validate properly');
+    I.say('Validated properly');
 
 }).tag('@analytics');

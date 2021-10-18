@@ -7,7 +7,6 @@ Feature('Appsero');
 
 Scenario('@email insert email digest Invalid', async({ I, loginAs }) => {
     loginAs('admin_staging');
-    I.amOnPage('/plugins');
     I.Selectplugin();
     I.click(locator.EmailMenu);
     I.waitForVisible(locator.EmailDigest);
