@@ -1,5 +1,4 @@
 node_modules
-package-lock.json
 config.json
 output
 codecept.conf.js
@@ -7,3 +6,4 @@ codecept.conf.js
 data
 /vendor/
 phpcs-report.txt
+.DS_Store

@@ -9,7 +9,7 @@ var _require = require('@codeceptjs/configure'),
 
 setHeadlessWhen(process.env.HEADLESS);
 exports.config = {
-  tests: 'tests/**/*_test.js',
+  tests: 'core-tests/**/**/*_test.js',
   //./tests./*_test.js
   output: './output',
   helpers: {
@@ -81,6 +81,9 @@ exports.config = {
             I.fillField('Password', secret('YourPassword'));
             I.checkOption('Remember Me');
             I.click('Log In');
+          },
+          check: function check(I) {
+            I.seeCurrentUrlEquals('/login');
           }
         }
       }

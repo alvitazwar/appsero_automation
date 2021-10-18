@@ -9,7 +9,7 @@ setHeadlessWhen(process.env.HEADLESS);
 
 
 exports.config = {
-    tests: 'tests/**/*_test.js', //./tests./*_test.js
+    tests: 'core-tests/**/**/*_test.js', //./tests./*_test.js
     output: './output',
     helpers: {
         Puppeteer: {
@@ -89,6 +89,9 @@ exports.config = {
                         I.fillField('Password', secret('YourPassword'));
                         I.checkOption('Remember Me');
                         I.click('Log In');
+                    },
+                    check: (I) => {
+                        I.seeCurrentUrlEquals('/login');
                     },
                 },
 
