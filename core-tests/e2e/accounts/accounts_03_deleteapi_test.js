@@ -1,7 +1,7 @@
 Feature('Appsero Accounts');
 const locator = require('./accounts_locator_test');
 Scenario('@accounts api delete ', async({ I, loginAs }) => {
-    //loginAs('admin_staging');
+    loginAs('admin_staging');
     I.amOnPage('/');
     I.click(locator.apikeymenu);
     I.click(locator.createapibutton);

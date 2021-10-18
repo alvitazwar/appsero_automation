@@ -11,7 +11,7 @@ Scenario('@accounts api delete ', function _callee(_ref) {
       switch (_context.prev = _context.next) {
         case 0:
           I = _ref.I, loginAs = _ref.loginAs;
-          //loginAs('admin_staging');
+          loginAs('admin_staging');
           I.amOnPage('/');
           I.click(locator.apikeymenu);
           I.click(locator.createapibutton);
@@ -20,7 +20,7 @@ Scenario('@accounts api delete ', function _callee(_ref) {
           I.click('Yes');
           I.see('API Key Deleted Successfully.');
 
-        case 8:
+        case 9:
         case "end":
           return _context.stop();
       }

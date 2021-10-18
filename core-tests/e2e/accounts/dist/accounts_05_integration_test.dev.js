@@ -10,7 +10,7 @@ Scenario('@accounts Integration', function _callee(_ref) {
       switch (_context.prev = _context.next) {
         case 0:
           I = _ref.I, loginAs = _ref.loginAs;
-          // loginAs('admin_staging');
+          loginAs('admin_staging');
           I.amOnPage('/');
           I.click(locator.integrationmenu);
           I.seeElementInDOM(locator.mailchimpdiv);
@@ -28,7 +28,7 @@ Scenario('@accounts Integration', function _callee(_ref) {
             console.log('All elements are loaded successfully');
           });
 
-        case 15:
+        case 16:
         case "end":
           return _context.stop();
       }

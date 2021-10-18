@@ -1,20 +1,18 @@
 Feature('Appsero');
 const locator = require('./team_locator_test');
+const create_team = require('./team_01create_test');
+var team_choose = create_team.team_name;
 Scenario('Team add project', async({ I, loginAs }) => {
     loginAs('admin_staging');
     I.amOnPage('/teams');
-    I.click('Automated team');
-    //I.refreshPage();
-    //I.click('Projects');
-    //I.click('//*[@id="app"]//div/div[1]/ul/li[4]/a');
-
-    //I.amOnPage('https://staging.appsero.com/teams/31/projects');
-    I.waitForElement('//*[@id="app"]/section/section/main/div/div[2]/div/div/div[1]/div/div/div/div[2]', 30);
-    I.click('//*[@id="app"]/section/section/main/div/div[2]/div/div/div[1]/div/div/div/div[2]');
-    I.fillField('//*[@id="app"]/section/section/main/div/div[2]/div/div/div[1]/div/div/div/div[3]/div/input', 'ww');
-    //I.waitForElement('//*[@id="app"]/section/section/main/div/div[2]/div/div/div[1]/div/div/div/div[3]/div/input',30);
-    //  I.click('//*[@id="app"]/section/section/main/div/div[2]/div/div/div[1]/div/div/div/div[3]/div/input');
+    I.click(team_choose);
+    I.waitForElement(locator.projectmenu, 30);
+    I.click(locator.projectmenu);
+    I.waitForClickable(locator.addproject);
+    I.click(locator.addproject);
+    I.fillField(locator.inputaddproject, 'qq');
     I.pressKey("Enter");
-    I.refreshPage();
-    I.see('ww');
+    I.see('Project Added Successfully.');
+    //I.refreshPage();
+    I.see('qq');
 }).tag('@team');

@@ -7,14 +7,11 @@ Scenario('analytics Sites test', async({ I, loginAs }) => {
 
     loginAs('admin_staging');
     I.amOnPage('/plugins');
-    // I.click('Fastspring_affiliate2'); //envato plg test
-    I.click('FastSpring_License_subs');
+    I.Selectplugin();
     tryTo(() => {
         I.seeElement(locator.PremiumModal);
         I.click(locator.SkipBilling);
     });
-
-
     I.waitForVisible(locator.Analytics);
     I.click(locator.Analytics);
     I.click(locator.SitesMenu);

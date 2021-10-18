@@ -6,10 +6,7 @@ const locator = require('../analytics/analytics_locator_test.js');
 Scenario('Sales Explore test', async({ I, loginAs }) => {
 
     loginAs('admin_staging');
-    I.amOnPage('/plugins');
-    // I.click('Fastspring_affiliate2');
-    I.click('FastSpring_License_subs'); //envato plg test
-
+    I.Selectplugin();
     tryTo(() => {
         I.seeElement(locator.PremiumModal);
         I.click(locator.SkipBilling);

@@ -1,28 +1,25 @@
 "use strict";
 
-var Factory = require('rosie');
-
-var faker = require('faker');
-
-var locator = require('./email_locator_test.js');
-
-var puppeteer = require('puppeteer');
-
-var expect = require('chai').expect;
-
 Feature('Appsero');
-Scenario('@email send now email digest ', function _callee2(_ref) {
-  var I, loginAs, msg;
+
+var locator = require('./team_locator_test');
+
+var create_team = require('./team_01create_test');
+
+var project_delete = create_team.team_name;
+Scenario('Team project delete', function _callee2(_ref) {
+  var I, loginAs;
   return regeneratorRuntime.async(function _callee2$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
           I = _ref.I, loginAs = _ref.loginAs;
           loginAs('admin_staging');
-          I.Selectplugin();
-          I.click(locator.EmailMenu);
-          I.waitForVisible(locator.EmailDigest);
-          I.click(locator.EmailDigest);
+          I.amOnPage('/teams');
+          I.click(project_delete); //I.click('Automated Team');
+
+          I.wait(2);
+          I.click(locator.projectmenu);
           I.usePuppeteerTo('Handle SVG action', function _callee(_ref2) {
             var page, browser, svg;
             return regeneratorRuntime.async(function _callee$(_context) {
@@ -30,18 +27,18 @@ Scenario('@email send now email digest ', function _callee2(_ref) {
                 switch (_context.prev = _context.next) {
                   case 0:
                     page = _ref2.page, browser = _ref2.browser;
-                    _context.next = 3;
-                    return regeneratorRuntime.awrap(page.waitForSelector(locator.svgicon));
+                    I.wait(3);
+                    _context.next = 4;
+                    return regeneratorRuntime.awrap(page.waitForSelector(locator.projectsvgcheck));
 
-                  case 3:
+                  case 4:
                     svg = _context.sent;
-                    _context.next = 6;
+                    _context.next = 7;
                     return regeneratorRuntime.awrap(svg.hover());
 
-                  case 6:
-                    I.wait(3);
+                  case 7:
                     _context.next = 9;
-                    return regeneratorRuntime.awrap(page.waitForSelector(locator.SendNowbtn));
+                    return regeneratorRuntime.awrap(page.waitForSelector(locator.removebtn));
 
                   case 9:
                   case "end":
@@ -50,15 +47,14 @@ Scenario('@email send now email digest ', function _callee2(_ref) {
               }
             });
           });
-          I.forceClick(locator.SendNowbtn);
-          I.wait(3);
-          msg = 'Mail has been sent successfully.';
-          I.see(msg);
+          I.forceClick(locator.removebtn);
+          I.forceClick('Yes');
+          I.wait(2);
 
-        case 11:
+        case 10:
         case "end":
           return _context2.stop();
       }
     }
   });
-}).tag('@email');
+}).tag('@team');

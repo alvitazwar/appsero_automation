@@ -27,5 +27,4 @@ Scenario('Site activate and Deactivate Scenario', async({ I, loginAs }) => {
             });
         }
     }
-
 });

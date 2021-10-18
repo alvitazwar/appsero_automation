@@ -18,14 +18,14 @@ Scenario('@analytics Edit License', function _callee(_ref) {
           I.click(locator.SelectLicense);
           I.click('Edit'); //Calendar Access
 
-          I.click(locator.CalenderInput);
-          I.forceClick('//div[4]/div/div/div/div/div[1]/div/input');
+          I.click(locator.CalenderInput); //I.forceClick('//div[4]/div/div/div/div/div[1]/div/input');
+
           I.click(locator.CalenderDate);
           I.fillField(locator.activitionlimit, '5');
           I.click(locator.CalenderBtn);
           I.see('Updated successfully.');
 
-        case 13:
+        case 12:
         case "end":
           return _context.stop();
       }

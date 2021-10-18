@@ -1,6 +1,16 @@
 "use strict";
 
 Feature('Appsero');
+
+var account = require('./../accounts/accounts_locator_test');
+
+var locator = require('./team_locator_test');
+
+var faker = require('faker');
+
+var create_team = require('./team_01create_test');
+
+var delete_team = create_team.team_name;
 Scenario('Team  delete', function _callee(_ref) {
   var I, loginAs;
   return regeneratorRuntime.async(function _callee$(_context) {
@@ -10,19 +20,13 @@ Scenario('Team  delete', function _callee(_ref) {
           I = _ref.I, loginAs = _ref.loginAs;
           I.clearCookie();
           loginAs('admin_staging');
-          I.click('//*[@id="app"]/section/section/header/div[2]/a');
-          I.click('Teams');
-          I.click('Automated team');
-          I.refreshPage(); //I.amOnPage('https://staging.appsero.com/teams/43/members');
+          I.amOnPage('/teams');
+          I.click(delete_team);
+          I.click('Settings');
+          I.click(locator.deleteteambtn);
+          I.click(locator.deleteyes); //I.dontSee('Automated team');
 
-          I.click('Settings'); //I.waitForElement('/html/body/div[3]/div/div/ul/li/span',30);
-          //I.click('Delete Team');
-
-          I.click('//*[@id="app"]//div/form/div[4]/button[1]');
-          I.click('.ant-btn-primary.ant-btn-sm');
-          I.dontSee('Automated team');
-
-        case 11:
+        case 8:
         case "end":
           return _context.stop();
       }

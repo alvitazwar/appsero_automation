@@ -13,7 +13,8 @@ Scenario('@analytics create order invalid', async({ I, loginAs }) => {
     I.fillField('Price', 'asda');
     I.fillField('Discount', 'abed');
     I.click('Submit');
-    I.see('Unknown error occurred.');
-    I.say('Not Validate properly');
+    I.see('The price must be a number.');
+    I.see('The discount must be a number.');
+    I.say('Validated properly');
 
 }).tag('@analytics');

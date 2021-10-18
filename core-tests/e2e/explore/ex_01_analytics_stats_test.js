@@ -4,19 +4,19 @@ const { assert } = require("console");
 const locator = require('../analytics/analytics_locator_test.js');
 
 Scenario('analytics Stats test', async({ I, loginAs }) => {
-
+    //loginAs('admin_new');
     loginAs('admin_staging');
-    I.amOnPage('/plugins');
+    // I.amOnPage('/plugins');
     // I.click('Fastspring_affiliate2');
-    I.click('FastSpring_License_subs'); //envato plg test
-
+    // I.click('FastSpring_License_subs'); //envato plg test
+    I.Selectplugin();
     tryTo(() => {
         I.seeElement(locator.PremiumModal);
         I.click(locator.SkipBilling);
     });
 
 
-    I.waitForVisible(locator.Analytics);
+    I.waitForVisible(locator.Analytics, 5);
     I.click(locator.Analytics);
     I.click(locator.StatsMenu);
     //I.click(locator.SitesMenu);

@@ -4,9 +4,7 @@ const { assert } = require("console");
 const locator = require('./analytics_locator_test.js');
 
 Scenario('@analytics user report export', async({ I, loginAs }) => {
-
     loginAs('admin_staging');
-    I.amOnPage('/plugins');
     I.Selectplugin();
     I.waitForVisible(locator.Analytics);
     I.click(locator.Analytics);
