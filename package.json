@@ -27,6 +27,7 @@
     "webdriverio": "^7.0.7"
   },
   "dependencies": {
+    "@codeceptjs/ui": "^0.4.6",
     "allure": "^0.0.0",
     "chai": "^4.3.4",
     "codeceptjs-chai": "^2.3.1",

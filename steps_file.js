@@ -1,6 +1,13 @@
 // in this file you can append custom step methods to 'I' object
 var Factory = require('rosie');
 var faker = require('faker');
+const path = require('path');
+const slugify = require('slugify');
+const fs = require('fs');
+var read_data;
+var pluginslug;
+var mypath = '/Users/wedevs/Desktop/Automation/appsero_automation/core-tests/e2e/pro_plugin/test.txt';
+//var pname = require('./core-tests/e2e/pro_plugin/initial_test');
 module.exports = function() {
     return actor({
         getfakepass() {
@@ -11,7 +18,13 @@ module.exports = function() {
             }
         },
         Selectplugin: function() {
-            this.click('FastSpring_License_subs');
+            this.amOnPage('/plugins');
+            read_data = fs.readFileSync(mypath, 'utf8');
+            pluginslug = slugify(read_data, {
+                replacement: '-',
+                lower: true,
+            });
+            this.amOnPage(`/plugins/${pluginslug}/get-started`);
         },
 
         checkError: function() {
@@ -25,8 +38,9 @@ module.exports = function() {
 
         },
         metadataPlugin: function() {
-            this.fillField('Plugin Name', faker.name.title());
-
+            let name_data = faker.name.title();
+            this.fillField('Plugin Name', name_data);
+            return name_data;
         },
         metadataVersion: function() {
             this.fillField('Plugin Version', faker.random.float({ min: 1.0, max: 2.0 }));
