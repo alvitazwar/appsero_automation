@@ -41,7 +41,7 @@ exports.config = {
       },
       defaultHeaders: {
         "accept": 'application/json',
-        "authorization": 'Bearer 5dLCUhOPcvVuQtkOujJt6cKKtyQQ2cEY ' //  production: 5dLCUhOPcvVuQtkOujJt6cKKtyQQ2cEY  admin_new: sPSOROSOTGnPHz6aT4WlUxqJGEinGLuC admin_staging: ycSRuZO2JjyWycDP6lMsvvkU04cjDdNO
+        "authorization": 'Bearer "5dLCUhOPcvVuQtkOujJt6cKKtyQQ2cEY" ' //  production: 5dLCUhOPcvVuQtkOujJt6cKKtyQQ2cEY  admin_new: sPSOROSOTGnPHz6aT4WlUxqJGEinGLuC admin_staging: ycSRuZO2JjyWycDP6lMsvvkU04cjDdNO
 
       }
     },
