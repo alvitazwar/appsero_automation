@@ -1,12 +1,12 @@
 "use strict";
 
-/* This file is mainly Developed for Testing Analytics and data tracking in Staging server of appsero
+/* This file is mainly Developed for Testing Analytics and data tracking in production server of appsero
 In order to Run this file, Some things needs to cross check. They are
-1. Login Credential of staging server of appsero needs to set in autologin function named admin_staging in codecept.conf.js file
+1. Login Credential of production server of appsero needs to set in autologin function named admin_production in codecept.conf.js file
 2. Needs the api authorization token for logged in user. If you find this complicated then arafat vai. After you getting the token use it as default auhorization header in codecept.conf.js file.
 3. This scenario can be modified according to developers need. Make changes According to that.
 */
-Feature(' Initial Start appsero');
+Feature(' Initial Production ');
 
 var payload = require('./plugin_payload');
 
@@ -23,14 +23,14 @@ var plugin_uuid; // const readline = require('readline').createInterface({
 //     output: process.stdout
 // })
 
-Scenario('Appsero Fresh start Add Plugin', function _callee(_ref) {
+Scenario('Appsero Fresh Plugin', function _callee(_ref) {
   var I, loginAs, mypath, data;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
           I = _ref.I, loginAs = _ref.loginAs;
-          loginAs('admin_staging');
+          loginAs('admin_production');
           I.click('//li[2]/a[@href="/plugins"]');
           I.see('Plugins');
           I.click('Add Plugin');
@@ -100,102 +100,72 @@ Scenario('Check Single Plugin Details', function _callee2(_ref2) {
   });
 });
 Scenario('Add and Deactivate site', function _callee3(_ref4) {
-  var I, loginAs, _loop, i;
-
-  return regeneratorRuntime.async(function _callee3$(_context4) {
+  var I, loginAs, i, fake_data, plugin_data, getrack, res;
+  return regeneratorRuntime.async(function _callee3$(_context3) {
     while (1) {
-      switch (_context4.prev = _context4.next) {
+      switch (_context3.prev = _context3.next) {
         case 0:
           I = _ref4.I, loginAs = _ref4.loginAs;
-
-          _loop = function _loop(i) {
-            var fake_data, plugin_data, getrack, res;
-            return regeneratorRuntime.async(function _loop$(_context3) {
-              while (1) {
-                switch (_context3.prev = _context3.next) {
-                  case 0:
-                    fake_data = payload.getFakerData();
-                    console.log(fake_data);
-                    plugin_data = payload.getPluginData();
-                    getrack = payload.getTrackingInfo(fake_data, plugin_uuid);
-
-                    if (!(i % 2 == 0)) {
-                      _context3.next = 9;
-                      break;
-                    }
-
-                    _context3.next = 7;
-                    return regeneratorRuntime.awrap(I.sendPostRequest('/track', getrack).then(function (res) {
-                      I.assertEqual(res.status, 200);
-                      console.log(res.data);
-
-                      if (res.status == 200) {
-                        I.wait(3);
-                        I.sendPostRequest('/deactivate', getrack).then(function (res) {
-                          I.assertEqual(res.status, 200);
-                          console.log(res.data);
-                        });
-                      }
-                    }));
-
-                  case 7:
-                    _context3.next = 12;
-                    break;
-
-                  case 9:
-                    _context3.next = 11;
-                    return regeneratorRuntime.awrap(I.sendPostRequest('/track', getrack).then(function (res) {
-                      I.assertEqual(res.status, 200);
-                      console.log(res.data);
-                    }));
-
-                  case 11:
-                    res = _context3.sent;
-
-                  case 12:
-                  case "end":
-                    return _context3.stop();
-                }
-              }
-            });
-          };
-
           i = 1;
 
-        case 3:
-          if (!(i <= 5)) {
-            _context4.next = 9;
+        case 2:
+          if (!(i <= 6)) {
+            _context3.next = 13;
             break;
           }
 
-          _context4.next = 6;
-          return regeneratorRuntime.awrap(_loop(i));
+          fake_data = payload.getFakerData();
+          console.log(fake_data);
+          plugin_data = payload.getPluginData();
+          getrack = payload.getTrackingInfo(fake_data, plugin_uuid); // if (i % 2 == 0) {
+          //     await I.sendPostRequest('/track', getrack).then((res) => {
+          //         I.assertEqual(res.status, 200);
+          //         console.log(res.data);
+          //         if (res.status == 200) {
+          //             I.wait(3);
+          //             I.sendPostRequest('/deactivate', getrack).then(res => {
+          //                 I.assertEqual(res.status, 200);
+          //                 console.log(res.data);
+          //             });
+          //         }
+          //     });
+          // }
+          //else {
 
-        case 6:
-          i++;
-          _context4.next = 3;
-          break;
+          _context3.next = 9;
+          return regeneratorRuntime.awrap(I.sendPostRequest('/track', getrack).then(function (res) {
+            I.assertEqual(res.status, 200);
+            console.log(res.data);
+          }));
 
         case 9:
+          res = _context3.sent;
+
+        case 10:
+          i++;
+          _context3.next = 2;
+          break;
+
+        case 13:
         case "end":
-          return _context4.stop();
+          return _context3.stop();
       }
     }
   });
 });
 Scenario('Check Plugin Connection', function _callee4(_ref5) {
   var I, loginAs;
-  return regeneratorRuntime.async(function _callee4$(_context5) {
+  return regeneratorRuntime.async(function _callee4$(_context4) {
     while (1) {
-      switch (_context5.prev = _context5.next) {
+      switch (_context4.prev = _context4.next) {
         case 0:
           I = _ref5.I, loginAs = _ref5.loginAs;
-          loginAs('admin_staging');
+          loginAs('admin_production');
           I.Selectplugin();
 
         case 3:
         case "end":
-          return _context5.stop();
+          return _context4.stop();
       }
     }
   });

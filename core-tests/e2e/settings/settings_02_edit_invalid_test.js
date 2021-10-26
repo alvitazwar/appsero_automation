@@ -2,7 +2,7 @@ Feature('Appsero');
 const locator = require('./settings_locator_test');
 const faker = require('faker');
 Scenario('@settings edit invalid ', async({ I, loginAs }) => {
-    //loginAs('admin_staging');
+    loginAs('admin_staging');
     I.amOnPage('/plugins');
     I.Selectplugin();
     I.click(locator.settingsmenu);
