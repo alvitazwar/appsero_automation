@@ -3,11 +3,7 @@
 
 name: e2e github actions
 
-on:
-  push:
-    branches: [ test ]
-  pull_request:
-    branches: [ test ]
+on: [push, pull_request]
 
 jobs:
   build:
