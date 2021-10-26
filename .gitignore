@@ -1,6 +1,6 @@
 node_modules
 config.json
-output
+
 codecept.conf.js
 # Composer
 data

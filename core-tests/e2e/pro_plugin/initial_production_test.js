@@ -1,10 +1,11 @@
-/* This file is mainly Developed for Testing Analytics and data tracking in Staging server of appsero
+/* This file is mainly Developed for Testing Analytics and data tracking in production server of appsero
 In order to Run this file, Some things needs to cross check. They are
-1. Login Credential of staging server of appsero needs to set in autologin function named admin_staging in codecept.conf.js file
+1. Login Credential of production server of appsero needs to set in autologin function named admin_production in codecept.conf.js file
 2. Needs the api authorization token for logged in user. If you find this complicated then arafat vai. After you getting the token use it as default auhorization header in codecept.conf.js file.
 3. This scenario can be modified according to developers need. Make changes According to that.
 */
-Feature(' Initial Start appsero');
+
+Feature(' Initial Production ');
 const payload = require('./plugin_payload')
 const slugify = require('slugify');
 const path = require('path');
@@ -16,8 +17,8 @@ var plugin_uuid;
 //     input: process.stdin,
 //     output: process.stdout
 // })
-Scenario('Appsero Fresh start Add Plugin', async({ I, loginAs }) => {
-    loginAs('admin_staging');
+Scenario('Appsero Fresh Plugin', async({ I, loginAs }) => {
+    loginAs('admin_production');
     I.click('//li[2]/a[@href="/plugins"]');
     I.see('Plugins');
     I.click('Add Plugin');
@@ -58,34 +59,35 @@ Scenario('Check Single Plugin Details', async({ I, loginAs }) => {
 });
 Scenario('Add and Deactivate site', async({ I, loginAs }) => {
 
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 6; i++) {
         const fake_data = payload.getFakerData();
         console.log(fake_data)
         const plugin_data = payload.getPluginData()
         const getrack = payload.getTrackingInfo(fake_data, plugin_uuid);
-        if (i % 2 == 0) {
-            await I.sendPostRequest('/track', getrack).then((res) => {
-                I.assertEqual(res.status, 200);
-                console.log(res.data);
-                if (res.status == 200) {
-                    I.wait(3);
-                    I.sendPostRequest('/deactivate', getrack).then(res => {
-                        I.assertEqual(res.status, 200);
-                        console.log(res.data);
-                    });
-                }
-            });
+        // if (i % 2 == 0) {
+        //     await I.sendPostRequest('/track', getrack).then((res) => {
+        //         I.assertEqual(res.status, 200);
+        //         console.log(res.data);
+        //         if (res.status == 200) {
+        //             I.wait(3);
+        //             I.sendPostRequest('/deactivate', getrack).then(res => {
+        //                 I.assertEqual(res.status, 200);
+        //                 console.log(res.data);
+        //             });
+        //         }
+        //     });
 
-        } else {
-            const res = await I.sendPostRequest('/track', getrack).then(res => {
-                I.assertEqual(res.status, 200);
-                console.log(res.data);
-            });
-        }
+        // }
+        //else {
+        const res = await I.sendPostRequest('/track', getrack).then(res => {
+            I.assertEqual(res.status, 200);
+            console.log(res.data);
+        });
+        //}
     }
 });
 Scenario('Check Plugin Connection', async({ I, loginAs }) => {
-    loginAs('admin_staging');
+    loginAs('admin_production');
     I.Selectplugin();
 
 
