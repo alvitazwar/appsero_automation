@@ -42,17 +42,17 @@ module.exports = {
                     "quote": null,
                     "invoiceUrl": "https://alvitazwar.test.onfastspring.com/account/order/WEDEVSS210903-5720-29143/invoice/IVONEM5PBX5FBYHD5V6VDWTZIDD4",
                     "account": "ubPfvyFUQqCgheYylaOIKw",
-                    "total": 20,
+                    "total": 30,
                     "totalDisplay": "$20.00",
-                    "totalInPayoutCurrency": 20,
-                    "totalInPayoutCurrencyDisplay": "$20.00",
+                    "totalInPayoutCurrency": 30,
+                    "totalInPayoutCurrencyDisplay": "$30.00",
                     "tax": 0,
                     "taxDisplay": "$0.00",
                     "taxInPayoutCurrency": 0,
                     "taxInPayoutCurrencyDisplay": "$0.00",
-                    "subtotal": 20,
+                    "subtotal": 30,
                     "subtotalDisplay": "$20.00",
-                    "subtotalInPayoutCurrency": 20,
+                    "subtotalInPayoutCurrency": 30,
                     "subtotalInPayoutCurrencyDisplay": "$20.00",
                     "discount": 0,
                     "discountDisplay": "$0.00",
@@ -96,21 +96,21 @@ module.exports = {
                     }],
                     "notes": [],
                     "items": [{
-                        "product": "test-fastspring-return",
-                        "path": "test-fastspring-return",
+                        "product": "check-api",
+                        "path": "Check_api",
                         "quantity": 1,
                         "display": "Test_ fastspring Return",
                         "summary": null,
                         "imageUrl": null,
                         "isVirtual": false,
                         "isSubscription": false,
-                        "price": 20,
+                        "price": 30,
                         "variation": "test-fastspring-return",
                         "description": "Test_ fastspring Return",
                         "sku": null,
                         "pricing": {
                             "values": {
-                                "USD": 20
+                                "USD": 30
                             }
                         }
                     }]

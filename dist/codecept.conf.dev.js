@@ -35,13 +35,13 @@ exports.config = {
       restart: false
     },
     REST: {
-      endpoint: 'https://api.appsero.com',
-      //'https://staging.api.appsero.com'
+      endpoint: 'https://staging.api.appsero.com',
+      //'https://api.appsero.com', //'https://staging.api.appsero.com'
       onRequest: function onRequest(request) {// request.headers.auth = '123';
       },
       defaultHeaders: {
         "accept": 'application/json',
-        "authorization": 'Bearer ycSRuZO2JjyWycDP6lMsvvkU04cjDdNO ' //  5dLCUhOPcvVuQtkOujJt6cKKtyQQ2cEY  sPSOROSOTGnPHz6aT4WlUxqJGEinGLuC
+        "authorization": 'Bearer "ycSRuZO2JjyWycDP6lMsvvkU04cjDdNO" ' //  production: 5dLCUhOPcvVuQtkOujJt6cKKtyQQ2cEY  admin_new: sPSOROSOTGnPHz6aT4WlUxqJGEinGLuC admin_staging: ycSRuZO2JjyWycDP6lMsvvkU04cjDdNO
 
       }
     },
@@ -61,7 +61,7 @@ exports.config = {
   //         mochaFile: 'output/result.xml'
   //     }
   // },
-  name: 'codecept_puppetiers',
+  name: 'codecept_puppeteers',
   plugins: {
     retryFailedStep: {
       enabled: false
