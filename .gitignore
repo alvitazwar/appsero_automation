@@ -7,3 +7,4 @@ data
 /vendor/
 phpcs-report.txt
 .DS_Store
+.env

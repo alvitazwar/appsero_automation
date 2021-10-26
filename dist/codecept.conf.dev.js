@@ -1,7 +1,12 @@
 "use strict";
 
 var _require = require('@codeceptjs/configure'),
-    setHeadlessWhen = _require.setHeadlessWhen; // turn on headless mode when running with HEADLESS=true environment variable
+    setHeadlessWhen = _require.setHeadlessWhen;
+
+require('dotenv').config();
+
+var _require2 = require('./utils'),
+    env = _require2.env; // turn on headless mode when running with HEADLESS=true environment variable
 // HEADLESS=true npx codecept run
 
 
@@ -12,10 +17,9 @@ exports.config = {
   output: './output',
   helpers: {
     Puppeteer: {
-      // url: 'https://dashboard.appsero.com',
-      url: 'https://staging.appsero.com',
+      url: env('URL'),
       //https://staging.appsero.com  
-      show: false,
+      show: true,
       browser: 'chrome',
       windowSize: '1440 x900',
       // desiredCapabilities: {
@@ -35,8 +39,7 @@ exports.config = {
       restart: false
     },
     REST: {
-      endpoint: 'https://staging.api.appsero.com',
-      //'https://api.appsero.com', //'https://staging.api.appsero.com'
+      endpoint: env('ENDPOINT'),
       onRequest: function onRequest(request) {// request.headers.auth = '123';
       },
       defaultHeaders: {
@@ -86,20 +89,14 @@ exports.config = {
         admin_staging: {
           login: function login(I) {
             I.amOnPage('/login');
-            I.fillField('Email Address', 'atd.mondol@gmail.com'); //
+            I.fillField('Email Address', env('USERNAME')); //
 
-            I.fillField('Password', secret('appsero@_6598'));
+            I.fillField('Password', secret(env('PASSWORD')));
             I.click('Log in'); //I.see('Plugins');
           },
           check: function check(I) {
-            //I.seeInCurrentUrl('/login');
-            I.see('Plugins'); //I.amOnPage('/login');
-          } // fetch: (I) => { return I.executeScript(() => localStorage.getItem('session_id')); }, // empty function
-          // restore: (I, session) => {
-          //     I.amOnPage('https://staging.appsero.com/login');
-          //     I.executeScript((session) => localStorage.setItem('session_id', session), session);
-          // },
-
+            I.see('Plugins');
+          }
         },
         admin_new: {
           login: function login(I) {
@@ -121,11 +118,11 @@ exports.config = {
         },
         admin_production: {
           login: function login(I) {
-            I.amOnPage('https://dashboard.appsero.com/login'); //this.click('Log in');
+            I.amOnPage('/login'); //this.click('Log in');
 
-            I.fillField('Email Address', 'atd.mondol@gmail.com'); //
+            I.fillField('Email Address', env('USERNAME')); //
 
-            I.fillField('Password', 'appsero@_6598');
+            I.fillField('Password', secret(env('PASSWORD')));
             I.click('Log in');
             I.see('Plugins');
           }
