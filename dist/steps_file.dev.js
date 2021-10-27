@@ -13,7 +13,7 @@ var fs = require('fs');
 
 var read_data;
 var pluginslug;
-var mypath = '/core-tests/e2e/pro_plugin/test.txt'; //var pname = require('./core-tests/e2e/pro_plugin/initial_test');
+var mypath = './core-tests/e2e/pro_plugin/test.txt'; //var pname = require('./core-tests/e2e/pro_plugin/initial_test');
 
 module.exports = function () {
   return actor({
