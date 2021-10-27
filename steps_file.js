@@ -6,7 +6,7 @@ const slugify = require('slugify');
 const fs = require('fs');
 var read_data;
 var pluginslug;
-var mypath = '/Users/wedevs/Desktop/Automation/appsero_automation/core-tests/e2e/pro_plugin/test.txt';
+var mypath = '/core-tests/e2e/pro_plugin/test.txt';
 //var pname = require('./core-tests/e2e/pro_plugin/initial_test');
 module.exports = function() {
     return actor({
