@@ -5,7 +5,7 @@ const locator = require('../analytics/analytics_locator_test.js');
 
 Scenario('Sales Explore test', async({ I, loginAs }) => {
 
-    loginAs('admin_staging');
+    loginAs('admin');
     I.Selectplugin();
     tryTo(() => {
         I.seeElement(locator.PremiumModal);

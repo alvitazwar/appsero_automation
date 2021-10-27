@@ -6,7 +6,7 @@ var faker = require('faker');
 
 var locator = require('./email_locator_test.js');
 
-Feature('Appsero');
+Feature('Appsero Email Functional Test');
 Scenario('@email edit email digest', function _callee2(_ref) {
   var I, loginAs, name;
   return regeneratorRuntime.async(function _callee2$(_context2) {
@@ -14,7 +14,7 @@ Scenario('@email edit email digest', function _callee2(_ref) {
       switch (_context2.prev = _context2.next) {
         case 0:
           I = _ref.I, loginAs = _ref.loginAs;
-          loginAs('admin_staging');
+          loginAs('admin');
           I.Selectplugin();
           I.click(locator.EmailMenu);
           I.waitForVisible(locator.EmailDigest);

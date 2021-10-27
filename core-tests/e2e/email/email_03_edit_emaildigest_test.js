@@ -1,10 +1,10 @@
 var Factory = require('rosie');
 var faker = require('faker');
 const locator = require('./email_locator_test.js');
-Feature('Appsero');
+Feature('Appsero Email Functional Test');
 
 Scenario('@email edit email digest', async({ I, loginAs }) => {
-    loginAs('admin_staging');
+    loginAs('admin');
     I.Selectplugin();
     I.click(locator.EmailMenu);
     I.waitForVisible(locator.EmailDigest);

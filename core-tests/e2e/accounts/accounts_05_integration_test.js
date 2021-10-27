@@ -1,7 +1,7 @@
 const locator = require('./accounts_locator_test');
 Feature('Appsero Accounts');
 Scenario('@accounts Integration', async({ I, loginAs }) => {
-    loginAs('admin_staging');
+    loginAs('admin');
     I.amOnPage('/');
     I.click(locator.integrationmenu);
     I.seeElementInDOM(locator.mailchimpdiv);

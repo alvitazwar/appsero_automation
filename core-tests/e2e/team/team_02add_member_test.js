@@ -4,7 +4,7 @@ const locator = require('./team_locator_test');
 const create_team = require('./team_01create_test');
 var select_team = create_team.team_name;
 Scenario('Team add team member', async({ I, loginAs }) => {
-    loginAs('admin_staging');
+    loginAs('admin');
     I.amOnPage('/teams');
     I.click(select_team);
     // I.refreshPage();
