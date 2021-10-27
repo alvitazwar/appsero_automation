@@ -24,7 +24,7 @@ jobs:
     - name: Test
       run: |
         npm install
-        npx codeceptjs run --grep @analytics --steps --plugins allure
+        nnpx codeceptjs run --grep "\@accounts|\@analytics|\@email|\@explore_analytics|\@settings|\@team" --steps --plugins allure 
       env:
         CI: true
         TESTING_ENV: 'STAGING'
