@@ -27,6 +27,12 @@ jobs:
         npx codeceptjs run --grep "\@accounts|\@analytics|\@email|\@explore_analytics|\@settings|\@team" --plugins allure
       env:
         CI: true
+        TESTING_ENV: 'STAGING'
+        STAGING_URL: ${{ secrets.STAGING_URL }}
+        STAGING_USERNAME: ${{ secrets.STAGING_USERNAME }}
+        STAGING_PASSWORD: ${{ secrets.STAGING_PASSWORD }}
+        STAGING_ENDPOINT: ${{ secrets.STAGING_ENDPOINT }}
+        STAGING_BEARER: ${{ secrets.STAGING_BEARER }}
       
     - name: Send Results and Generate Allure Report
       uses: Xotabu4/send-to-allure-server-action@1

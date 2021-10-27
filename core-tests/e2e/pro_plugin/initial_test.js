@@ -58,7 +58,7 @@ Scenario('Check Single Plugin Details', async({ I, loginAs }) => {
 });
 Scenario('Add and Deactivate site', async({ I, loginAs }) => {
 
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 8; i++) {
         const fake_data = payload.getFakerData();
         console.log(fake_data)
         const plugin_data = payload.getPluginData()
@@ -75,7 +75,6 @@ Scenario('Add and Deactivate site', async({ I, loginAs }) => {
                     });
                 }
             });
-
         } else {
             const res = await I.sendPostRequest('/track', getrack).then(res => {
                 I.assertEqual(res.status, 200);
@@ -84,9 +83,3 @@ Scenario('Add and Deactivate site', async({ I, loginAs }) => {
         }
     }
 });
-Scenario('Check Plugin Connection', async({ I, loginAs }) => {
-    loginAs('admin');
-    I.Selectplugin();
-
-
-})
