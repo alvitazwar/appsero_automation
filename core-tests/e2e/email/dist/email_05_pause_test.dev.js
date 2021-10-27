@@ -6,7 +6,7 @@ var puppeteer = require('puppeteer');
 
 var expect = require('chai').expect;
 
-Feature('Appsero');
+Feature('Appsero Email Functional Test');
 Scenario('@email pause-active function ', function _callee2(_ref) {
   var I, loginAs;
   return regeneratorRuntime.async(function _callee2$(_context2) {
@@ -14,7 +14,7 @@ Scenario('@email pause-active function ', function _callee2(_ref) {
       switch (_context2.prev = _context2.next) {
         case 0:
           I = _ref.I, loginAs = _ref.loginAs;
-          loginAs('admin_staging');
+          loginAs('admin');
           I.Selectplugin();
           I.click(locator.EmailMenu);
           I.waitForVisible(locator.EmailDigest);

@@ -1,7 +1,12 @@
 "use strict";
 
 var _require = require('@codeceptjs/configure'),
-    setHeadlessWhen = _require.setHeadlessWhen; // turn on headless mode when running with HEADLESS=true environment variable
+    setHeadlessWhen = _require.setHeadlessWhen;
+
+require('dotenv').config();
+
+var _require2 = require('./utils'),
+    env = _require2.env; // turn on headless mode when running with HEADLESS=true environment variable
 // HEADLESS=true npx codecept run
 
 
@@ -12,9 +17,7 @@ exports.config = {
   output: './output',
   helpers: {
     Puppeteer: {
-      // url: 'https://dashboard.appsero.com',
-      url: 'https://staging.appsero.com',
-      //https://staging.appsero.com  
+      url: env('URL'),
       show: false,
       browser: 'chrome',
       windowSize: '1440 x900',
@@ -35,14 +38,11 @@ exports.config = {
       restart: false
     },
     REST: {
-      endpoint: 'https://staging.api.appsero.com',
-      //'https://api.appsero.com', //'https://staging.api.appsero.com'
-      onRequest: function onRequest(request) {// request.headers.auth = '123';
-      },
+      endpoint: env('ENDPOINT'),
+      onRequest: function onRequest(request) {},
       defaultHeaders: {
         "accept": 'application/json',
-        "authorization": 'Bearer "ycSRuZO2JjyWycDP6lMsvvkU04cjDdNO" ' //  production: 5dLCUhOPcvVuQtkOujJt6cKKtyQQ2cEY  admin_new: sPSOROSOTGnPHz6aT4WlUxqJGEinGLuC admin_staging: ycSRuZO2JjyWycDP6lMsvvkU04cjDdNO
-
+        "authorization": env('BEARER')
       }
     },
     "ChaiWrapper": {
@@ -83,50 +83,15 @@ exports.config = {
       saveToFile: false,
       inject: 'loginAs',
       users: {
-        admin_staging: {
+        admin: {
           login: function login(I) {
             I.amOnPage('/login');
-            I.fillField('Email Address', 'atd.mondol@gmail.com'); //
+            I.fillField('Email Address', env('USERNAME')); //
 
-            I.fillField('Password', secret('appsero@_6598'));
+            I.fillField('Password', secret(env('PASSWORD')));
             I.click('Log in'); //I.see('Plugins');
           },
           check: function check(I) {
-            //I.seeInCurrentUrl('/login');
-            I.see('Plugins'); //I.amOnPage('/login');
-          } // fetch: (I) => { return I.executeScript(() => localStorage.getItem('session_id')); }, // empty function
-          // restore: (I, session) => {
-          //     I.amOnPage('https://staging.appsero.com/login');
-          //     I.executeScript((session) => localStorage.setItem('session_id', session), session);
-          // },
-
-        },
-        admin_new: {
-          login: function login(I) {
-            I.amOnPage('/login');
-            I.fillField('Email Address', 'monirul@yopmail.com'); //
-
-            I.fillField('Password', secret('11223344'));
-            I.click('Log in'); //I.see('Plugins');
-          },
-          check: function check(I) {
-            //I.seeInCurrentUrl('/login');
-            I.see('Plugins'); //I.amOnPage('/login');
-          } // fetch: (I) => { return I.executeScript(() => localStorage.getItem('session_id')); }, // empty function
-          // restore: (I, session) => {
-          //     I.amOnPage('https://staging.appsero.com/login');
-          //     I.executeScript((session) => localStorage.setItem('session_id', session), session);
-          // },
-
-        },
-        admin_production: {
-          login: function login(I) {
-            I.amOnPage('https://dashboard.appsero.com/login'); //this.click('Log in');
-
-            I.fillField('Email Address', 'atd.mondol@gmail.com'); //
-
-            I.fillField('Password', 'appsero@_6598');
-            I.click('Log in');
             I.see('Plugins');
           }
         }

@@ -1,9 +1,8 @@
 node_modules
 config.json
-output
-codecept.conf.js
 # Composer
 data
 /vendor/
 phpcs-report.txt
 .DS_Store
+.env

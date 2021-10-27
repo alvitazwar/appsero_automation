@@ -5,7 +5,7 @@ const faker = require('faker');
 var team_name = faker.name.title();
 module.exports = { team_name: team_name }
 Scenario('Team create', async({ I, loginAs }) => {
-    loginAs('admin_staging');
+    loginAs('admin');
     I.click(account.profilemenu);
     I.click('Teams');
     I.click('New Team');

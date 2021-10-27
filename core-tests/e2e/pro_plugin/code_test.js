@@ -13,7 +13,7 @@ var read_data;
 // })
 
 // Scenario('Experiment ZOne', async({ I, loginAs }) => {
-//     // loginAs('admin_staging');
+//     // loginAs('admin');
 //     // I.amOnPage('/plugins');
 //     // I.Selectplugin();
 //     // I.waitForVisible(locator.Analytics);

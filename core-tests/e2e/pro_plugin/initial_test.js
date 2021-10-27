@@ -1,6 +1,6 @@
 /* This file is mainly Developed for Testing Analytics and data tracking in Staging server of appsero
 In order to Run this file, Some things needs to cross check. They are
-1. Login Credential of staging server of appsero needs to set in autologin function named admin_staging in codecept.conf.js file
+1. Login Credential of staging server of appsero needs to set in autologin function named admin in codecept.conf.js file
 2. Needs the api authorization token for logged in user. If you find this complicated then arafat vai. After you getting the token use it as default auhorization header in codecept.conf.js file.
 3. This scenario can be modified according to developers need. Make changes According to that.
 */
@@ -17,7 +17,7 @@ var plugin_uuid;
 //     output: process.stdout
 // })
 Scenario('Appsero Fresh start Add Plugin', async({ I, loginAs }) => {
-    loginAs('admin_staging');
+    loginAs('admin');
     I.click('//li[2]/a[@href="/plugins"]');
     I.see('Plugins');
     I.click('Add Plugin');
@@ -85,7 +85,7 @@ Scenario('Add and Deactivate site', async({ I, loginAs }) => {
     }
 });
 Scenario('Check Plugin Connection', async({ I, loginAs }) => {
-    loginAs('admin_staging');
+    loginAs('admin');
     I.Selectplugin();
 
 

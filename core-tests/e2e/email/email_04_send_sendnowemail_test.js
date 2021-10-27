@@ -3,9 +3,9 @@ var faker = require('faker');
 const locator = require('./email_locator_test.js');
 const puppeteer = require('puppeteer');
 const expect = require('chai').expect
-Feature('Appsero');
+Feature('Appsero Email Functional Test');
 Scenario('@email send now email digest ', async({ I, loginAs }) => {
-    loginAs('admin_staging');
+    loginAs('admin');
     I.Selectplugin();
     I.click(locator.EmailMenu);
     I.waitForVisible(locator.EmailDigest);

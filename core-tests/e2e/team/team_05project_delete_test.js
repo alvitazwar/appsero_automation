@@ -3,7 +3,7 @@ const locator = require('./team_locator_test');
 const create_team = require('./team_01create_test');
 var project_delete = create_team.team_name;
 Scenario('Team project delete', async({ I, loginAs }) => {
-    loginAs('admin_staging');
+    loginAs('admin');
     I.amOnPage('/teams');
     I.click(project_delete);
     //I.click('Automated Team');

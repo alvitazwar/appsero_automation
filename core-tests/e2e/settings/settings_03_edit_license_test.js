@@ -1,7 +1,7 @@
 Feature('Appsero');
 const locator = require('./settings_locator_test');
 Scenario('@settings edit License ', async({ I, loginAs }) => {
-    loginAs('admin_staging');
+    loginAs('admin');
     I.amOnPage('/plugins');
     I.Selectplugin();
     I.click(locator.settingsmenu);
