@@ -1,6 +1,6 @@
 "use strict";
 
-Feature('Appsero');
+Feature('Appsero Analytics Functional Test');
 
 var locator = require('./analytics_locator_test.js');
 
@@ -11,7 +11,7 @@ Scenario('@analytics Edit License', function _callee(_ref) {
       switch (_context.prev = _context.next) {
         case 0:
           I = _ref.I, loginAs = _ref.loginAs;
-          loginAs('admin_staging');
+          loginAs('admin');
           I.amOnPage('/plugins');
           I.Selectplugin();
           I.click(locator.LicenseMenu);

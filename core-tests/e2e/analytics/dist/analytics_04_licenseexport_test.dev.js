@@ -1,6 +1,6 @@
 "use strict";
 
-Feature('Appsero');
+Feature('Appsero Analytics Functional Test');
 
 var _require = require("assert"),
     ifError = _require.ifError,
@@ -18,7 +18,7 @@ Scenario('@analytics licenses Export', function _callee(_ref) {
       switch (_context.prev = _context.next) {
         case 0:
           I = _ref.I, loginAs = _ref.loginAs;
-          loginAs('admin_staging');
+          loginAs('admin');
           I.amOnPage('/plugins');
           I.Selectplugin();
           I.forceClick('Licenses');

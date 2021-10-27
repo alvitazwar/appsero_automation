@@ -1,10 +1,10 @@
-Feature('Appsero');
+Feature('Appsero Analytics Functional Test');
 const { ifError, strict } = require("assert");
 const { assert } = require("console");
 const locator = require('./analytics_locator_test.js');
 
 Scenario('@analytics deactivations report export', async({ I, loginAs }) => {
-    loginAs('admin_staging');
+    loginAs('admin');
     I.amOnPage('/plugins');
     I.Selectplugin();
     I.waitForVisible(locator.Analytics, 5);

@@ -1,10 +1,10 @@
-Feature('Appsero');
+Feature('Appsero Analytics Functional Test');
 const { ifError, strict } = require("assert");
 const { assert } = require("console");
 const locator = require('./analytics_locator_test.js');
 
 Scenario('@analytics licenses Export', async({ I, loginAs }) => {
-    loginAs('admin_staging');
+    loginAs('admin');
     I.amOnPage('/plugins');
     I.Selectplugin();
     I.forceClick('Licenses');

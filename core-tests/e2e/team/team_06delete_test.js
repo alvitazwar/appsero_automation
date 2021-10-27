@@ -6,7 +6,7 @@ const create_team = require('./team_01create_test');
 var delete_team = create_team.team_name;
 Scenario('Team  delete', async({ I, loginAs }) => {
     I.clearCookie();
-    loginAs('admin_staging');
+    loginAs('admin');
     I.amOnPage('/teams');
     I.click(delete_team);
     I.click('Settings');

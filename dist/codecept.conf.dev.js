@@ -18,8 +18,7 @@ exports.config = {
   helpers: {
     Puppeteer: {
       url: env('URL'),
-      //https://staging.appsero.com  
-      show: true,
+      show: false,
       browser: 'chrome',
       windowSize: '1440 x900',
       // desiredCapabilities: {
@@ -40,12 +39,10 @@ exports.config = {
     },
     REST: {
       endpoint: env('ENDPOINT'),
-      onRequest: function onRequest(request) {// request.headers.auth = '123';
-      },
+      onRequest: function onRequest(request) {},
       defaultHeaders: {
         "accept": 'application/json',
-        "authorization": 'Bearer "ycSRuZO2JjyWycDP6lMsvvkU04cjDdNO" ' //  production: 5dLCUhOPcvVuQtkOujJt6cKKtyQQ2cEY  admin_new: sPSOROSOTGnPHz6aT4WlUxqJGEinGLuC admin_staging: ycSRuZO2JjyWycDP6lMsvvkU04cjDdNO
-
+        "authorization": env('BEARER')
       }
     },
     "ChaiWrapper": {
@@ -86,7 +83,7 @@ exports.config = {
       saveToFile: false,
       inject: 'loginAs',
       users: {
-        admin_staging: {
+        admin: {
           login: function login(I) {
             I.amOnPage('/login');
             I.fillField('Email Address', env('USERNAME')); //
@@ -95,35 +92,6 @@ exports.config = {
             I.click('Log in'); //I.see('Plugins');
           },
           check: function check(I) {
-            I.see('Plugins');
-          }
-        },
-        admin_new: {
-          login: function login(I) {
-            I.amOnPage('/login');
-            I.fillField('Email Address', 'monirul@yopmail.com'); //
-
-            I.fillField('Password', secret('11223344'));
-            I.click('Log in'); //I.see('Plugins');
-          },
-          check: function check(I) {
-            //I.seeInCurrentUrl('/login');
-            I.see('Plugins'); //I.amOnPage('/login');
-          } // fetch: (I) => { return I.executeScript(() => localStorage.getItem('session_id')); }, // empty function
-          // restore: (I, session) => {
-          //     I.amOnPage('https://staging.appsero.com/login');
-          //     I.executeScript((session) => localStorage.setItem('session_id', session), session);
-          // },
-
-        },
-        admin_production: {
-          login: function login(I) {
-            I.amOnPage('/login'); //this.click('Log in');
-
-            I.fillField('Email Address', env('USERNAME')); //
-
-            I.fillField('Password', secret(env('PASSWORD')));
-            I.click('Log in');
             I.see('Plugins');
           }
         }
