@@ -7,7 +7,7 @@ Scenario('Upload a file in Appsero', async({ I, loginAs }) => {
         "slowMo": 50
     });
     const page = await browser.newPage();
-    loginAs('admin_staging');
+    loginAs('admin');
     I.amOnPage('/plugins');
     I.click('FastSpring_License_subs');
     I.click('Releases');

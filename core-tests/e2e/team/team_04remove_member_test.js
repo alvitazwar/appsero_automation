@@ -4,7 +4,7 @@ const locator = require('./team_locator_test');
 const create_team = require('./team_01create_test');
 var remove_member = create_team.team_name;
 Scenario('Team remove team member', async({ I, loginAs }) => {
-    loginAs('admin_staging');
+    loginAs('admin');
     I.amOnPage('/teams');
     //I.click('Dynamic Directives Representative'); // Principal Solutions Coordinator
     I.click(remove_member);
