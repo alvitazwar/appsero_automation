@@ -3,7 +3,7 @@ const payload = require('./payload');
 Feature('Appsero Analytics');
 
 Scenario('Site activate and Deactivate Scenario', async({ I, loginAs }) => {
-    for (let i = 1; i <= 3; i++) {
+    for (let i = 1; i <= 5; i++) {
         const fake_data = payload.getFakerData();
         console.log(fake_data)
             // const plugin_data = payload.getPluginData()

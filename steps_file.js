@@ -7,7 +7,9 @@ const fs = require('fs');
 var read_data;
 var pluginslug;
 var mypath = './core-tests/e2e/pro_plugin/test.txt';
-//var pname = require('./core-tests/e2e/pro_plugin/initial_test');
+require('dotenv').config()
+const { env } = require('./utils')
+    //var pname = require('./core-tests/e2e/pro_plugin/initial_test');
 module.exports = function() {
     return actor({
         getfakepass() {
@@ -19,7 +21,8 @@ module.exports = function() {
         },
         Selectplugin: function() {
             this.amOnPage('/plugins');
-            read_data = fs.readFileSync(mypath, 'utf8');
+            read_data = env('PLUGIN')
+                // read_data = fs.readFileSync(mypath, 'utf8');
             pluginslug = slugify(read_data, {
                 replacement: '-',
                 lower: true,
@@ -67,8 +70,12 @@ module.exports = function() {
         },
         slug_return: function() {
             return faker.random.arrayElement(["Woo funnel", "Astra wp", "Ocean wp", "Avada", "X theme", "Studio press", "Jupiter den"])
-
         },
+        async check_analytics_premium() {
+            const upgrade = await tryTo(() => this.see('Export failed'));
+            console.log(upgrade);
+            return upgrade;
+        }
 
 
         // Define custom steps here, use 'this' to access default methods of I.

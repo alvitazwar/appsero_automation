@@ -35,25 +35,10 @@ Scenario('Appsero Fresh start Add Plugin', function _callee(_ref) {
           I.see('Plugins');
           I.click('Add Plugin');
           I.click('.custom-button.mr-16.premium');
-          I.executeAsyncScript;
-          _context.next = 9;
-          return regeneratorRuntime.awrap(I.seeInCurrentUrl('/choose-billing-package'));
-
-        case 9:
-          if (!_context.sent) {
-            _context.next = 13;
-            break;
-          }
-
-          console.log('You are using Free Appsero.');
-          _context.next = 27;
-          break;
-
-        case 13:
-          _context.next = 15;
+          _context.next = 8;
           return regeneratorRuntime.awrap(I.metadataPlugin());
 
-        case 15:
+        case 8:
           plugin_name = _context.sent;
           mypath = path.join(__dirname, 'test.txt');
 
@@ -74,47 +59,125 @@ Scenario('Appsero Fresh start Add Plugin', function _callee(_ref) {
           I.click('Next');
           I.click('Next');
           I.click('Yes');
-          I.amOnPage('/plugins'); // I.click('div.right-menu > div.header-project-switch > button');
-          // I.fillField('.ant-input', plugin_name);
-          // I.click('div > div > div > div > div.menu-project-item-text > h3');
+          I.amOnPage('/plugins');
 
-        case 27:
+        case 20:
         case "end":
           return _context.stop();
       }
     }
   });
-}); // Scenario('Check Single Plugin Details', async({ I, loginAs }) => {
-//     const { data, status } = await I.sendGetRequest(`/v1/plugins/${plugin_slug}`);
-//     //console.log(res.data);
-//     console.log(data.data);
-//     plugin_uuid = (data.data.hash);
-//     console.log('UUID is :', data.data.hash);
-//     await I.assertEqual(status, 200);
-// });
-// Scenario('Add and Deactivate site', async({ I, loginAs }) => {
-//     for (let i = 1; i <= 8; i++) {
-//         const fake_data = payload.getFakerData();
-//         console.log(fake_data)
-//         const plugin_data = payload.getPluginData()
-//         const getrack = payload.getTrackingInfo(fake_data, plugin_uuid);
-//         if (i % 2 == 0) {
-//             await I.sendPostRequest('/track', getrack).then((res) => {
-//                 I.assertEqual(res.status, 200);
-//                 console.log(res.data);
-//                 if (res.status == 200) {
-//                     I.wait(3);
-//                     I.sendPostRequest('/deactivate', getrack).then(res => {
-//                         I.assertEqual(res.status, 200);
-//                         console.log(res.data);
-//                     });
-//                 }
-//             });
-//         } else {
-//             const res = await I.sendPostRequest('/track', getrack).then(res => {
-//                 I.assertEqual(res.status, 200);
-//                 console.log(res.data);
-//             });
-//         }
-//     }
-// });
+});
+Scenario('Check Single Plugin Details', function _callee2(_ref2) {
+  var I, loginAs, _ref3, data, status;
+
+  return regeneratorRuntime.async(function _callee2$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          I = _ref2.I, loginAs = _ref2.loginAs;
+          _context2.next = 3;
+          return regeneratorRuntime.awrap(I.sendGetRequest("/v1/plugins/".concat(plugin_slug)));
+
+        case 3:
+          _ref3 = _context2.sent;
+          data = _ref3.data;
+          status = _ref3.status;
+          //console.log(res.data);
+          console.log(data.data);
+          plugin_uuid = data.data.hash;
+          console.log('UUID is :', data.data.hash);
+          _context2.next = 11;
+          return regeneratorRuntime.awrap(I.assertEqual(status, 200));
+
+        case 11:
+        case "end":
+          return _context2.stop();
+      }
+    }
+  });
+});
+Scenario('Add and Deactivate site', function _callee3(_ref4) {
+  var I, loginAs, _loop, i;
+
+  return regeneratorRuntime.async(function _callee3$(_context4) {
+    while (1) {
+      switch (_context4.prev = _context4.next) {
+        case 0:
+          I = _ref4.I, loginAs = _ref4.loginAs;
+
+          _loop = function _loop(i) {
+            var fake_data, plugin_data, getrack, res;
+            return regeneratorRuntime.async(function _loop$(_context3) {
+              while (1) {
+                switch (_context3.prev = _context3.next) {
+                  case 0:
+                    fake_data = payload.getFakerData();
+                    console.log(fake_data);
+                    plugin_data = payload.getPluginData();
+                    getrack = payload.getTrackingInfo(fake_data, plugin_uuid);
+
+                    if (!(i % 2 == 0)) {
+                      _context3.next = 9;
+                      break;
+                    }
+
+                    _context3.next = 7;
+                    return regeneratorRuntime.awrap(I.sendPostRequest('/track', getrack).then(function (res) {
+                      I.assertEqual(res.status, 200);
+                      console.log(res.data);
+
+                      if (res.status == 200) {
+                        I.wait(3);
+                        I.sendPostRequest('/deactivate', getrack).then(function (res) {
+                          I.assertEqual(res.status, 200);
+                          console.log(res.data);
+                        });
+                      }
+                    }));
+
+                  case 7:
+                    _context3.next = 12;
+                    break;
+
+                  case 9:
+                    _context3.next = 11;
+                    return regeneratorRuntime.awrap(I.sendPostRequest('/track', getrack).then(function (res) {
+                      I.assertEqual(res.status, 200);
+                      console.log(res.data);
+                    }));
+
+                  case 11:
+                    res = _context3.sent;
+
+                  case 12:
+                  case "end":
+                    return _context3.stop();
+                }
+              }
+            });
+          };
+
+          i = 1;
+
+        case 3:
+          if (!(i <= 8)) {
+            _context4.next = 9;
+            break;
+          }
+
+          _context4.next = 6;
+          return regeneratorRuntime.awrap(_loop(i));
+
+        case 6:
+          i++;
+          _context4.next = 3;
+          break;
+
+        case 9:
+        case "end":
+          return _context4.stop();
+      }
+    }
+  });
+});

@@ -13,7 +13,13 @@ var fs = require('fs');
 
 var read_data;
 var pluginslug;
-var mypath = './core-tests/e2e/pro_plugin/test.txt'; //var pname = require('./core-tests/e2e/pro_plugin/initial_test');
+var mypath = './core-tests/e2e/pro_plugin/test.txt';
+
+require('dotenv').config();
+
+var _require = require('./utils'),
+    env = _require.env; //var pname = require('./core-tests/e2e/pro_plugin/initial_test');
+
 
 module.exports = function () {
   return actor({
@@ -26,7 +32,8 @@ module.exports = function () {
     },
     Selectplugin: function Selectplugin() {
       this.amOnPage('/plugins');
-      read_data = fs.readFileSync(mypath, 'utf8');
+      read_data = env('PLUGIN'); // read_data = fs.readFileSync(mypath, 'utf8');
+
       pluginslug = slugify(read_data, {
         replacement: '-',
         lower: true
@@ -71,6 +78,31 @@ module.exports = function () {
     },
     slug_return: function slug_return() {
       return faker.random.arrayElement(["Woo funnel", "Astra wp", "Ocean wp", "Avada", "X theme", "Studio press", "Jupiter den"]);
+    },
+    check_analytics_premium: function check_analytics_premium() {
+      var _this = this;
+
+      var upgrade;
+      return regeneratorRuntime.async(function check_analytics_premium$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return regeneratorRuntime.awrap(tryTo(function () {
+                return _this.see('Export failed');
+              }));
+
+            case 2:
+              upgrade = _context.sent;
+              console.log(upgrade);
+              return _context.abrupt("return", upgrade);
+
+            case 5:
+            case "end":
+              return _context.stop();
+          }
+        }
+      });
     } // Define custom steps here, use 'this' to access default methods of I.
     // It is recommended to place a general 'login' function here.
 

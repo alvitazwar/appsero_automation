@@ -5,9 +5,9 @@ For Basic Setups Please goto this docs for better understanding. https://docs.go
 # Run Guidelines
 In order to run the basic api scripts there are some pre-requisite steps that are needed to configure,
 
-1.`At first if user want to run the api scenarios on the staging or production server then configure the endpoint and write the url.`
+1.`At first if user want to run the api scenarios on the staging or production server then configure the endpoint and write the url by selecting env file.`
 
-2.`Then User Need to run basic_api_test.js file. Before running this file user needs to edit data by providing his email and password. After running this scenario user will get response and from the response user needs to collect the bearer tocken and add this token into authorization header. Authotization header is mandatory for post request otherwise scenarios will throw "422" error.`
+2.`If User needs to run basic_api_test.js file then file user needs to edit data by providing his email and password. After running this scenario user will get response and from the response user needs to collect the bearer tocken and add this token into authorization header. Authotization header is mandatory for post request otherwise scenarios will throw "422" error.`
 
 3.`The most used scenario for developer is tracking_scenario_test.js This scenario will generate All kinds of Site activation deactivation data for a specific project. It will helps to determine whether the analytics data is working properly or not. As it is Sending data in a specific project, thats why A project should be already in appsero web applcication, and from that plugin user needs to collect the uuid of the plugin from plugins usage guide. but user can also get the uuid by running basic_api_test.js files Get plugin info scenario. User needs to change the request url after "plugins/" and give the plugin slug to get the plugin info. After user get the "uuid", user need to put the uuid in the payload.js file's  getTrackingInfo(data) function's hash value. If user want to change the loop value as well as send only deactivation or activation data then he/she needs to change the if else according to the developers requirement.`
 

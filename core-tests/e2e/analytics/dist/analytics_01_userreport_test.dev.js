@@ -13,7 +13,7 @@ var _require2 = require("console"),
 var locator = require('./analytics_locator_test.js');
 
 Scenario('@analytics user report export', function _callee(_ref) {
-  var I, loginAs;
+  var I, loginAs, result;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
@@ -23,18 +23,28 @@ Scenario('@analytics user report export', function _callee(_ref) {
           I.Selectplugin();
           I.waitForVisible(locator.Analytics);
           I.click(locator.Analytics);
-          I.click(locator.SitesMenu);
+          I.click(locator.UserMenu);
           I.click('Export');
-          I.click(locator.StatExportBtn);
           I.wait(2);
-          I.waitForVisible(locator.RequestMsg);
-          I.seeTextEquals('The request has been submitted', locator.RequestMsg).then(function (result) {
-            console.log("Message is Showing Correctly");
-          })["catch"](function (err) {
-            console.log("Message fetching failed");
-          });
+          _context.next = 10;
+          return regeneratorRuntime.awrap(I.check_analytics_premium());
 
-        case 11:
+        case 10:
+          result = _context.sent;
+
+          if (result == true) {
+            console.log('Buy license To use this premium Feature');
+          } else {
+            // I.click(locator.StatExportBtn);
+            I.waitForVisible(locator.RequestMsg);
+            I.seeTextEquals('The request has been submitted', locator.RequestMsg).then(function (result) {
+              console.log("Message is Showing Correctly");
+            })["catch"](function (err) {
+              console.log("Message fetching failed");
+            });
+          }
+
+        case 12:
         case "end":
           return _context.stop();
       }

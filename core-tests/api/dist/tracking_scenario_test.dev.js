@@ -69,7 +69,7 @@ Scenario('Site activate and Deactivate Scenario', function _callee(_ref) {
           i = 1;
 
         case 3:
-          if (!(i <= 3)) {
+          if (!(i <= 5)) {
             _context2.next = 9;
             break;
           }

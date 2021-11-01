@@ -8,15 +8,23 @@ Scenario('@analytics user report export', async({ I, loginAs }) => {
     I.Selectplugin();
     I.waitForVisible(locator.Analytics);
     I.click(locator.Analytics);
-    I.click(locator.SitesMenu);
+    I.click(locator.UserMenu);
     I.click('Export');
-    I.click(locator.StatExportBtn);
-    I.wait(2);
-    I.waitForVisible(locator.RequestMsg);
-    I.seeTextEquals('The request has been submitted', locator.RequestMsg).then((result) => {
-        console.log("Message is Showing Correctly");
 
-    }).catch((err) => {
-        console.log("Message fetching failed");
-    });
+    I.wait(2);
+    const result = await I.check_analytics_premium();
+    if (result == true) {
+        console.log('Buy license To use this premium Feature')
+    } else {
+        // I.click(locator.StatExportBtn);
+        I.waitForVisible(locator.RequestMsg);
+        I.seeTextEquals('The request has been submitted', locator.RequestMsg).then((result) => {
+            console.log("Message is Showing Correctly");
+
+        }).catch((err) => {
+            console.log("Message fetching failed");
+        });
+    }
+
+
 }).tag('@analytics');

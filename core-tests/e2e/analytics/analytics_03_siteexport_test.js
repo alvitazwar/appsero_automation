@@ -13,13 +13,19 @@ Scenario('@analytics site report export', async({ I, loginAs }) => {
     I.click(locator.SitesMenu);
     I.click('Export');
     I.wait(2);
-    I.click(locator.SiteExportoggle);
-    I.click(locator.SiteExportBtn);
-    I.waitForVisible(locator.RequestMsg);
-    I.seeTextEquals('The request has been submitted', locator.RequestMsg).then((result) => {
-        console.log("Message is Showing Correctly");
+    const result = await I.check_analytics_premium();
+    if (result == true) {
+        console.log('Buy license To use this premium Feature')
+    } else {
+        I.click(locator.SiteExportoggle);
+        I.click(locator.SiteExportBtn);
+        I.waitForVisible(locator.RequestMsg);
+        I.seeTextEquals('The request has been submitted', locator.RequestMsg).then((result) => {
+            console.log("Message is Showing Correctly");
 
-    }).catch((err) => {
-        console.log("Message fetching failed");
-    });
+        }).catch((err) => {
+            console.log("Message fetching failed");
+        });
+    }
+
 }).tag('@analytics');

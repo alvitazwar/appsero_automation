@@ -42,7 +42,6 @@ exports.config = {
             defaultHeaders: {
                 "accept": 'application/json',
                 "authorization": env('BEARER')
-
             }
         },
         "ChaiWrapper": {

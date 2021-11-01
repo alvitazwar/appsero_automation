@@ -15,7 +15,7 @@ module.exports = {
       "admin_email": data.email,
       "first_name": data.fname,
       "last_name": data.lname,
-      "hash": "23140ebb-d13f-4ec8-814e-a2d4ed55e942",
+      "hash": "977bf8bb-c3f2-44f3-b3d3-9f8de5910214",
       "server": this.getServerData(data),
       "wp": this.getWordpressData(data),
       "users": this.getUsersData(),
