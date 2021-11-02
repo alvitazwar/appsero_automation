@@ -3,7 +3,7 @@
 
 name: e2e github actions on Production site
 
-on: [push, pull_request]
+on: [merge]
 
 jobs:
   build:

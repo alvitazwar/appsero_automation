@@ -1,9 +1,6 @@
-# This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+name: e2e gtihub action
 
-name: e2e github actions on staging
-
-on: [push, pull_request]
+on: [push]
 
 jobs:
   build:
@@ -24,15 +21,9 @@ jobs:
     - name: Test
       run: |
         npm install
-        npx codeceptjs run --grep "\@accounts|\@analytics|\@email|\@explore_analytics|\@settings|\@team" --steps --plugins allure 
+        npx codeceptjs run --grep "\@accounts|\@analytics|\@email|\@explore_analytics|\@settings|\@team"  --steps --plugins allure
       env:
         CI: true
-        TESTING_ENV: 'STAGING'
-        STAGING_URL: ${{ secrets.STAGING_URL }}
-        STAGING_USERNAME: ${{ secrets.STAGING_USERNAME }}
-        STAGING_PASSWORD: ${{ secrets.STAGING_PASSWORD }}
-        STAGING_ENDPOINT: ${{ secrets.STAGING_ENDPOINT }}
-        STAGING_BEARER: ${{ secrets.STAGING_BEARER }}
       
     - name: Send Results and Generate Allure Report
       uses: Xotabu4/send-to-allure-server-action@1

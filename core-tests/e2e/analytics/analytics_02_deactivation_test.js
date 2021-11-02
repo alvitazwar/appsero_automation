@@ -29,7 +29,6 @@ Scenario('@analytics deactivations report export', async({ I, loginAs }) => {
             if (initial_val == false) {
                 await checkbox_theme.click();
             }
-
             console.log('after the click the value', await (await checkbox_theme.getProperty('checked')).jsonValue());
         })
         I.wait(4);
