@@ -25,11 +25,10 @@ Scenario('@analytics site report export', function _callee(_ref) {
           I.click(locator.Analytics);
           I.click(locator.SitesMenu);
           I.click('Export');
-          I.wait(2);
-          _context.next = 11;
+          _context.next = 10;
           return regeneratorRuntime.awrap(I.check_analytics_premium());
 
-        case 11:
+        case 10:
           result = _context.sent;
 
           if (result == true) {
@@ -45,7 +44,7 @@ Scenario('@analytics site report export', function _callee(_ref) {
             });
           }
 
-        case 13:
+        case 12:
         case "end":
           return _context.stop();
       }

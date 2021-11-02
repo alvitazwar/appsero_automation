@@ -37,7 +37,11 @@ module.exports = {
     Orders_Search: 'div.ant-row-flex.ant-row-flex-middle.ant-row-flex-space-between > div > div:nth-child(1) > span > input',
     Orders_Create_btn: ' div.ant-row-flex.ant-row-flex-middle.ant-row-flex-space-between > div > div:nth-child(3) > div > button',
     Customer: 'div:nth-child(2) > div > ul > li.ant-menu-submenu.ant-menu-submenu-inline.ant-menu-submenu-open > ul > li:nth-child(4) > a',
+    CustomerExportBtn: 'div.ant-row-flex.ant-row-flex-middle.ant-row-flex-space-between.table-filters > div > button',
     //Deactivation Locator
+    deactivationfilterbtn: 'div.mb-xs-only-15 > button',
+    deactivationfilterspan: ' div.ant-row-flex.ant-row-flex-middle.ant-row-flex-space-between.table-filters > div.mb-xs-only-15 > span > span',
+    deactivationfiltervalue: 'div > div.ant-calendar-footer.ant-calendar-range-bottom > div > div > span:nth-child(8)',
     deactthemechckbox: ' div.ant-modal-content > div > div.mb-8 > label > span:nth-child(2)',
     deatclientemailchkbox: 'div.ant-modal-content > div > div:nth-child(3) > label > span:nth-child(2)',
     deactexportbtn: 'div.ant-modal-content > div > div.align-center.pt-30 > button',

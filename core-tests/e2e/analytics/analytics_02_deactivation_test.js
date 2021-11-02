@@ -10,7 +10,13 @@ Scenario('@analytics deactivations report export', async({ I, loginAs }) => {
     I.waitForVisible(locator.Analytics, 5);
     I.click(locator.Analytics);
     I.click(locator.DeactMenu);
+    I.waitForVisible(locator.deactivationfilterspan);
+    I.forceClick(locator.deactivationfilterspan);
+    I.waitForVisible(locator.deactivationfiltervalue)
+    I.click(locator.deactivationfiltervalue);
+    I.click(locator.deactivationfilterbtn);
     I.click('Export');
+
     const result = await I.check_analytics_premium();
     if (result == true) {
         console.log('Buy license To use this premium Feature')

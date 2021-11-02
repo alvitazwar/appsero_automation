@@ -89,7 +89,7 @@ module.exports = function () {
             case 0:
               _context.next = 2;
               return regeneratorRuntime.awrap(tryTo(function () {
-                return _this.see('Export failed');
+                return _this.see('Export Unavailable');
               }));
 
             case 2:

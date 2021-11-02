@@ -12,7 +12,7 @@ var _require2 = require("console"),
 var locator = require('./analytics_locator_test.js');
 
 Scenario('@analytics customer export', function _callee(_ref) {
-  var I, loginAs;
+  var I, loginAs, check_sales;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
@@ -21,16 +21,30 @@ Scenario('@analytics customer export', function _callee(_ref) {
           loginAs('admin');
           I.amOnPage('/plugins');
           I.Selectplugin();
-          I.click(locator.Sales); //I.waitForVisible(locator.Customer, 5);
+          _context.next = 6;
+          return regeneratorRuntime.awrap(tryTo(function () {
+            return I.click(locator.Sales);
+          }));
 
-          I.forceClick(locator.Customer);
-          I.click('Export');
-          I.seeTextEquals('The request has been submitted', locator.RequestMsg).then(function (result) {
-            console.log("Message is Showing Correctly");
-          })["catch"](function (err) {
-            console.log("Message fetching failed");
-          });
-          I.wait(3);
+        case 6:
+          check_sales = _context.sent;
+          console.log('Premium Status', check_sales);
+
+          if (check_sales == false) {
+            console.log('User needs to buy license to use this feature');
+          } else {
+            I.wait(1);
+            I.forceClick(locator.Customer);
+            I.waitForClickable(locator.CustomerExportBtn);
+            I.forceClick(locator.CustomerExportBtn);
+            I.waitForVisible(locator.RequestMsg, 5);
+            I.seeTextEquals('The request has been submitted', locator.RequestMsg).then(function (result) {
+              console.log("Message is Showing Correctly");
+            })["catch"](function (err) {
+              console.log("Message fetching failed");
+            });
+            I.wait(2);
+          }
 
         case 9:
         case "end":

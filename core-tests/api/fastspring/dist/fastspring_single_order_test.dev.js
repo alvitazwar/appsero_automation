@@ -4,6 +4,11 @@ Feature('Fastspring Single Order test');
 
 var payload = require('./fastspring_payload');
 
+require('dotenv').config();
+
+var _require = require('../../../utils'),
+    env = _require.env;
+
 Scenario('Fastspring Single order Place', function _callee(_ref) {
   var I, loginAs, data, load, res;
   return regeneratorRuntime.async(function _callee$(_context) {
@@ -14,7 +19,7 @@ Scenario('Fastspring Single order Place', function _callee(_ref) {
           data = payload.getFakerData();
           load = payload.getFastSpringOrder(data);
           _context.next = 5;
-          return regeneratorRuntime.awrap(I.sendPostRequest('/webhook/fastspring/7d494986-fe98-413e-b671-565a8dfaae30', load));
+          return regeneratorRuntime.awrap(I.sendPostRequest(env('FASTSPRING'), load));
 
         case 5:
           res = _context.sent;
@@ -27,4 +32,4 @@ Scenario('Fastspring Single order Place', function _callee(_ref) {
       }
     }
   });
-});
+}).tag('@fastspring');

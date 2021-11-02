@@ -4,6 +4,11 @@ Feature('Fastspring subscription Order test');
 
 var payload = require('./fastspring_payload');
 
+require('dotenv').config();
+
+var _require = require('../../../utils'),
+    env = _require.env;
+
 Scenario('Fastspring subscription variation upgrade order create', function _callee(_ref) {
   var I, loginAs, data, load, variation, res;
   return regeneratorRuntime.async(function _callee$(_context) {
@@ -15,12 +20,12 @@ Scenario('Fastspring subscription variation upgrade order create', function _cal
           load = payload.getFastspringSubsorder(data);
           variation = payload.getvariationproduct(data);
           _context.next = 6;
-          return regeneratorRuntime.awrap(I.sendPostRequest('/webhook/fastspring/7d494986-fe98-413e-b671-565a8dfaae30', load).then(function (res) {
+          return regeneratorRuntime.awrap(I.sendPostRequest(env('FASTSPRING'), load).then(function (res) {
             I.assertEqual(res.status, 200);
 
             if (res.status == 200) {
               I.wait(5);
-              dec = I.sendPostRequest('/webhook/fastspring/7d494986-fe98-413e-b671-565a8dfaae30', variation).then(function (res) {
+              dec = I.sendPostRequest(env('FASTSPRING'), variation).then(function (res) {
                 I.assertEqual(res.status, 200);
               });
             }
@@ -35,4 +40,4 @@ Scenario('Fastspring subscription variation upgrade order create', function _cal
       }
     }
   });
-});
+}).tag('@fastspring');

@@ -12,7 +12,6 @@ Scenario('@analytics site report export', async({ I, loginAs }) => {
     I.click(locator.Analytics);
     I.click(locator.SitesMenu);
     I.click('Export');
-    I.wait(2);
     const result = await I.check_analytics_premium();
     if (result == true) {
         console.log('Buy license To use this premium Feature')

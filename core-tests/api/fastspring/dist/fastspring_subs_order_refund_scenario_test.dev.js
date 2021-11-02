@@ -4,6 +4,11 @@ var faker = require('faker');
 
 var payload = require('./fastspring_payload');
 
+require('dotenv').config();
+
+var _require = require('../../../utils'),
+    env = _require.env;
+
 Feature('Subscription order & refund');
 Scenario('Subscription type product order and return', function _callee(_ref) {
   var I, loginAs, _loop, i;
@@ -30,12 +35,12 @@ Scenario('Subscription type product order and return', function _callee(_ref) {
                     }
 
                     _context.next = 6;
-                    return regeneratorRuntime.awrap(I.sendPostRequest('/webhook/fastspring/7d494986-fe98-413e-b671-565a8dfaae30', data_order).then(function (res) {
+                    return regeneratorRuntime.awrap(I.sendPostRequest(env('FASTSPRING'), data_order).then(function (res) {
                       I.assertEqual(res.status, 200);
 
                       if (res.status == 200) {
                         I.wait(5);
-                        dec = I.sendPostRequest('/webhook/fastspring/7d494986-fe98-413e-b671-565a8dfaae30', data_ref).then(function (res) {
+                        dec = I.sendPostRequest(env('FASTSPRING'), data_ref).then(function (res) {
                           I.assertEqual(res.status, 200);
                         });
                       }
@@ -47,7 +52,7 @@ Scenario('Subscription type product order and return', function _callee(_ref) {
 
                   case 8:
                     _context.next = 10;
-                    return regeneratorRuntime.awrap(I.sendPostRequest('/webhook/fastspring/7d494986-fe98-413e-b671-565a8dfaae30', data_order).then(function (res) {
+                    return regeneratorRuntime.awrap(I.sendPostRequest(env('FASTSPRING'), data_order).then(function (res) {
                       I.assertEqual(res.status, 200);
                       console.log(res.data);
                     }));
@@ -85,4 +90,4 @@ Scenario('Subscription type product order and return', function _callee(_ref) {
       }
     }
   });
-});
+}).tag('@fastspring');

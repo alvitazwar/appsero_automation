@@ -1,15 +1,15 @@
 Feature('Basic API Check');
 
-// Scenario('Check Login API', async({ I, loginAs }) => {
-//     var data = {
-//         "email": "monirul@yopmail.com",
-//         "password": "11223344"
-//     };
-//     const res = await I.sendPostRequest('/login', data);
-//     await I.assertEqual(res.status, 200);
-//     console.log(res.data);
+Scenario('Check Login API', async({ I, loginAs }) => {
+    var data = {
+        "email": "",
+        "password": ""
+    };
+    const res = await I.sendPostRequest('/login', data);
+    await I.assertEqual(res.status, 200);
+    console.log(res.data);
 
-// });
+});
 Scenario('Check Single Plugin Details', async({ I, loginAs }) => {
 
     const { data, status } = await I.sendGetRequest('/v1/plugins/fastspring-license-subs');

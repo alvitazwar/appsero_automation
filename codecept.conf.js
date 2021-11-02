@@ -13,7 +13,7 @@ exports.config = {
         Puppeteer: {
 
             url: env('URL'),
-            show: false,
+            show: true,
             browser: 'chrome',
             windowSize: '1440 x900',
             // desiredCapabilities: {

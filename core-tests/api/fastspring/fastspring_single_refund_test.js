@@ -1,9 +1,12 @@
 Feature('Fastspring Single Orderrefund');
 const payload = require('./fastspring_payload');
+require('dotenv').config()
+const { env } = require('../../../utils')
 Scenario('Fastspring Single order Placeref', async({ I, loginAs }) => {
-    var load = payload.getRefund();
-    const res = await I.sendPostRequest('/webhook/fastspring/7d494986-fe98-413e-b671-565a8dfaae30', load);
+    const data = payload.getFakerData();
+    var load = payload.getFullRefund(data);
+    const res = await I.sendPostRequest(env('FASTSPRING'), load);
     console.log(res);
     I.assertEqual(res.status, 200);
 
-});
+}).tag('@fastspring');

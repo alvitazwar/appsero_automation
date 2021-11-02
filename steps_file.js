@@ -72,7 +72,7 @@ module.exports = function() {
             return faker.random.arrayElement(["Woo funnel", "Astra wp", "Ocean wp", "Avada", "X theme", "Studio press", "Jupiter den"])
         },
         async check_analytics_premium() {
-            const upgrade = await tryTo(() => this.see('Export failed'));
+            const upgrade = await tryTo(() => this.see('Export Unavailable'));
             console.log(upgrade);
             return upgrade;
         }

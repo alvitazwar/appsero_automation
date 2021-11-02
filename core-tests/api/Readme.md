@@ -14,10 +14,11 @@ In order to run the basic api scripts there are some pre-requisite steps that ar
 4.`For running the initialize_test.js Small configuration is needed. This scenario is mainly developed to create a new plugin in the appsero and on that plugin Stats and analytics data will be sent. User Can modify data of activation and deactivation by modifying in the loops. User must check the endpoint url and bearer token before running scenario.`
 
 ## Fastspring Scenario Running Changes
-1. Before running the fastspring scenarios please check the scenarios function names and make changes according to the need.
-2. For Sending the request to the fastspring user need to configure in url and payload.js file
-3. In every scenario different user will have seperate uuid which wont update. So when user will add integration with fastspring in the appsero web app he/she will get a uuid which will be used as request url(developer will help you so no worries.)
-4. After getting the url for sending purchase and order data to a specific plugin user needs to change certain values in fastspring_payload.js file. On that file there is functions which contains item section. Item section needs to check properly for getting successfull output. User needs to put "product","display,"path" this values as the product is created in the fastspring product createation. For better result please fill up the "price", "subtotal","pricing","totalInPayoutCurrency","totalInPayoutCurrencyDisplay","subtotalInPayoutCurrencyDisplay" as the product price configured in the fastspring website.
+1. At first user needs to update the integration page. Fastspring credential will be given in the integration section. After successfully integrated the fastspring with appsero, user will get the webhook url which is unique per user so user needs to update the urls uuid from the env file.
+2. Before running the fastspring scenarios please check the scenarios function names and make changes according to the need.
+3. For Sending the request to the fastspring user need to configure in url and payload.js file
+4. In every scenario different user will have seperate uuid which wont update. So when user will add integration with fastspring in the appsero web app he/she will get a uuid which will be used as request url(developer will help you so no worries.)
+5. After getting the url for sending purchase and order data to a specific plugin user needs to change certain values in fastspring_payload.js file. On that file there is functions which contains item section. Item section needs to check properly for getting successfull output. User needs to put "product","display,"path" this values as the product is created in the fastspring product createation. For better result please fill up the "price", "subtotal","pricing","totalInPayoutCurrency","totalInPayoutCurrencyDisplay","subtotalInPayoutCurrencyDisplay" as the product price configured in the fastspring website.
 
 #### Notes: [Same configuration is applicaple for Paddle payload.]
 

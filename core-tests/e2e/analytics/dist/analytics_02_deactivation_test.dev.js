@@ -24,11 +24,16 @@ Scenario('@analytics deactivations report export', function _callee2(_ref) {
           I.waitForVisible(locator.Analytics, 5);
           I.click(locator.Analytics);
           I.click(locator.DeactMenu);
+          I.waitForVisible(locator.deactivationfilterspan);
+          I.forceClick(locator.deactivationfilterspan);
+          I.waitForVisible(locator.deactivationfiltervalue);
+          I.click(locator.deactivationfiltervalue);
+          I.click(locator.deactivationfilterbtn);
           I.click('Export');
-          _context2.next = 10;
+          _context2.next = 15;
           return regeneratorRuntime.awrap(I.check_analytics_premium());
 
-        case 10:
+        case 15:
           result = _context2.sent;
 
           if (result == true) {
@@ -97,7 +102,7 @@ Scenario('@analytics deactivations report export', function _callee2(_ref) {
             I.wait(4);
           }
 
-        case 12:
+        case 17:
         case "end":
           return _context2.stop();
       }
