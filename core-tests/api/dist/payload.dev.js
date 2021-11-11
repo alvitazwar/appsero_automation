@@ -24,7 +24,7 @@ module.exports = {
       "ip_address": "2a01:4f8:10a:3a5c::2",
       "project_version": "1.7.2",
       "tracking_skipped": "0",
-      "reason_id": "not-have-that-feature",
+      "reason_id": "found-better-plugin",
       "reason_info": null,
       "client": "1.2.0",
       "plugins": this.getPluginData(5)
